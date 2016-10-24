@@ -1,0 +1,19 @@
+#!/usr/bin/zsh
+#
+# name:          update-mint.sh
+# version:       see VERSION.md
+# synopsis:      update `Mint` OS tools.
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2016 rimbaudcode
+# category:      System
+
+sudo apt-get check
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo -k
+stack update

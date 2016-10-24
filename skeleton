@@ -1,0 +1,19 @@
+#!/bin/zsh
+#
+# name:          [name].sh
+# version:       see VERSION.md
+# synopsis:      [synopsis here]
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2016 rimbaudcode
+# category:      System
+
+local REQUIRED_ARGC=2
+local USAGE="Usage: tool.sh ARGUMENTS"
+
+if (( $# != REQUIRED_ARGC )); then
+    echo $USAGE
+    exit 1
+fi

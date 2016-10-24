@@ -1,0 +1,28 @@
+#!/bin/zsh
+#
+# name:          symlinks-mint.sh
+# version:       see VERSION.md
+# synopsis:      symlink `mintOS` files from `dotfiles` repo in place
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2016 rimbaudcode
+# category:      System
+
+DOT_FILES_PATH=$HOME/github/dotfiles
+
+ln -is $DOT_FILES_PATH/ansiweatherrc $HOME/.ansiweatherrc
+ln -is $DOT_FILES_PATH/emacs.lsp $HOME/.emacs
+ln -is $DOT_FILES_PATH/ghci $HOME/.ghci
+ln -is $DOT_FILES_PATH/gitignore_global $HOME/.gitignore_global
+ln -is $DOT_FILES_PATH/nanorc $HOME/.nanorc
+
+ln -is $DOT_FILES_PATH/mint/gitconfig $HOME/.gitconfig
+ln -is $DOT_FILES_PATH/mint/zshrc $HOME/.zshrc
+
+ln -is $DOT_FILES_PATH/micro/settings.json $HOME/.config/micro/settings.json
+ln -is $DOT_FILES_PATH/stack/config.yaml $HOME/.stack/config.yaml
+
+rm -i $DOT_FILES_PATH/emacs.d $HOME/.emacs.d
+ln -is $DOT_FILES_PATH/emacs.d $HOME/.emacs.d

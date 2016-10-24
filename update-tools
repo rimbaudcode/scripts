@@ -1,0 +1,29 @@
+#!/usr/local/bin/zsh
+#
+# name:          update-tools.sh
+# version:       see VERSION.md
+# synopsis:      update `macOS` tools.
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2016 rimbaudcode
+# category:      System
+
+brew update
+brew upgrade
+brew cleanup
+brew prune
+#
+freshclam
+#
+stack update
+#
+pip install --upgrade pip
+pip install --upgrade pip setuptools
+pip-review --local --auto
+pip3 install --upgrade pip setuptools
+#
+sudo gem update --system
+sudo gem update
+sudo -k
