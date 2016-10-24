@@ -101,22 +101,29 @@ hoogle generate
 # rm crappy stuff
 #
 sudo apt-get purge banshee
+sudo apt-get purge blueberry
 sudo apt-get purge bluetooth
 sudo apt-get purge brasero
 sudo apt-get purge firefox
 sudo apt-get purge gimp
 sudo apt-get purge hexchat
-sudo apt-get purge imageviewer
-sudo apt-get purge libreoffice
+sudo apt-get purge libreoffice #
+sudo apt-get purge mate-media
+sudo apt-get purge mate-screensaver
+sudo apt-get purge mate-screensaver-common
 sudo apt-get purge pidgin
 sudo apt-get purge pix
-sudo apt-get purge printer
-sudo apt-get purge scan
-sudo apt-get purge screensaver
+sudo apt-get purge printer #
+sudo apt-get purge simple-scan
 sudo apt-get purge thunderbird
-sudo apt-get purge tomboynotes
-sudo apt-get purge transmission
+sudo apt-get purge tomboy
+sudo apt-get purge transmission-common
+sudo apt-get purge transmission-gtk
+sudo apt-get purge xed
+sudo apt-get purge xplayer
+sudo apt-get purge xplayer-plugins
 sudo apt-get purge xreader
+sudo apt-get purge xviewer
 #
 sudo apt-get autoremove
 sudo apt-get autoclean
