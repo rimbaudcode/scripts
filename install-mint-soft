@@ -76,8 +76,9 @@ cd hello
 stack setup
 stack build
 #
-# if it fails
-stack upgrade --git
+# if it fails, then change the number of cores to 2 and bump the memory up to
+# 2GB
+stack upgrade --git -j2
 reboot
 #
 cd /tmp
@@ -98,6 +99,8 @@ stack install hoogle
 unalias hoogle
 hoogle generate
 
+# return to 1 core and 1GB memory in the VM
+#
 # rm crappy stuff
 #
 sudo apt-get purge banshee
