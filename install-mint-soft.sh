@@ -10,6 +10,7 @@
 # copyright:     (c) 2016 rimbaudcode
 # category:      System
 
+cd /tmp
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get autoremove
@@ -33,9 +34,14 @@ sudo apt-get autoclean
 # ./symlinks-mint
 # reboot
 
-# install font-manager
 # install source-code-pro
+# * font-manager
+cd /tmp
+wget -Ok https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.zip
+mv k ~/Downloads
+cd ~/Downloads
 
+cd /tmp
 sudo apt-get install ansiweather
 sudo apt-get install coreutils
 sudo apt-get install fileutils
@@ -66,3 +72,15 @@ stack new hello simple
 cd hello
 stack setup
 stack build
+#
+# if it fails
+stack upgrade --git
+reboot
+#
+cd /tmp
+stack update
+stack new hello simple
+cd hello
+stack setup
+stack build
+stack exec hello
