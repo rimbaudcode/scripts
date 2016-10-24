@@ -13,7 +13,7 @@
 DOT_FILES_PATH=$HOME/github/dotfiles
 
 ln -is $DOT_FILES_PATH/ansiweatherrc $HOME/.ansiweatherrc
-ln -is $DOT_FILES_PATH/emacs.lsp $HOME/.emacs
+ln -is $DOT_FILES_PATH/emacs.el $HOME/.emacs
 ln -is $DOT_FILES_PATH/ghci $HOME/.ghci
 ln -is $DOT_FILES_PATH/gitignore_global $HOME/.gitignore_global
 ln -is $DOT_FILES_PATH/nanorc $HOME/.nanorc
