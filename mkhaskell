@@ -29,6 +29,7 @@ wget https://raw.githubusercontent.com/github/gitignore/master/Haskell.gitignore
 mv LICENSE LICENSE.md
 touch README.md
 touch CHANGELOG.md
+touch TODO.org
 git init
 git add .
 git commit -m "initial commit"
