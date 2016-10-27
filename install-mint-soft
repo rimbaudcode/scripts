@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-# name:          install-mint-soft.sh
+# name:          install-mint-soft.zsh
 # version:       see VERSION.md
 # synopsis:      install `mintOS` software
 # license:       BSD3

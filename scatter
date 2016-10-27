@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-# name:          scatter.sh
+# name:          scatter.zsh
 # version:       see VERSION.md
 # synopsis:      scatter plot CSV data.
 # license:       BSD3
@@ -22,7 +22,6 @@ local X_VALUE=$1
 local Y_VALUE=$2
 local CSV_FILE=$3
 
-# $SCRIPTS_PATH is an ENV variable
 PLOT_SCRIPT=$HOME/github/scripts/scatter.gp
 
 gnuplot -c $PLOT_SCRIPT $X_VALUE $Y_VALUE $CSV_FILE

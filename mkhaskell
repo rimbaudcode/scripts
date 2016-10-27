@@ -1,14 +1,14 @@
 #!/bin/zsh
 #
-# name:          mkhaskell.sh
+# name:          mkhaskell.zsh
 # version:       see VERSION.md
-# synopsis:      scaffold `Haskell` projects.
+# synopsis:      scaffolds `Haskell` projects.
 # license:       BSD3
 # license-file:  LICENSE.md
 # author:        art rimbaud
 # maintainer:    rimbaudcode[at]gmail(DoT)com
 # copyright:     (c) 2016 rimbaudcode
-# category:      System
+# category:      Programming
 
 local REQUIRED_ARGC=2
 local USAGE="Usage: mkhaskell PROJECT_NAME STACK_TEMPLATE_NAME"
@@ -26,11 +26,9 @@ stack new $PROJECT_NAME $STACK_TEMPLATE_NAME
 
 cd $PROJECT_NAME
 wget https://raw.githubusercontent.com/github/gitignore/master/Haskell.gitignore -O .gitignore
+mkdir -p reps
 mv LICENSE LICENSE.md
-touch README.md
-touch CHANGELOG.md
-touch TODO.org
+touch CHANGELOG.md README.md TODO.org
 git init
-git add .
-git commit -m "initial commit"
+git commit -am "initial commit"
 git flow init -d

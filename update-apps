@@ -1,6 +1,6 @@
 #!/usr/local/bin/zsh
 #
-# name:          update-apps.sh
+# name:          update-apps.zsh
 # version:       see VERSION.md
 # synopsis:      update `macOS` apps and tools.
 # license:       BSD3
