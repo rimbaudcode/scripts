@@ -24,6 +24,8 @@ pip install --upgrade pip setuptools
 pip-review --local --auto
 pip3 install --upgrade pip setuptools
 #
+tlmgr update --all
+#
 sudo gem update --system
 sudo gem update
 sudo -k

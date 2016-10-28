@@ -18,5 +18,3 @@
 '/Applications/SourceTree.app/Contents/MacOS/SourceTree'
 #
 '/Applications/iTunes.app/Contents/MacOS/iTunes'
-#
-tlmgr update --all
