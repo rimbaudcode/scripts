@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-# name:          xcode-project.zsh
+# name:          update-xcode-project.zsh
 # version:       see VERSION.md
 # synopsis:      scaffolds `Swift` projects.
 # license:       BSD3
@@ -21,5 +21,6 @@ fi
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
 touch CHANGELOG.md README.md TODO.org
 git init
+git add .
 git commit -am "initial commit"
 git flow init -d
