@@ -19,6 +19,7 @@ if (( $# != REQUIRED_ARGC )); then
 fi
 
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
+wget https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore -O .gitignore
 touch CHANGELOG.md README.md TODO.org
 git init
 git add .
