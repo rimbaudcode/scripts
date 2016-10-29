@@ -1,8 +1,8 @@
 #!/bin/zsh
 #
-# name:          mkhaskell.zsh
+# name:          init-stack-haskell-project.zsh
 # version:       see VERSION.md
-# synopsis:      scaffolds `Haskell` projects.
+# synopsis:      initializes a `stack` project for `Haskell`.
 # license:       BSD3
 # license-file:  LICENSE.md
 # author:        art rimbaud
@@ -11,7 +11,7 @@
 # category:      Programming
 
 local REQUIRED_ARGC=2
-local USAGE="Usage: mkhaskell PROJECT_NAME STACK_TEMPLATE_NAME"
+local USAGE="Usage: init-stack-haskell-project PROJECT_NAME STACK_TEMPLATE_NAME"
 
 if (( $# != REQUIRED_ARGC )); then
     echo $USAGE
