@@ -30,5 +30,6 @@ mkdir -p reps
 mv LICENSE LICENSE.md
 touch CHANGELOG.md README.md TODO.org
 git init
-git commit -am "initial commit"
+git add .
+git commit -am 'initial commit'
 git flow init -d
