@@ -11,9 +11,9 @@
 # category:      System
 
 '/Applications/App Store.app/Contents/MacOS/App Store'
-'/Applications/MacUpdate Desktop.app/Contents/MacOS/MacUpdate Desktop'
 '/Applications/GitHub Desktop.app/Contents/MacOS/GitHub Desktop'
 '/Applications/Google Drive.app/Contents/MacOS/Google Drive'
+'/Applications/MacUpdate Desktop.app/Contents/MacOS/MacUpdate Desktop'
 '/Applications/OneDrive.app/Contents/MacOS/OneDrive'
 '/Applications/SourceTree.app/Contents/MacOS/SourceTree'
 #
