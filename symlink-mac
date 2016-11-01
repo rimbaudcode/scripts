@@ -1,6 +1,6 @@
 #!/usr/local/bin/zsh
 #
-# name:          symlinks-mac.zsh
+# name:          symlink-mac.zsh
 # version:       see VERSION.md
 # synopsis:      symlink `macOS` files from `dotfiles` repo in place
 # license:       BSD3
