@@ -29,6 +29,7 @@ wget https://raw.githubusercontent.com/github/gitignore/master/Haskell.gitignore
 mkdir -p reps
 mv LICENSE LICENSE.md
 touch CHANGELOG.md README.md TODO.org
+hasktags -e . > TAGS
 git init
 git add .
 git commit -am 'initial commit'
