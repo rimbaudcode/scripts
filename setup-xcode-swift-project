@@ -1,0 +1,37 @@
+#!/bin/zsh
+#
+# name:          setup-xcode-swift-project.zsh
+# version:       see VERSION.md
+# synopsis:      sets up `Xcode`'s `Swift` generated projects.
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2016 rimbaudcode
+# category:      Programming
+
+local REQUIRED_ARGC=0
+local USAGE="Usage: setup-xcode-swift-project"
+
+if (( $# != REQUIRED_ARGC )); then
+    echo $USAGE
+    exit 1
+fi
+
+wget https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore -O .gitignore
+git init
+git add .gitignore
+git commit -m 'gitignore from Github added'
+#
+git add .
+git commit -am 'initial commit of Xcode generated files'
+#
+wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
+git add LICENSE.md
+git commit -m 'BSD3 license added'
+#
+touch CHANGELOG.md README.md TODO.org
+git add .
+git commit -am 'CHANGELOG.md, README.md, and TODO.md added'
+#
+git flow init -d

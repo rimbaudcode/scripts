@@ -1,17 +1,17 @@
 #!/bin/zsh
 #
-# name:          mkhaskell.sh
+# name:          init-stack-haskell-project.zsh
 # version:       see VERSION.md
-# synopsis:      scaffold `Haskell` projects.
+# synopsis:      initializes a `stack` project for `Haskell`.
 # license:       BSD3
 # license-file:  LICENSE.md
 # author:        art rimbaud
 # maintainer:    rimbaudcode[at]gmail(DoT)com
 # copyright:     (c) 2016 rimbaudcode
-# category:      System
+# category:      Programming
 
 local REQUIRED_ARGC=2
-local USAGE="Usage: mkhaskell PROJECT_NAME STACK_TEMPLATE_NAME"
+local USAGE="Usage: init-stack-haskell-project PROJECT_NAME STACK_TEMPLATE_NAME"
 
 if (( $# != REQUIRED_ARGC )); then
     echo $USAGE
@@ -26,10 +26,11 @@ stack new $PROJECT_NAME $STACK_TEMPLATE_NAME
 
 cd $PROJECT_NAME
 wget https://raw.githubusercontent.com/github/gitignore/master/Haskell.gitignore -O .gitignore
+mkdir -p reps
 mv LICENSE LICENSE.md
-touch README.md
-touch CHANGELOG.md
+touch CHANGELOG.md README.md TODO.org
+hasktags -e . > TAGS
 git init
 git add .
-git commit -m "initial commit"
+git commit -am 'initial commit'
 git flow init -d

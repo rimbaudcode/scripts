@@ -1,6 +1,6 @@
 #!/usr/local/bin/zsh
 #
-# name:          update-tools.sh
+# name:          update-tools.zsh
 # version:       see VERSION.md
 # synopsis:      update `macOS` tools.
 # license:       BSD3
@@ -14,6 +14,7 @@ brew update
 brew upgrade
 brew cleanup
 brew prune
+brew doctor
 #
 freshclam
 #
@@ -23,6 +24,8 @@ pip install --upgrade pip
 pip install --upgrade pip setuptools
 pip-review --local --auto
 pip3 install --upgrade pip setuptools
+#
+tlmgr update --all
 #
 sudo gem update --system
 sudo gem update

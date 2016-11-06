@@ -1,6 +1,6 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 #
-# name:          update-mint.sh
+# name:          update-mint.zsh
 # version:       see VERSION.md
 # synopsis:      update `Mint` OS tools.
 # license:       BSD3
