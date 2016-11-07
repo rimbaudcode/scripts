@@ -31,17 +31,17 @@ git add .gitignore
 git commit -am "github's .gitignore added"
 mv LICENSE LICENSE.md
 git add LICENSE.md
-git commit -am 'BSD3 LICENSE.md added'
+git commit -am "BSD3 LICENSE.md added"
 touch CHANGELOG.md README.md TODO.org
 git add CHANGELOG.md README.md TODO.org
-git commit -am 'CHANGELOG.md, README.md, and TODO.org added'
+git commit -am "CHANGELOG.md, README.md, and TODO.org added"
 hasktags -e . > TAGS
 git add TAGS
-git commit -am 'emacs hasktags generated and added'
+git commit -am "emacs hasktags generated and added"
 mkdir -p reps
 git add .
-git commit -am 'dir for holding reports,`reps`, made and added'
+git commit -am "dir for holding reports,`reps`, made and added"
 git add .
-git commit -am 'project config files (stack generated files) added'
+git commit -am "project config files (stack generated files) added"
 git flow init -d
-git commit -am 'git-flow ran and in force'
+git commit -am "git-flow ran and in force"
