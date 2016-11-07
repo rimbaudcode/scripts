@@ -28,15 +28,20 @@ cd $PROJECT_NAME
 git init
 wget https://raw.githubusercontent.com/github/gitignore/master/Haskell.gitignore -O .gitignore
 git add .gitignore
-git commit -am 'added github .gitignore'
+git commit -am "github's .gitignore added"
 mv LICENSE LICENSE.md
 git add LICENSE.md
-git commit -am 'added BSD license'
+git commit -am 'BSD3 LICENSE.md added'
 touch CHANGELOG.md README.md TODO.org
 git add CHANGELOG.md README.md TODO.org
-git commit -am 'added CHANGELOG, README, and TODO'
+git commit -am 'CHANGELOG.md, README.md, and TODO.org added'
 hasktags -e . > TAGS
+git add TAGS
+git commit -am 'emacs hasktags generated and added'
 mkdir -p reps
-git flow init -d
 git add .
+git commit -am 'dir for holding reports,`reps`, made and added'
+git add .
+git commit -am 'project config files (stack generated files) added'
+git flow init -d
 git commit -am 'git-flow ran and in force'
