@@ -39,4 +39,4 @@ hasktags -e . > TAGS
 mkdir -p reps
 git flow init -d
 git add .
-git commit -am 'git-flow run and in force'
+git commit -am 'git-flow ran and in force'
