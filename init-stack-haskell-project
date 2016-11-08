@@ -40,8 +40,5 @@ git add TAGS
 git commit -am "emacs hasktags generated and added"
 mkdir -p reps
 git add .
-git commit -am "dir for holding reports,`reps`, made and added"
-git add .
 git commit -am "project config files (stack generated files) added"
 git flow init -d
-git commit -am "git-flow ran and in force"
