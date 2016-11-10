@@ -45,8 +45,8 @@ touch TODO.org
 git add TODO.org
 git commit -am "TODO.org added"
 
-touch doc/references.bib
-git add .
+cp $HOME/github/scripts/tex-templates/references.bib ./doc/references.bib
+git add ./doc/references.bib
 git commit -am "references file (doc/.bib) added"
 
 cp $HOME/github/scripts/tex-templates/*.sty ./sty
@@ -56,6 +56,10 @@ git commit -am "template files (.sty) added"
 cp $HOME/github/scripts/tex-templates/abstract.tex ./doc/abstract.tex
 git add .
 git commit -am "abstract file (abstract.tex) added"
+
+cp $HOME/github/scripts/tex-templates/theory.tex ./doc/theory.tex
+git add .
+git commit -am "theory file (theory.tex) added"
 
 cp $HOME/github/scripts/tex-templates/main.tex ./main.tex
 git add .
