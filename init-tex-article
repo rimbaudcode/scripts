@@ -49,8 +49,16 @@ cp $HOME/github/scripts/tex-templates/*.sty ./sty
 git add .
 git commit -am "template files (.sty) added"
 
+cp $HOME/github/scripts/tex-templates/abstract.tex ./doc/abstract.tex
+git add .
+git commit -am "abstract file (abstract.tex) added"
+
 cp $HOME/github/scripts/tex-templates/main.tex ./main.tex
 git add .
 git commit -am "main file (main.tex) added"
+
+cp $HOME/github/scripts/tex-templates/Nemesis ./Nemesis
+git add .
+git commit -am "Nemesis (nemesis builder file) added"
 
 git flow init -d
