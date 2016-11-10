@@ -1,7 +1,7 @@
 import System.Nemesis.Env
 import System.FilePath.Posix (replaceExtension)
 
-src = "maroua.tex"
+src = "main.tex"
 
 exe = replaceExtension src ".pdf"
 bib = replaceExtension src ".aux"
