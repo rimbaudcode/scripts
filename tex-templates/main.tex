@@ -2,32 +2,32 @@
 
 \RequirePackage[l2tabu,orthodox]{nag}
 
-\documentclass[aps,pra,10pt,a4paper]{revtex4-1}
+\documentclass[aip,cha,10pt,a4paper,reprint,superscriptaddress]{revtex4-1}
 
-\usepackage{sty/artstyle}
+\usepackage{sty/artarticle}
 \usepackage{sty/artlingo}
 \usepackage{sty/artmath}
 \usepackage{sty/artphysics}
 
 \begin{document}
 
-  \title{Guesstimations}
-  \author{dfhe}
-  \affiliation{Montanuniversität Leoben}
+  \title{Title here}
+  \author{Diego Herrera}
+  \email{diego.herrera.erazo@gmail.com}
+  \affiliation{Affiliation here}
+  \thanks{Thanks here}
+  %
+  \date{2016.11.10}
 
-  % \maketitle
-  % \tableofcontents
+  \input{doc/abstract}
 
-  \input{doc/advices}
-  \input{doc/sanjoy}
-  \input{doc/math}
-  \input{doc/theory}
-  \input{doc/chemistry}
-  \input{doc/mit}
-  \input{doc/basic}
-  \input{doc/scaling}
+  \maketitle
+  %\tableofcontents
 
+  %\input{doc/...}
+  
   \bibliographystyle{aipnum4-1}
   \bibliography{doc/references}
 
 \end{document}
+
