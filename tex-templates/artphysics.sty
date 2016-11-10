@@ -1,0 +1,244 @@
+% name:          artphysics.sty
+% version:       see scripts/VERSION.md
+% synopsis:      physics macros for `TeX` documents.
+% license:       BSD3
+% license-file:  scripts/LICENSE.md
+% author:        art rimbaud
+% maintainer:    rimbaudcode[at]gmail(DoT)com
+% copyright:     (c) 2016 rimbaudcode
+% category:      Text
+
+\ProvidesPackage{sty/artphysics}[2016/11/10 physics macros rimbaudcode]
+
+% atom
+%
+\providecommand*{\atomnum}{z}            % atomic number (protons)
+\providecommand*{\pmass}{\mass\sbtxt{p}} % mass of proton
+\providecommand*{\relamass}{a}           % relative atomi mass (atomic weight)
+%
+\providecommand*{\mfpath}{\lambda} % mean free path
+\providecommand*{\nent}{n}         % number of entities, as in number of particles
+
+% density, molar, specific
+%
+\providecommand*{\dens}{\rho}
+\providecommand*{\molar}{\mu}
+\providecommand*{\specific}{\sigma}
+%
+% rate (mass balances consumption, generation rates) (sink, source rate)
+%
+\providecommand*{\rate}{r}
+
+% mechanics
+%
+\providecommand*{\acc}{a}   % acceleration
+\providecommand*{\force}{f} % force
+\providecommand*{\grav}{g}  % free fall acceleration
+\providecommand*{\mass}{m}  % mass
+\providecommand*{\mom}{p}   % linear momentum
+\providecommand*{\power}{p} % power
+\providecommand*{\press}{p} % pressure
+\providecommand*{\pos}{\xi} % position
+\providecommand*{\vel}{u}   % velocity
+%
+\providecommand*{\disp}{s} % displacement
+%
+\providecommand*{\svel}{c\sbtxt{s}} % speed of sound
+
+% electrostatics
+%
+\providecommand*{\elcharge}{e} % elementary electric charge
+\providecommand*{\echarge}{q}  % electric charge
+\providecommand*{\field}{\phi} % field
+\providecommand*{\pot}{\psi}   % potential
+%
+\providecommand*{\eflux}{j} % electric flux
+\providecommand*{\eflow}{i} % electric flow
+%
+\providecommand*{\fpot}{\nu}  % field potential
+\providecommand*{\epot}{\psi} % energy (force) potential
+%
+\providecommand*{\mfield}{\beta} % magnetic field
+\providecommand*{\mvpot}{\alpha} % magnetic vector potential
+%
+\providecommand*{\eresis}{r} % electric resistivity
+\providecommand*{\volt}{v}   % electric potential
+%
+\providecommand*{\echimequiv}{z} % electrochemical equivalent
+\providecommand*{\valency}{z}    % valency
+
+% thermo
+%
+\providecommand*{\ener}{E}  % energy
+\providecommand*{\entro}{S} % entropy
+%
+% differentials thermodynamic partial derivatives (bridgman, indexed, expanded)
+%
+\providecommand*{\dx}{\mathrm{d}}
+\providecommand*{\tbpd}[2]{\mleft.{\partial{#1}}\mright\rvert_{#2}}
+\providecommand*{\tipd}[3]{\mleft.{\partial_{#2}{#1}}\mright\rvert_{#3}}
+\providecommand*{\txpd}[3]{\mleft.{\dfrac{\partial{#1}}{\partial{#2}}}\mright\rvert_{#3}}
+%
+\providecommand*{\cmolar}[1]{\hat{\MakeLowercase{#1}}} % (carbothermic) per unit amount
+\providecommand*{\ecap}{C}                             % energy, enthalpy capacity
+\providecommand*{\mibar}[1]{\cmolar{#1}_{\press}}      % molar isobaric
+
+% physicochem
+%
+\providecommand*{\amount}{\eta} % chemical amount (mol)
+\providecommand*{\conc}{\gamma} % concentration
+\providecommand*{\temp}{\theta} % temperature
+
+% chem reactions (thermodynamics)
+%
+\providecommand*{\vce}[1]{\vat{\ce{#1}}}  % value at species
+%
+\providecommand*{\stoi}{\nu}            % stoichiometric coefficient
+\providecommand*{\std}[1]{{#1}^{\circ}} % standard conditions
+\providecommand*{\change}{\Delta}       % change
+%
+\providecommand*{\cs}[1]{\change\std{#1}}                   % change in standard
+\providecommand*{\csm}[1]{\change\std{\MakeLowercase{#1}}}  % change in standard molar
+\providecommand*{\sm}[1]{\std{\MakeLowercase{#1}}}          % standard molar
+%
+% intensive
+%
+\providecommand*{\chempot}{\mu}  % chemical potential
+\providecommand*{\tpress}{p}     % thermodynamic pressure
+\providecommand*{\ttemp}{\theta} % thermodynamic temperature
+%
+\providecommand*{\ibarmecap}{\hat{c}\sbtxt{\press}} % isobaric molar enthalpy capacity
+\providecommand*{\mmass}{\mu}                       % molar mass
+%
+\providecommand*{\mentha}{\hat{\MakeLowercase{\entha}}} % molar enthalpy
+\providecommand*{\sentha}{\MakeLowercase{\entha}}       % specific enthalpy
+%
+% extensive
+%
+\providecommand*{\entha}{H} % enthalpy
+\providecommand*{\entro}{S} % entropy
+\providecommand*{\gibbs}{G} % gibbs free energy
+\providecommand*{\iener}{U} % internal energy
+\providecommand*{\work}{W}  % work
+%
+\providecommand*{\tamount}{N}  % chemical amount
+\providecommand*{\tarea}{A}    % force
+\providecommand*{\tlength}{L}  % chemical amount
+\providecommand*{\tnent}{\eta} % number of entities
+\providecommand*{\tforce}{F}   % force
+\providecommand*{\tener}{Q}    % thermal energy (heat)
+\providecommand*{\tvol}{V}     % thermodynamic volume
+\providecommand*{\twork}{W}    % thermodynamic work
+%
+\providecommand*{\tenergy}{E} % energy (general)
+%
+\providecommand*{\tcap}{C} % thermal capacity
+%
+\providecommand*{\cactiv}[1]{\mleft\lbrace{#1}\mright\rbrace} % chemical activity
+\providecommand*{\cconc}[1]{\mleft[{#1}\mright]}              % chemical concentration
+%
+\providecommand*{\kequiv}{K} % equilibrium constant (chemical reactions)
+\providecommand*{\rquot}{Q}  % reaction quotient
+%
+\providecommand*{\frmn}{\sbtxt{f}}  % reaction
+\providecommand*{\rxn}{\sbtxt{rxn}} % reaction
+
+% transport
+%
+% streamline
+%
+\providecommand*{\strm}{_\infty} % streamline property
+%
+\providecommand*{\energy}{e}           % energy
+\providecommand*{\flow}{\phi}          % flux
+\providecommand*{\flux}{f}             % flux
+\providecommand*{\kinen}{e\sbtxt{kin}} % kinetic
+\providecommand*{\poten}{e\sbtxt{pot}} % potential
+%
+\providecommand*{\blayer}{\delta}           % boundary layer thickness
+\providecommand*{\mblayer}{\delta\sbtxt{m}} % mass boundary layer thickness
+\providecommand*{\hblayer}{\delta\sbtxt{h}} % hydrodynamic boundary layer thickness
+%
+\providecommand*{\kvisc}{\nu} % kinematic viscosity (coefficient of mom. diffusivity)
+%
+\providecommand*{\kdrag}{c} % drag coefficient
+
+% material properties
+%
+\providecommand*{\ksthcap}{\kthprop\sbtxt{scap}} % specific thermal capacity
+\providecommand*{\kthcond}{\kthprop\sbtxt{cond}} % thermal conductivity
+\providecommand*{\kthdiff}{\kthprop\sbtxt{diff}} % thermal diffusivity
+\providecommand*{\kthemiss}{\varepsilon}         % thermal emissitivy
+\providecommand*{\kthexp}{\kthprop\sbtxt{exp}}   % coefficient of thermal expansion
+\providecommand*{\kthprop}{k}                    % general thermal property
+%
+\providecommand*{\kblmod}{\kthprop\sbtxt{bulk}} % bulk modulus
+%
+\providecommand*{\kthprop}{\phi}                % general mass property
+\providecommand*{\kmdiff}{\kthprop\sbtxt{diff}} % mass diffusivity
+
+% light
+%
+\providecommand*{\intense}{i}     % intensity
+\providecommand*{\lumin}{\lambda} % luminosity
+
+% waves
+%
+\providecommand*{\frequency}{f}        % frequency
+\providecommand*{\wavelength}{\lambda} % wavelength
+
+% quantum mechanics
+%
+\providecommand*{\uncer}{\Delta} % uncertainty
+
+% universal constants
+%
+\providecommand*{\univconst}{\kappa} % general universal constant
+%
+\providecommand*{\kavogadro}{\univconst\sbtxt{av}} % Avogadro's constant
+\providecommand*{\kboltz}{\univconst\sbtxt{b}}     % Boltzmann's constant
+\providecommand*{\kcoul}{\univconst\sbtxt{e}}      % Coulomb's (electric) constant
+\providecommand*{\kfaraday}{\univconst\sbtxt{far}} % Faraday's constant
+\providecommand*{\kgas}{\univconst\sbtxt{gas}}     % ideal gas constant
+\providecommand*{\knewton}{\univconst\sbtxt{grav}} % Newton's gravitational constant
+\providecommand*{\kstefan}{\univconst\sbtxt{sb}}   % Stefan-Boltzmann's constant
+\providecommand*{\kwien}{\univconst\sbtxt{wien}}   % Wien's displacement constant
+%
+\providecommand*{\mkgas}{\hat{r}} % molar gas constant
+%
+\providecommand*{\kecharge}{\echarge\sbtxt{e}} % elementary electric charge (electron charge)
+\providecommand*{\kemass}{\mass\sbtxt{e}}      % electron mass
+%
+\providecommand*{\klight}{c}  % speed of light in vacuum
+\providecommand*{\kplanck}{h} % planck's constant
+%
+\providecommand*{\keperm}{\epsilon_0} % electric permettivity of space
+\providecommand*{\kmperm}{\mu_0}      % magnetic permeability of space
+%
+\providecommand*{\kdeperm}{\epsilon} % dielectric permittivity
+\providecommand*{\kdeconst}{\kappa}  % dielectric constant
+
+% coordinates
+%
+% rectangular
+%
+\providecommand*{\xpos}{x} % position in the x-axis
+\providecommand*{\ypos}{y} % position in the y-axis
+%
+\providecommand*{\xvel}{u} % velocity in the x-axis
+\providecommand*{\yvel}{v} % velocity in the y-axis
+
+% dimensions
+%
+\providecommand*{\kdim}{\Pi}          % dimensionless quantity
+\providecommand*{\phdim}[1]{\si{#1}}  % physical dimension
+\providecommand*{\phunit}[1]{\si{#1}} % physical unit
+\DeclareMathOperator{\unit}{unit}     % units
+%
+\providecommand*{\dlq}[1]{\overline{#1}}  % dimensionless quantity
+\providecommand*{\scq}[1]{{#1}\sbtxt{sc}} % scaled quantity
+
+% dimensionless numbers
+%
+\providecommand*{\kreynolds}{\kdim\sbtxt{re}} % reynolds number
+\providecommand*{\kschmidt}{\kdim\sbtxt{sc}}  % schmidt number

@@ -1,0 +1,64 @@
+#!/bin/zsh
+#
+# name:          init-tex-article.zsh
+# version:       see VERSION.md
+# synopsis:      initializes a project for `TeX`.
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2016 rimbaudcode
+# category:      Programming
+
+local REQUIRED_ARGC=1
+local USAGE="Usage: init-tex-article ARTICLE_TITLE"
+
+if (( $# != REQUIRED_ARGC )); then
+    echo $USAGE
+    exit 1
+fi
+
+local ARTICLE_TITLE=$1
+local TEMPLATE_DIR_PATH="$HOME/github/scripts/tex-templates"
+alias mkdir='mkdir -p'
+
+tlmgr update --all
+
+mkdir $ARTICLE_TITLE
+cd $ARTICLE_TITLE
+
+git init
+
+wget https://raw.githubusercontent.com/github/gitignore/master/TeX.gitignore -O .gitignore
+git add .gitignore
+git commit -am "github's .gitignore added"
+
+wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
+git add LICENSE.md
+git commit -am "BSD3 LICENSE.md added"
+
+touch TODO.org
+git add TODO.org
+git commit -am "TODO.org added"
+
+mkdir -p doc graph sty
+git add .
+git commit -am "working tree dir added"
+
+cp $HOME/github/scripts/tex-templates/*.sty ./sty
+git add .
+git commit -am "template files (.sty) added"
+
+cp $HOME/github/scripts/tex-templates/abstract.tex ./doc/abstract.tex
+git add .
+git commit -am "abstract file (abstract.tex) added"
+
+cp $HOME/github/scripts/tex-templates/main.tex ./main.tex
+git add .
+git commit -am "main file (main.tex) added"
+
+cp $HOME/github/scripts/tex-templates/Nemesis ./Nemesis
+git add .
+git commit -am "Nemesis (nemesis builder file) added"
+
+git flow init -d

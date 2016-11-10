@@ -1,0 +1,32 @@
+%!TEX program = xelatex
+
+\RequirePackage[l2tabu,orthodox]{nag}
+
+\documentclass[aip,cha,10pt,a4paper,reprint,superscriptaddress]{revtex4-1}
+
+\usepackage{sty/artarticle}
+\usepackage{sty/artlingo}
+\usepackage{sty/artmath}
+\usepackage{sty/artphysics}
+
+\begin{document}
+
+  \title{Title here}
+  \author{Author here}
+  \email{email-here@gmail.com}
+  \affiliation{Affiliation here}
+  \thanks{Thanks here}
+  %
+  \date{2016.11.10}
+
+  \input{doc/abstract}
+
+  \maketitle
+  %\tableofcontents
+
+  %\input{doc/...}
+  
+  \bibliographystyle{aipnum4-1}
+  \bibliography{doc/references}
+
+\end{document}
