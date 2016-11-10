@@ -2,7 +2,9 @@
 
 \RequirePackage[l2tabu,orthodox]{nag}
 
-\documentclass[aip,cha,10pt,a4paper,reprint,superscriptaddress]{revtex4-1}
+\documentclass[aip,cha,10pt,a4paper,
+  %% reprint,superscriptaddress
+]{revtex4-1}
 
 \usepackage{sty/artarticle}
 \usepackage{sty/artlingo}
@@ -11,22 +13,17 @@
 
 \begin{document}
 
-  \title{Title here}
-  \author{Author here}
-  \email{email-here@gmail.com}
-  \affiliation{Affiliation here}
-  \thanks{Thanks here}
-  %
-  \date{2016.11.10}
-
-  \input{doc/abstract}
-
-  \maketitle
-  %\tableofcontents
-
-  \input{doc/theory}
-  
-  \bibliographystyle{aipnum4-1}
-  \bibliography{doc/references}
+\title{Title here}
+\author{Author here}
+\email{email-here@gmail.com}
+\affiliation{Affiliation here}
+%
+\date{2016.11.10}
+%
+\input{doc/abstract}
+\maketitle
+\input{doc/theory}
+\bibliographystyle{aipnum4-1}
+\bibliography{doc/references}
 
 \end{document}
