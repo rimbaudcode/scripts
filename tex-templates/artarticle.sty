@@ -51,35 +51,35 @@
 \RequirePackage{hypcap}
 \RequirePackage{cleveref}
 %
-% refcheck and co.
-%
-\RequirePackage{refcheck}
-%
-% refcheck does not work with cleveref by default. refcheck must be hacked
-% hack for refcheck to work with cleveref
-% http://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
-%
-\makeatletter
-\newcommand{\refcheckize}[1]{
-  \expandafter\let\csname @@\string#1\endcsname#1
-  \expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[1]{
-    \csname @@\string#1\endcsname{##1}\@for\@temp:=##1\do{\wrtusdrf{\@temp}}}
-  \expandafter\let\expandafter#1\csname relax\string#1\endcsname
-}
-\newcommand{\refcheckizetwo}[1]{
-  \expandafter\let\csname @@\string#1\endcsname#1
-  \expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[2]{
-    \csname @@\string#1\endcsname{##1}{##2}\wrtusdrf{##1}\wrtusdrf{##2}}
-  \expandafter\let\expandafter#1\csname relax\string#1\endcsname
-}
-\makeatother
-%
-\refcheckize{\cref}
-\refcheckize{\Cref}
-\refcheckizetwo{\crefrange}
-\refcheckizetwo{\Crefrange}
-%
-% end refcheck and co.
+%% refcheck and co.
+%%
+%%\RequirePackage{refcheck}
+%%
+%% refcheck does not work with cleveref by default. refcheck must be hacked
+%% hack for refcheck to work with cleveref
+%% http://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
+%%
+%\makeatletter
+%\newcommand{\refcheckize}[1]{
+%  \expandafter\let\csname @@\string#1\endcsname#1
+%  \expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[1]{
+%    \csname @@\string#1\endcsname{##1}\@for\@temp:=##1\do{\wrtusdrf{\@temp}}}
+%  \expandafter\let\expandafter#1\csname relax\string#1\endcsname
+%}
+%\newcommand{\refcheckizetwo}[1]{
+%  \expandafter\let\csname @@\string#1\endcsname#1
+%  \expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[2]{
+%    \csname @@\string#1\endcsname{##1}{##2}\wrtusdrf{##1}\wrtusdrf{##2}}
+%  \expandafter\let\expandafter#1\csname relax\string#1\endcsname
+%}
+%\makeatother
+%%
+%\refcheckize{\cref}
+%\refcheckize{\Cref}
+%\refcheckizetwo{\crefrange}
+%\refcheckizetwo{\Crefrange}
+%%
+%% end refcheck and co.
 
 % listings
 %
