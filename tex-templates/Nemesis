@@ -1,0 +1,62 @@
+import System.Nemesis.Env
+import System.FilePath.Posix (replaceExtension)
+
+src = "maroua.tex"
+
+exe = replaceExtension src ".pdf"
+bib = replaceExtension src ".aux"
+
+comp   = "xelatex"
+flags  = "-interaction=batchmode"
+
+bibtex = "bibtex"
+viewer = "open"
+
+main = run $ do
+
+  desc "Build latex to pdf."
+  task "build" $ do
+    sh . unwords $ [comp,flags,src]
+    sh . unwords $ [bibtex,bib]
+    sh . unwords $ [comp,flags,src]
+    sh . unwords $ [comp,flags,src]
+
+  desc "Quick build latex to pdf."
+  task "quick" $ sh . unwords $ [comp,flags,src]
+
+  desc "Open pdf."
+  task "open" $ sh . unwords $ [viewer,exe]
+
+  desc "Delete pdf."
+  task "rmpdf" $ sh . unwords $ ["rm", exe]
+
+  clean [ "**/*.aux"
+        , "*.bak"
+        , "*.bcf"
+        , "*.log"
+        , "*~"
+        , "*.acn"
+        , "*.glo"
+        , "*.ist"
+        , "*.lof"
+        , "*.lot"
+        , "*.ntn"
+        , "*.toc"
+        , "*.idx"
+        , "*.out"
+        , "*.acr"
+        , "*.bbl"
+        , "*.blg"
+        , "*.brf"
+        , "*.gls"
+        , "*.not"
+        , "*.nav"
+        , "*.snm"
+        , "*.gz"
+        , "*.synctex.gz*"
+        , "*.pdfsync"
+        , "*.fdb_latexmk"
+        , "*.fls"
+        , "*.thm"
+        , "*Notes.bib"
+        ]
