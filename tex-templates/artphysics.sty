@@ -1,14 +1,23 @@
+% name:          artphysics.sty
+% version:       see scripts/VERSION.md
+% synopsis:      physics macros for `TeX` documents.
+% license:       BSD3
+% license-file:  scripts/LICENSE.md
+% author:        art rimbaud
+% maintainer:    rimbaudcode[at]gmail(DoT)com
+% copyright:     (c) 2016 rimbaudcode
+% category:      Text
 
-\ProvidesPackage{sty/artphysics}[2015/07/08 physics macros. rimbaudcode]
+\ProvidesPackage{sty/artphysics}[2016/11/10 physics macros rimbaudcode]
 
 % atom
 %
-\providecommand*{\atomnum}{z}             % atomic number (protons)
-\providecommand*{\pmass}{\mass\sbtxt{p}}  % mass of proton
-\providecommand*{\relamass}{a}            % relative atomi mass (atomic weight)
+\providecommand*{\atomnum}{z}            % atomic number (protons)
+\providecommand*{\pmass}{\mass\sbtxt{p}} % mass of proton
+\providecommand*{\relamass}{a}           % relative atomi mass (atomic weight)
 %
-\providecommand*{\mfpath}{\lambda}        % mean free path
-\providecommand*{\nent}{n}                % number of entities, as in number of particles
+\providecommand*{\mfpath}{\lambda} % mean free path
+\providecommand*{\nent}{n}         % number of entities, as in number of particles
 
 % density, molar, specific
 %
@@ -38,10 +47,10 @@
 
 % electrostatics
 %
-\providecommand*{\elcharge}{e}  % elementary electric charge
-\providecommand*{\echarge}{q}   % electric charge
-\providecommand*{\field}{\phi}  % field
-\providecommand*{\pot}{\psi}    % potential
+\providecommand*{\elcharge}{e} % elementary electric charge
+\providecommand*{\echarge}{q}  % electric charge
+\providecommand*{\field}{\phi} % field
+\providecommand*{\pot}{\psi}   % potential
 %
 \providecommand*{\eflux}{j} % electric flux
 \providecommand*{\eflow}{i} % electric flow
@@ -94,9 +103,9 @@
 %
 % intensive
 %
-\providecommand*{\chempot}{\mu}   % chemical potential
-\providecommand*{\tpress}{p}      % thermodynamic pressure
-\providecommand*{\ttemp}{\theta}  % thermodynamic temperature
+\providecommand*{\chempot}{\mu}  % chemical potential
+\providecommand*{\tpress}{p}     % thermodynamic pressure
+\providecommand*{\ttemp}{\theta} % thermodynamic temperature
 %
 \providecommand*{\ibarmecap}{\hat{c}\sbtxt{\press}} % isobaric molar enthalpy capacity
 \providecommand*{\mmass}{\mu}                       % molar mass
@@ -140,11 +149,11 @@
 %
 \providecommand*{\strm}{_\infty} % streamline property
 %
-\providecommand*{\energy}{e}            % energy
-\providecommand*{\flow}{\phi}           % flux
-\providecommand*{\flux}{f}              % flux
-\providecommand*{\kinen}{e\sbtxt{kin}}  % kinetic
-\providecommand*{\poten}{e\sbtxt{pot}}  % potential
+\providecommand*{\energy}{e}           % energy
+\providecommand*{\flow}{\phi}          % flux
+\providecommand*{\flux}{f}             % flux
+\providecommand*{\kinen}{e\sbtxt{kin}} % kinetic
+\providecommand*{\poten}{e\sbtxt{pot}} % potential
 %
 \providecommand*{\blayer}{\delta}           % boundary layer thickness
 \providecommand*{\mblayer}{\delta\sbtxt{m}} % mass boundary layer thickness
@@ -156,12 +165,12 @@
 
 % material properties
 %
-\providecommand*{\ksthcap}{\kthprop\sbtxt{scap}}  % specific thermal capacity
-\providecommand*{\kthcond}{\kthprop\sbtxt{cond}}  % thermal conductivity
-\providecommand*{\kthdiff}{\kthprop\sbtxt{diff}}  % thermal diffusivity
-\providecommand*{\kthemiss}{\varepsilon}          % thermal emissitivy
-\providecommand*{\kthexp}{\kthprop\sbtxt{exp}}    % coefficient of thermal expansion
-\providecommand*{\kthprop}{k}                     % general thermal property
+\providecommand*{\ksthcap}{\kthprop\sbtxt{scap}} % specific thermal capacity
+\providecommand*{\kthcond}{\kthprop\sbtxt{cond}} % thermal conductivity
+\providecommand*{\kthdiff}{\kthprop\sbtxt{diff}} % thermal diffusivity
+\providecommand*{\kthemiss}{\varepsilon}         % thermal emissitivy
+\providecommand*{\kthexp}{\kthprop\sbtxt{exp}}   % coefficient of thermal expansion
+\providecommand*{\kthprop}{k}                    % general thermal property
 %
 \providecommand*{\kblmod}{\kthprop\sbtxt{bulk}} % bulk modulus
 %
@@ -170,8 +179,8 @@
 
 % light
 %
-\providecommand*{\intense}{i}       % intensity
-\providecommand*{\lumin}{\lambda}   % luminosity
+\providecommand*{\intense}{i}     % intensity
+\providecommand*{\lumin}{\lambda} % luminosity
 
 % waves
 %
@@ -186,14 +195,14 @@
 %
 \providecommand*{\univconst}{\kappa} % general universal constant
 %
-\providecommand*{\kavogadro}{\univconst\sbtxt{av}}    % Avogadro's constant
-\providecommand*{\kboltz}{\univconst\sbtxt{b}}        % Boltzmann's constant
-\providecommand*{\kcoul}{\univconst\sbtxt{e}}         % Coulomb's (electric) constant
-\providecommand*{\kfaraday}{\univconst\sbtxt{far}}    % Faraday's constant
-\providecommand*{\kgas}{\univconst\sbtxt{gas}}        % ideal gas constant
-\providecommand*{\knewton}{\univconst\sbtxt{grav}}    % Newton's gravitational constant
-\providecommand*{\kstefan}{\univconst\sbtxt{sb}}      % Stefan-Boltzmann's constant
-\providecommand*{\kwien}{\univconst\sbtxt{wien}}      % Wien's displacement constant
+\providecommand*{\kavogadro}{\univconst\sbtxt{av}} % Avogadro's constant
+\providecommand*{\kboltz}{\univconst\sbtxt{b}}     % Boltzmann's constant
+\providecommand*{\kcoul}{\univconst\sbtxt{e}}      % Coulomb's (electric) constant
+\providecommand*{\kfaraday}{\univconst\sbtxt{far}} % Faraday's constant
+\providecommand*{\kgas}{\univconst\sbtxt{gas}}     % ideal gas constant
+\providecommand*{\knewton}{\univconst\sbtxt{grav}} % Newton's gravitational constant
+\providecommand*{\kstefan}{\univconst\sbtxt{sb}}   % Stefan-Boltzmann's constant
+\providecommand*{\kwien}{\univconst\sbtxt{wien}}   % Wien's displacement constant
 %
 \providecommand*{\mkgas}{\hat{r}} % molar gas constant
 %
@@ -207,7 +216,7 @@
 \providecommand*{\kmperm}{\mu_0}      % magnetic permeability of space
 %
 \providecommand*{\kdeperm}{\epsilon} % dielectric permittivity
-\providecommand*{\kdeconst}{\kappa} % dielectric constant
+\providecommand*{\kdeconst}{\kappa}  % dielectric constant
 
 % coordinates
 %
@@ -231,5 +240,5 @@
 
 % dimensionless numbers
 %
-\providecommand*{\kreynolds}{\kdim\sbtxt{re}}  % reynolds number
-\providecommand*{\kschmidt}{\kdim\sbtxt{sc}}   % schmidt number
+\providecommand*{\kreynolds}{\kdim\sbtxt{re}} % reynolds number
+\providecommand*{\kschmidt}{\kdim\sbtxt{sc}}  % schmidt number

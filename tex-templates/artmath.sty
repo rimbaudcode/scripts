@@ -1,5 +1,14 @@
+% name:          artmath.sty
+% version:       see scripts/VERSION.md
+% synopsis:      math macros for `TeX` documents.
+% license:       BSD3
+% license-file:  scripts/LICENSE.md
+% author:        art rimbaud
+% maintainer:    rimbaudcode[at]gmail(DoT)com
+% copyright:     (c) 2016 rimbaudcode
+% category:      Text
 
-\ProvidesPackage{sty/artmath}[2015/06/27 math macros. rimbaudcode]
+\ProvidesPackage{sty/artmath}[2016/11/10 math macros rimbaudcode]
 
 % amsthm package
 %
@@ -20,8 +29,6 @@
 \newtheorem{experiment}{Experiment}
 \newtheorem*{note}{Note}
 \newtheorem*{remark}{Remark}
-%
-%\newtheorem{experiment}{Math experiment}
 %
 % theorem/proof analysis
 %
@@ -112,13 +119,13 @@
 %
 \providecommand*{\espace}{\specialset{E}} % euclidean space (a real space with metric)
 %
-\providecommand*{\nonneg}[1]{{#1}^{+}}  % non-negative (+ and 0)
-\providecommand*{\nonpos}[1]{{#1}^{-}}  % non-positive (- and 0)
+\providecommand*{\nonneg}[1]{{#1}^{+}} % non-negative (+ and 0)
+\providecommand*{\nonpos}[1]{{#1}^{-}} % non-positive (- and 0)
 %
 \providecommand*{\notzero}[1]{{#1}^{\prime}} % zero not included
 %
-\providecommand*{\strneg}[1]{\nonpos{\notzero{#1}}}  % strictly negative
-\providecommand*{\strpos}[1]{\nonneg{\notzero{#1}}}  % strictly positive
+\providecommand*{\strneg}[1]{\nonpos{\notzero{#1}}} % strictly negative
+\providecommand*{\strpos}[1]{\nonneg{\notzero{#1}}} % strictly positive
 %
 \providecommand*{\posnats}{\nonneg{\nats}}    % positive naturals (excludes zero)
 \providecommand*{\xreals}{\overline{\reals}}  % extended real numbers (to include +/- infinity)
@@ -217,7 +224,7 @@
 
 % tensors
 %
-\let\div\idiv
+\let\div\idiv\
 \DeclareMathOperator{\div}{div}   % divergence
 \DeclareMathOperator{\curl}{curl} % curl
 \DeclareMathOperator{\grad}{grad} % gradient
@@ -238,13 +245,13 @@
 \providecommand*{\thick}{t}  % thickness
 \providecommand*{\width}{w}  % width
 %
-\providecommand*{\diam}{d}    % diameter
-\providecommand*{\radius}{r}  % radius
+\providecommand*{\diam}{d}   % diameter
+\providecommand*{\radius}{r} % radius
 %
-\providecommand*{\bound}{\partial}  % boundary
-\providecommand*{\curve}{\gamma}    % curve
-\providecommand*{\surf}{s}          % surface
-\providecommand*{\vol}{v}           % volume
+\providecommand*{\bound}{\partial} % boundary
+\providecommand*{\curve}{\gamma}   % curve
+\providecommand*{\surf}{s}         % surface
+\providecommand*{\vol}{v}          % volume
 %
 % scaling
 %
@@ -252,4 +259,4 @@
 \providecommand*{\scales}{\propto}    % scales as
 %
 \providecommand*{\scq}[1]{{#1}\sbtxt{sc}} % scaled quantity
-\providecommand*{\dlq}[1]{\overline{#1}}       % dimensionless quantity
+\providecommand*{\dlq}[1]{\overline{#1}}  % dimensionless quantity
