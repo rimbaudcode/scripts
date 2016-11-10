@@ -33,6 +33,10 @@ wget https://raw.githubusercontent.com/github/gitignore/master/TeX.gitignore -O 
 git add .gitignore
 git commit -am "github's .gitignore added"
 
+mkdir -p doc graph sty
+git add .
+git commit -am "working tree dir added"
+
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
 git add LICENSE.md
 git commit -am "BSD3 LICENSE.md added"
@@ -41,9 +45,9 @@ touch TODO.org
 git add TODO.org
 git commit -am "TODO.org added"
 
-mkdir -p doc graph sty
+touch doc/references.bib
 git add .
-git commit -am "working tree dir added"
+git commit -am "references file (doc/.bib) added"
 
 cp $HOME/github/scripts/tex-templates/*.sty ./sty
 git add .
