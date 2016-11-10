@@ -1,0 +1,45 @@
+
+\ProvidesPackage{sty/artlingo}[2015/07/08 linguistic macros. rimbaudcode]
+
+% linguistics
+%
+\providecommand*{\propersmallcaps}[1]{{\footnotesize\uppercase{#1}}}
+%
+\providecommand*{\lingo}[1]{\emph{#1}\xspace}
+\providecommand*{\lingform}[1]{\textsl{#1}\xspace}
+%
+\providecommand*{\aka}{\lingform{aka}}
+\providecommand*{\circa}{\lingform{ca.}}
+\providecommand*{\cf}{\lingform{cf.}}
+\providecommand*{\eg}{\lingform{e.g.}}
+\providecommand*{\etc}{\lingform{etc}}
+\providecommand*{\ie}{\lingform{i.e.}}
+\providecommand*{\vs}{\lingform{vs.}}
+\providecommand*{\vicvers}{\lingform{vice versa}}
+\providecommand*{\via}{\lingform{via}}
+\providecommand*{\viz}{\lingform{viz.}}
+%
+\providecommand*{\seeabove}{\lingform{v.s.}}
+\providecommand*{\seebelow}{\lingform{v.i.}}
+%
+\providecommand*{\acro}[1]{\propersmallcaps{#1}}  % acronym
+\providecommand*{\brand}[1]{\propersmallcaps{#1}} % brand
+%
+\providecommand*{\code}[1]{\texttt{#1}} % computer code
+%
+\providecommand*{\Iff}{if and only if\xspace}                %
+\providecommand*{\mwlog}{without loss of generality\xspace}  %
+\providecommand*{\Mwlog}{Without loss of generality\xspace}  %
+
+% quotation marks
+%
+\providecommand*{\scare}[1]{\guillemotleft\,{#1}\,\guillemotright\xspace}
+
+% custom enviroments
+%
+\newenvironment{highlight}{\begin{quoting}}{\end{quoting}}
+\newenvironment{law}{\begin{quoting}}{\end{quoting}}
+
+% horizontal line
+%
+\providecommand*{\holine}{\noindent\rule[0.5ex]{\linewidth}{0.5pt}}
