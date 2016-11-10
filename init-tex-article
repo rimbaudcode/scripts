@@ -53,6 +53,10 @@ cp $HOME/github/scripts/tex-templates/*.sty ./sty
 git add .
 git commit -am "template files (.sty) added"
 
+cp $HOME/github/scripts/tex-templates/info.tex ./doc/info.tex
+git add .
+git commit -am "article info file (info.tex) added"
+
 cp $HOME/github/scripts/tex-templates/abstract.tex ./doc/abstract.tex
 git add .
 git commit -am "abstract file (abstract.tex) added"
