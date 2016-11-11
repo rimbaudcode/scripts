@@ -39,7 +39,7 @@ git commit -am "working tree dir added"
 
 wget https://raw.githubusercontent.com/idleberg/Creative-Commons-Markdown/spaces/4.0/by-nc.markdown -O LICENSE.md
 git add LICENSE.md
-git commit -am "CC-BY-NC license (LICENSE.md) added"
+git commit -am "CC-BY-NC v.4.0 license (LICENSE.md) added"
 
 touch TODO.org
 git add TODO.org
