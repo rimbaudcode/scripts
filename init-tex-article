@@ -41,11 +41,11 @@ wget https://raw.githubusercontent.com/idleberg/Creative-Commons-Markdown/spaces
 git add LICENSE.md
 git commit -am "CC-BY-NC v.4.0 license (LICENSE.md) in place"
 
-cp $HOME/github/scripts/tex-templates/TODO.org ./doc/TODO.org
+cp $HOME/github/scripts/tex-templates/TODO.org ./TODO.org
 git add ./doc/TODO.org
 git commit -am "TODO.org in place"
 
-cp $HOME/github/scripts/tex-templates/VERSION.md ./doc/VERSION.md
+cp $HOME/github/scripts/tex-templates/VERSION.md ./VERSION.md
 git add ./doc/VERSION.md
 git commit -am "VERSION.md in place"
 
@@ -69,7 +69,7 @@ cp $HOME/github/scripts/tex-templates/theory.tex ./doc/theory.tex
 git add .
 git commit -am "theory file (dumb file) in place"
 
-cp $HOME/github/scripts/tex-templates/main.tex ./main.tex
+cp $HOME/github/scripts/tex-templates/main.tex ./$ARTICLE_TITLE.tex
 git add .
 git commit -am "main file (main.tex) in place"
 
