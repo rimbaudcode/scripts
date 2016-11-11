@@ -24,6 +24,7 @@ ln -is $DOT_FILES_PATH/mac/zshrc $HOME/.zshrc
 ln -is $DOT_FILES_PATH/micro/settings.json $HOME/.config/micro/settings.json
 ln -is $DOT_FILES_PATH/newsbeuter/urls $HOME/.newsbeuter/urls
 ln -is $DOT_FILES_PATH/stack/config.yaml $HOME/.stack/config.yaml
+ln -is $DOT_FILES_PATH/stack/stack.yaml $HOME/.stack/global-project/stack.yaml
 
 rm -i $DOT_FILES_PATH/emacs.d $HOME/.emacs.d
 rm -i $DOT_FILES_PATH/sublime/User $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
@@ -31,5 +32,4 @@ rm -i $DOT_FILES_PATH/sublime/User $HOME/Library/Application\ Support/Sublime\ T
 ln -is $DOT_FILES_PATH/emacs.d $HOME/.emacs.d
 ln -is $DOT_FILES_PATH/sublime/User $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
-#
 echo 'configure ranger'
