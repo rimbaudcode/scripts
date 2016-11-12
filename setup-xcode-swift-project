@@ -22,16 +22,16 @@ wget https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore -
 git init
 git add .gitignore
 git commit -m 'gitignore from Github added'
-#
+
 git add .
 git commit -am 'initial commit of Xcode generated files'
-#
+
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
 git add LICENSE.md
 git commit -m 'BSD3 license added'
-#
+
 touch CHANGELOG.md README.md TODO.org
 git add .
 git commit -am 'CHANGELOG.md, README.md, and TODO.md added'
-#
+
 git flow init -d
