@@ -18,17 +18,23 @@ if (( $# != REQUIRED_ARGC )); then
     exit 1
 fi
 
+local TEMPLATE_DIR_PATH="$HOME/github/scripts/xcode-templates"
+
 wget https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore -O .gitignore
 git init
 git add .gitignore
-git commit -m 'gitignore from Github added'
+git commit -m 'gitignore cloned from Github'
 
 git add .
 git commit -am 'initial commit of Xcode generated files'
 
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
 git add LICENSE.md
-git commit -m 'BSD3 license added'
+git commit -m 'BSD3 license in place'
+
+cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
+git add TODO.org
+git commit -am 'TODO.md in place'
 
 touch CHANGELOG.md README.md TODO.org
 git add .
