@@ -36,7 +36,11 @@ cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
 git add TODO.org
 git commit -am 'TODO.md in place'
 
-touch CHANGELOG.md README.md TODO.org
+cp $TEMPLATE_DIR_PATH/Credits.rtf ./Credits.rtf
+git add Credits.rtf
+git commit -am 'Credits.rtf in place'
+
+touch CHANGELOG.md README.md
 git add .
 git commit -am 'CHANGELOG.md and README.md in place'
 
