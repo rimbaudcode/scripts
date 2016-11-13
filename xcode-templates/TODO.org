@@ -1,7 +1,7 @@
 * toolName
 
 ** FEATURES [/]
-*** TODO initial project setup
+*** TODO initial project setup [/]
 - [ ] add LICENSE.md to Xcode's folders.
 - [ ] add Credits.rtf to Xcode's folders.
 - [ ] run through Xcode setup sections (General, capabilities, ...) and configure its parameters as needed.
