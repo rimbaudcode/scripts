@@ -4,8 +4,8 @@
 *** TODO initial project setup
 - [ ] add LICENSE.md to Xcode's folders.
 - [ ] run through Xcode setup sections (General, capabilities, ...) and configure its parameters as needed.
-- [ ] ensure that LICENSE is not in the 'Compile sources' section, but in the 'Copy bundle resources' section.
-- [ ] organize files into Xcode folders.
+- [ ] ensure that LICENSE is not in the 'Build Phases/Compile sources' section, but in the 'Build Phases/Copy bundle resources' section.
+- [ ] organize files into Xcode folders (MVC folders, assets, configuration).
 
 ** RELEASES [0/2]
 *** TODO 0.1.0.1 [0/3]
