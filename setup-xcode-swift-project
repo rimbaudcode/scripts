@@ -29,11 +29,11 @@ git add .gitignore
 git commit -am "github's .gitignore in place"
 #
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O ./$PROJECT_NAME/LICENSE.md
-git add LICENSE.md
+git add ./$PROJECT_NAME/LICENSE.md
 git commit -m "BSD3 license in place"
 #
 cp $TEMPLATE_DIR_PATH/Credits.rtf ./$PROJECT_NAME/Credits.rtf
-git add Credits.rtf
+git add ./$PROJECT_NAME/Credits.rtf
 git commit -am "Credits.rtf in place"
 #
 cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
