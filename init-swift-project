@@ -23,19 +23,21 @@ local PROJECT_NAME=$1
 mkdir $PROJECT_NAME
 cd $PROJECT_NAME
 #
+git flow init -d
+git flow feature start initial-config
+#
 swift package init --type executable
 #
 wget https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore -O .gitignore
-git init
 git add .gitignore
-git commit -m 'gitignore from Github added'
+git commit -am "github's .gitignore in place"
 #
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
 git add LICENSE.md
-git commit -m 'BSD3 license added'
+git commit -m "BSD3 license in place"
 #
 touch CHANGELOG.md README.md TODO.org
 git add .
-git commit -am 'CHANGELOG.md, README.md, and TODO.md added'
+git commit -am "CHANGELOG.md, README.md, and TODO.md in place"
 #
-git flow init -d
+git flow feature finish initial-config

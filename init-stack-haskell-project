@@ -23,22 +23,29 @@ local STACK_TEMPLATE_NAME=$2
 
 stack update
 stack new $PROJECT_NAME $STACK_TEMPLATE_NAME
-
 cd $PROJECT_NAME
-git init
+#
+git flow init -d
+git flow feature start initial-config
+#
 wget https://raw.githubusercontent.com/github/gitignore/master/Haskell.gitignore -O .gitignore
 git add .gitignore
-git commit -am "github's .gitignore added"
+git commit -am "github's .gitignore in place"
+#
 mv LICENSE LICENSE.md
 git add LICENSE.md
-git commit -am "BSD3 LICENSE.md added"
+git commit -am "BSD3 LICENSE.md in place"
+#
 touch CHANGELOG.md README.md TODO.org
 git add CHANGELOG.md README.md TODO.org
-git commit -am "CHANGELOG.md, README.md, and TODO.org added"
+git commit -am "CHANGELOG.md, README.md, and TODO.org in place"
+#
 hasktags -e . > TAGS
 git add TAGS
-git commit -am "emacs hasktags generated and added"
+git commit -am "emacs hasktags generated"
+#
 mkdir -p reps
 git add .
-git commit -am "project config files (stack generated files) added"
-git flow init -d
+git commit -am "project config files (stack generated files) in repo"
+#
+git flow feature finish initial-config

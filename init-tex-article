@@ -26,59 +26,61 @@ tlmgr update --all
 
 mkdir $ARTICLE_TITLE
 cd $ARTICLE_TITLE
-
-git init
-
+#
+git flow init -d
+#
+git flow feature start initial-config
+#
 wget https://raw.githubusercontent.com/github/gitignore/master/TeX.gitignore -O .gitignore
 git add .gitignore
 git commit -am "github's .gitignore in place"
-
+#
 mkdir -p doc graph sty
 git add .
 git commit -am "working tree dir established"
-
+#
 wget https://raw.githubusercontent.com/idleberg/Creative-Commons-Markdown/spaces/4.0/by-nc.markdown -O LICENSE.md
 git add LICENSE.md
 git commit -am "CC-BY-NC v.4.0 license (LICENSE.md) in place"
-
+#
 cp $HOME/github/scripts/tex-templates/TODO.org ./TODO.org
 git add ./doc/TODO.org
 git commit -am "TODO.org in place"
-
+#
 cp $HOME/github/scripts/tex-templates/VERSION.md ./VERSION.md
 git add ./doc/VERSION.md
 git commit -am "VERSION.md in place"
-
+#
 cp $HOME/github/scripts/tex-templates/references.bib ./doc/references.bib
 git add ./doc/references.bib
 git commit -am "references file in place"
-
+#
 cp $HOME/github/scripts/tex-templates/*.sty ./sty
 git add .
 git commit -am "template files (.sty) in place"
-
+#
 cp $HOME/github/scripts/tex-templates/info.tex ./doc/info.tex
 git add .
 git commit -am "article info file (info.tex) in place"
-
+#
 cp $HOME/github/scripts/tex-templates/abstract.tex ./doc/abstract.tex
 git add .
 git commit -am "abstract file in place"
-
+#
 cp $HOME/github/scripts/tex-templates/theory.tex ./doc/theory.tex
 git add .
 git commit -am "theory file (dumb file) in place"
-
+#
 cp $HOME/github/scripts/tex-templates/main.tex ./$ARTICLE_TITLE.tex
 git add .
 git commit -am "main file (main.tex) in place"
-
+#
 cp $HOME/github/scripts/tex-templates/Nemesis ./Nemesis
 git add .
 git commit -am "Nemesis (nemesis builder) file in place"
-
+#
 cp $HOME/github/scripts/tex-templates/main.sublime-project ./$ARTICLE_TITLE.sublime-project
 git add .
 git commit -am "support for sublimetext project (.sublime-project file) in place"
-
-git flow init -d
+#
+git flow feature finish initial-config
