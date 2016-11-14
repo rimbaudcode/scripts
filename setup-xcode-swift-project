@@ -22,7 +22,7 @@ local TEMPLATE_DIR_PATH="$HOME/github/scripts/xcode-templates"
 local PROJECT_NAME=`basename $(pwd)`
 
 git flow init -d
-git flow feature start initial-setup
+git flow feature start initial-file-seed
 #
 wget https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore -O .gitignore
 git add .gitignore
@@ -47,4 +47,4 @@ git commit -am "CHANGELOG.md and README.md in place"
 git add .
 git commit -am "initial commit of Xcode generated files"
 #
-git flow feature finish initial-setup
+git flow feature finish initial-file-seed
