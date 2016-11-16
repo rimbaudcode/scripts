@@ -28,6 +28,11 @@ wget https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore -
 git add .gitignore
 git commit -am "github's .gitignore in place"
 #
+cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
+echo "\n# Emacs\n#\nTODO.org" >> .gitignore
+git add .gitignore
+git commit -m "TODO.org in place but not tracked by git"
+#
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O ./$PROJECT_NAME/LICENSE.md
 git add ./$PROJECT_NAME/LICENSE.md
 git commit -m "BSD3 license in place"
@@ -36,12 +41,8 @@ cp $TEMPLATE_DIR_PATH/Credits.rtf ./$PROJECT_NAME/Credits.rtf
 git add ./$PROJECT_NAME/Credits.rtf
 git commit -am "Credits.rtf in place"
 #
-cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
-git add TODO.org
-git commit -am "TODO.md in place"
-#
 touch CHANGELOG.md README.md
-git add .
+git add CHANGELOG.md README.md
 git commit -am "CHANGELOG.md and README.md in place"
 #
 git add .
