@@ -33,6 +33,8 @@ echo "\n# Emacs\n#\nTODO.org" >> .gitignore
 git add .gitignore
 git commit -m "TODO.org in place but not tracked by git"
 #
+sed -i '' -- "s/toolName/$PROJECT_NAME/g" TODO.org
+#
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O ./$PROJECT_NAME/LICENSE.md
 git add ./$PROJECT_NAME/LICENSE.md
 git commit -m "BSD3 license in place"
