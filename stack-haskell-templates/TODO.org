@@ -1,0 +1,21 @@
+* toolName
+
+** FEATURES [/]
+*** TODO initial-project-setup [/]
+- [ ] add LICENSE.md to Xcode's folders.
+- [ ] add Credits.rtf to Xcode's folders.
+- [ ] run through Xcode setup sections (General, capabilities, ...) and configure its parameters as needed.
+- [ ] ensure that LICENSE is not in the 'Build Phases/Compile sources' section, but in the 'Build Phases/Copy bundle resources' section.
+- [ ] organize files into Xcode folders (MVC folders, assets, configuration).
+
+** RELEASES [0/2]
+*** TODO 0.1.0.1 [0/3]
+- [ ] bump version number
+- [ ] update CHANGELOG
+- [ ] update README
+
+** HOTFIXES [/]
+
+** REPORTS [/]
+
+** Notes
