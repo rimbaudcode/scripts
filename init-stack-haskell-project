@@ -36,13 +36,20 @@ mv LICENSE LICENSE.md
 git add LICENSE.md
 git commit -am "BSD3 LICENSE.md in place"
 #
-touch CHANGELOG.md README.md TODO.org
-git add CHANGELOG.md README.md TODO.org
-git commit -am "CHANGELOG.md, README.md, and TODO.org in place"
+touch CHANGELOG.md README.md
+git add CHANGELOG.md README.md
+git commit -am "CHANGELOG.md and README.md in place"
+#
+cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
+echo "\n# Emacs\n#\nTODO.org" >> .gitignore
+git add .gitignore
+git commit -m "TODO.org in place but not tracked by git"
 #
 hasktags -e . > TAGS
-git add TAGS
-git commit -am "emacs hasktags generated"
+echo "\nTAGS" >> .gitignore
+git add .gitignore
+git commit -m "Emacs TAGS in place but not tracked by git"
+echo "emacs hasktags generated"
 #
 mkdir -p reps
 git add .
