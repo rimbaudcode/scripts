@@ -37,6 +37,14 @@ wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O
 git add LICENSE.md
 git commit -m "BSD3 license in place"
 #
+touch CHANGELOG.md README.md
+git add CHANGELOG.md README.md
+git commit -am "CHANGELOG.md and README.md in place"
+#
+cp $TEMPLATE_DIR_PATH/VERSION.md ./VERSION.md
+git add VERSION.md
+git commit -m "VERSION.md in place"
+#
 cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
 echo "\n# Emacs\n#\nTODO.org" >> .gitignore
 git add .gitignore
@@ -44,8 +52,7 @@ git commit -m "TODO.org in place but not tracked by git"
 #
 sed -i '' -- "s/toolName/$PROJECT_NAME/g" TODO.org
 #
-touch CHANGELOG.md README.md
 git add .
-git commit -am "CHANGELOG.md and README.md in place"
+git commit -m "swift package files under git"
 #
 git flow feature finish initial-config
