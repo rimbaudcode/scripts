@@ -19,6 +19,7 @@ if (( $# != REQUIRED_ARGC )); then
 fi
 
 local PROJECT_NAME=$1
+local SCRIPT_DIR_PATH=$HOME/github/scripts
 local STACK_TEMPLATE_NAME=$2
 local TEMPLATE_DIR_PATH=$HOME/github/scripts/stack-haskell-templates
 
@@ -37,9 +38,13 @@ mv LICENSE LICENSE.md
 git add LICENSE.md
 git commit -am "BSD3 LICENSE.md in place"
 #
-touch CHANGELOG.md README.md
-git add CHANGELOG.md README.md
-git commit -am "CHANGELOG.md and README.md in place"
+touch README.md
+git add README.md
+git commit -am "README.md in place"
+#
+cp $SCRIPT_DIR_PATH/CHANGELOG.md ./CHANGELOG.md
+git add CHANGELOG.md
+git commit -m "CHANGELOG.md in place"
 #
 cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
 echo "\n# Emacs\n#\nTODO.org" >> .gitignore
