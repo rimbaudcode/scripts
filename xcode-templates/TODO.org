@@ -1,4 +1,4 @@
-* toolName
+* ProjectName
 
 ** FEATURES [/]
 *** TODO initial-project-setup [/]
