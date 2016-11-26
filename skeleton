@@ -17,3 +17,5 @@ if (( $# != REQUIRED_ARGC )); then
     echo $USAGE
     exit 1
 fi
+
+exit
