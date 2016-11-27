@@ -16,6 +16,8 @@ brew cleanup
 brew prune
 brew doctor
 #
+upgrade_oh_my_zsh
+#
 freshclam
 #
 stack update
