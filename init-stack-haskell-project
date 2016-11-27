@@ -38,6 +38,10 @@ mv LICENSE LICENSE.md
 git add LICENSE.md
 git commit -am "BSD3 LICENSE.md in place"
 #
+sed -i '' -- "s/LICENSE/LICENSE.md/g" hello.cabal
+git add $PROJECT_NAME.cabal
+git commit -am "LICENSE renamed to LICENSE.md in $PROJECT_NAME.cabal"
+#
 touch README.md
 git add README.md
 git commit -am "README.md in place"
