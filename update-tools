@@ -10,6 +10,7 @@
 # copyright:     (c) 2016 rimbaudcode
 # category:      System
 
+brew analytics off
 brew update
 brew upgrade
 brew cleanup
