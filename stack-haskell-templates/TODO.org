@@ -1,7 +1,7 @@
 * toolName
 
 ** FEATURES [0/1]
-*** TODO initial-project-setup
+*** TODO initial-project-setup [0/3]
 - [ ] setup .cabal
 - [ ] edit README.md
 - [ ] edit CHANGELOG.md
