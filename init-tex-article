@@ -79,8 +79,4 @@ cp $HOME/github/scripts/tex-templates/Nemesis ./Nemesis
 git add .
 git commit -am "Nemesis (nemesis builder) file in place"
 #
-cp $HOME/github/scripts/tex-templates/main.sublime-project ./$ARTICLE_TITLE.sublime-project
-git add .
-git commit -am "support for sublimetext project (.sublime-project file) in place"
-#
 git flow feature finish initial-config
