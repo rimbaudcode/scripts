@@ -1,3 +1,5 @@
+#+STARTUP: showall hidestars
+
 * article-title
 
 ** CONTENTS [/]
