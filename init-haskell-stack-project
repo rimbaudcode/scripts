@@ -51,7 +51,7 @@ git add CHANGELOG.org
 git commit -m "CHANGELOG.org in place"
 #
 hasktags -e . > TAGS
-echo "\nTAGS" >> .gitignore
+echo "\n\n#Emacs\nTAGS" >> .gitignore
 git add .gitignore
 git commit -m "Emacs TAGS in place but not tracked by git"
 echo "emacs hasktags generated"
