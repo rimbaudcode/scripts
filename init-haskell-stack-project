@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-# name:          init-stack-haskell-project.zsh
+# name:          init-haskell-stack-project.zsh
 # version:       see VERSION.md
 # synopsis:      initializes a `stack` project for `Haskell`.
 # license:       BSD3
@@ -11,7 +11,7 @@
 # category:      Programming
 
 local REQUIRED_ARGC=2
-local USAGE="Usage: init-stack-haskell-project PROJECT_NAME STACK_TEMPLATE_NAME"
+local USAGE="Usage: init-haskell-stack-project PROJECT_NAME STACK_TEMPLATE_NAME"
 
 if (( $# != REQUIRED_ARGC )); then
     echo $USAGE
@@ -21,7 +21,7 @@ fi
 local PROJECT_NAME=$1
 local SCRIPT_DIR_PATH=$HOME/github/scripts
 local STACK_TEMPLATE_NAME=$2
-local TEMPLATE_DIR_PATH=$HOME/github/scripts/stack-haskell-templates
+local TEMPLATE_DIR_PATH=$HOME/github/scripts/haskell-stack-templates
 
 stack update
 stack new $PROJECT_NAME $STACK_TEMPLATE_NAME
@@ -38,7 +38,7 @@ mv LICENSE LICENSE.md
 git add LICENSE.md
 git commit -am "BSD3 LICENSE.md in place"
 #
-sed -i '' -- "s/LICENSE/LICENSE.md/g" hello.cabal
+sed -i '' -- "s/LICENSE/LICENSE.md/g" $PROJECT_NAME.cabal
 git add $PROJECT_NAME.cabal
 git commit -am "LICENSE renamed to LICENSE.md in $PROJECT_NAME.cabal"
 #
@@ -46,16 +46,9 @@ touch README.md
 git add README.md
 git commit -am "README.md in place"
 #
-cp $SCRIPT_DIR_PATH/CHANGELOG.md ./CHANGELOG.md
-git add CHANGELOG.md
-git commit -m "CHANGELOG.md in place"
-#
-cp $TEMPLATE_DIR_PATH/TODO.org ./TODO.org
-echo "\n# Emacs\n#\nTODO.org" >> .gitignore
-git add .gitignore
-git commit -m "TODO.org in place but not tracked by git"
-#
-sed -i '' -- "s/toolName/$PROJECT_NAME/g" TODO.org
+cp $TEMPLATE_DIR_PATH/CHANGELOG.org ./CHANGELOG.org
+git add CHANGELOG.org
+git commit -m "CHANGELOG.org in place"
 #
 hasktags -e . > TAGS
 echo "\nTAGS" >> .gitignore
