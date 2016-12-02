@@ -2,7 +2,7 @@
 #
 # name:          init-haskell-stack-project.zsh
 # version:       see VERSION.md
-# synopsis:      initializes a `stack` project for `Haskell`.
+# synopsis:      initialize a `Haskell`'s stack` project.
 # license:       BSD3
 # license-file:  LICENSE.md
 # author:        art rimbaud
