@@ -1,0 +1,165 @@
+% name:          artarticle.sty
+% version:       see scripts/VERSION.md
+% synopsis:      style for short `TeX`-based articles.
+% license:       BSD3
+% license-file:  scripts/LICENSE.md
+% author:        art rimbaud
+% maintainer:    rimbaudcode[at]gmail(DoT)com
+% copyright:     (c) 2016 rimbaudcode
+% category:      Text
+
+\ProvidesPackage{sty/artarticle}[2016/11/10 style for short articles, rimbaudcode]
+
+% packages
+%
+\RequirePackage{afterpage}
+\RequirePackage[pdalt]{bropd}
+\RequirePackage{currfile}
+\RequirePackage[hhmmss]{datetime}
+\RequirePackage{enumitem}
+\RequirePackage{graphicx}
+\RequirePackage{lastpage}
+\RequirePackage[fixamsmath,disallowspaces]{mathtools}
+\RequirePackage[version=4]{mhchem}
+\RequirePackage{microtype}
+\RequirePackage{mleftright}
+\RequirePackage{natbib}
+\RequirePackage[thmmarks,amsmath]{ntheorem}
+\RequirePackage[draft]{prelim2e}
+\RequirePackage{quoting}
+\RequirePackage{relsize}
+\RequirePackage{tabularx}
+\RequirePackage{tensor}
+\RequirePackage[inline]{showlabels}
+\RequirePackage{siunitx}
+\RequirePackage{upgreek}
+\RequirePackage[dvipsnames,table]{xcolor}
+\RequirePackage{xspace}
+%
+% special packages (preserve order!)
+%
+\RequirePackage{accents}
+%
+\RequirePackage{pdfsync}
+\RequirePackage[xetex]{hyperref}
+\RequirePackage{hypcap}
+\RequirePackage{cleveref}
+%
+%% refcheck and co.
+%%
+%%\RequirePackage{refcheck}
+%%
+%% refcheck does not work with cleveref by default. refcheck must be hacked
+%% hack for refcheck to work with cleveref
+%% http://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
+%%
+%\makeatletter
+%\newcommand{\refcheckize}[1]{
+%  \expandafter\let\csname @@\string#1\endcsname#1
+%  \expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[1]{
+%    \csname @@\string#1\endcsname{##1}\@for\@temp:=##1\do{\wrtusdrf{\@temp}}}
+%  \expandafter\let\expandafter#1\csname relax\string#1\endcsname
+%}
+%\newcommand{\refcheckizetwo}[1]{
+%  \expandafter\let\csname @@\string#1\endcsname#1
+%  \expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[2]{
+%    \csname @@\string#1\endcsname{##1}{##2}\wrtusdrf{##1}\wrtusdrf{##2}}
+%  \expandafter\let\expandafter#1\csname relax\string#1\endcsname
+%}
+%\makeatother
+%%
+%\refcheckize{\cref}
+%\refcheckize{\Cref}
+%\refcheckizetwo{\crefrange}
+%\refcheckizetwo{\Crefrange}
+%%
+%% end refcheck and co.
+
+% language
+%
+\RequirePackage[english]{babel}
+
+% fonts
+%
+% Minion Pro with old style numerals
+%
+\RequirePackage[no-math]{mathspec} % oldstyle nums in math mode
+\RequirePackage{xunicode}          % xetex
+\RequirePackage{xltxtra}           % xetex
+
+\setmathsfont(Digits)[Numbers={OldStyle}]{MinionPro-Regular} %
+\setsansfont[Mapping=tex-text,Scale=0.9]{Myriad Pro}         % sans font
+\setmonofont[Mapping=tex-text,Scale=0.8]{Menlo}              % mono font
+\defaultfontfeatures{Numbers=OldStyle}                       % before setting the roman font
+\setmainfont[Mapping=tex-text]{MinionPro-Regular}            % roman font
+\addfontfeature{Kerning=Uppercase}                           % space in Uppercase
+%
+%\DeclareFontFamily{OT1}{pzc}{}
+%\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.150] pzcmi7t}{}
+%\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+% label in description env.
+%
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textsl{#1}:}
+
+% cref labels
+%
+\crefname{proof}{proof}{proofs}
+
+% showlabels package
+%
+\renewcommand{\showlabelfont}{\footnotesize\sffamily\color{VioletRed}}
+
+% table of contents (toc)
+%
+%\setcounter{secnumdepth}{2}
+%\setcounter{tocdepth}{2}
+
+% siunitx setup
+%
+\sisetup{
+  input-symbols = \kpi,
+  input-symbols = \ktau,
+  exponent-product = \cdot    % use cdot instead of times in sci notation
+}
+
+% hyperref setup
+%
+\hypersetup{
+  colorlinks=true,
+  linktocpage=true,
+  linktocpage=false,
+  pdfstartpage=1,                                        % 3 for Books and 1 for Reports (3 default)
+  %pdfstartview=FitPage,                                 % FitH=fit height, default=FitV=fit Vertical
+  breaklinks=true,
+  pdfpagemode=UseNone,
+  pageanchor=true,
+  pdfpagemode=UseOutlines,
+  plainpages=false,
+  bookmarksnumbered,
+  bookmarksopen=true,
+  bookmarksopenlevel=1,
+  hypertexnames=true,
+  pdfhighlight=/O,
+  %
+  %urlcolor=black,
+  %linkcolor=black,
+  %citecolor=black,
+  %
+  %pdftitle={\thetitle},
+  %pdfauthor={\theauthor},
+  %pdfsubject={},
+  %pdfkeywords={},
+  %pdfcreator={XeLaTeX with package hyperref},
+}
+
+% document version
+%
+% preliminary version
+%
+\renewcommand*{\PrelimWords}{\relax}
+\renewcommand*{\PrelimText}{
+  \footnotesize{\code{
+    [\ddmmyyyydate\today\ -- \currenttime\ -- \currfilename\ -- pp.~\pageref{LastPage}]}
+    }
+}
