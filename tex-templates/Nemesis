@@ -1,3 +1,13 @@
+-- name:          Nemesis
+-- version:       see VERSION.md
+-- synopsis:      `Nemesis` file to handle `TeX` articles.
+-- license:       BSD3
+-- license-file:  LICENSE.md
+-- author:        art rimbaud
+-- maintainer:    rimbaudcode[at]gmail(DoT)com
+-- copyright:     (c) 2016 rimbaudcode
+-- category:      System
+
 import           System.FilePath.Posix (replaceExtension)
 import           System.Nemesis.Env
 
