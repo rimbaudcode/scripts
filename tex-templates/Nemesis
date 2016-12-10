@@ -1,5 +1,5 @@
-import System.Nemesis.Env
-import System.FilePath.Posix (replaceExtension)
+import           System.FilePath.Posix (replaceExtension)
+import           System.Nemesis.Env
 
 src = "main.tex"
 
