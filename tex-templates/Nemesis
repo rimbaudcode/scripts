@@ -1,62 +1,68 @@
 import           System.FilePath.Posix (replaceExtension)
 import           System.Nemesis.Env
 
+src :: String
 src = "main.tex"
 
-exe = replaceExtension src ".pdf"
-bib = replaceExtension src ".aux"
+bib, exe :: String
+bib      = replaceExtension src ".aux"
+exe      = replaceExtension src ".pdf"
 
-comp   = "xelatex"
-flags  = "-interaction=batchmode"
+comp, flags :: String
+comp        = "xelatex"
+flags       = "-interaction=batchmode"
 
-bibtex = "bibtex"
-viewer = "open"
+bibtex, viewer :: String
+bibtex         = "bibtex"
+viewer         = "open"
 
+
+main :: IO ()
 main = run $ do
 
   desc "Build latex to pdf."
   task "build" $ do
-    sh . unwords $ [comp,flags,src]
-    sh . unwords $ [bibtex,bib]
-    sh . unwords $ [comp,flags,src]
-    sh . unwords $ [comp,flags,src]
+    sh . unwords $ [comp, flags, src]
+    sh . unwords $ [bibtex, bib]
+    sh . unwords $ [comp, flags, src]
+    sh . unwords $ [comp, flags, src]
 
   desc "Quick build latex to pdf."
-  task "quick" $ sh . unwords $ [comp,flags,src]
+  task "quick" $ sh . unwords $ [comp, flags, src]
 
   desc "Open pdf."
-  task "open" $ sh . unwords $ [viewer,exe]
+  task "open" $ sh . unwords $ [viewer, exe]
 
   desc "Delete pdf."
   task "rmpdf" $ sh . unwords $ ["rm", exe]
 
   clean [ "**/*.aux"
-        , "*.bak"
-        , "*.bcf"
-        , "*.log"
-        , "*~"
         , "*.acn"
-        , "*.glo"
-        , "*.ist"
-        , "*.lof"
-        , "*.lot"
-        , "*.ntn"
-        , "*.toc"
-        , "*.idx"
-        , "*.out"
         , "*.acr"
+        , "*.bak"
         , "*.bbl"
+        , "*.bcf"
         , "*.blg"
         , "*.brf"
-        , "*.gls"
-        , "*.not"
-        , "*.nav"
-        , "*.snm"
-        , "*.gz"
-        , "*.synctex.gz*"
-        , "*.pdfsync"
         , "*.fdb_latexmk"
         , "*.fls"
+        , "*.glo"
+        , "*.gls"
+        , "*.gz"
+        , "*.idx"
+        , "*.ist"
+        , "*.lof"
+        , "*.log"
+        , "*.lot"
+        , "*.nav"
+        , "*.not"
+        , "*.ntn"
+        , "*.out"
+        , "*.pdfsync"
+        , "*.snm"
+        , "*.synctex.gz*"
         , "*.thm"
+        , "*.toc"
         , "*Notes.bib"
+        , "*~"
         ]

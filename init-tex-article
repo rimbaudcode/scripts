@@ -2,7 +2,7 @@
 #
 # name:          init-tex-article.zsh
 # version:       see VERSION.md
-# synopsis:      initializes a project for `TeX`.
+# synopsis:      initializes a `TeX` article.
 # license:       BSD3
 # license-file:  LICENSE.md
 # author:        art rimbaud
