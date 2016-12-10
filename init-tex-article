@@ -44,11 +44,11 @@ git add LICENSE.md
 git commit -am "CC-BY-NC v.4.0 license (LICENSE.md) in place"
 #
 cp $HOME/github/scripts/tex-templates/TODO.org ./TODO.org
-git add ./doc/TODO.org
+git add ./TODO.org
 git commit -am "TODO.org in place"
 #
 cp $HOME/github/scripts/tex-templates/VERSION.md ./VERSION.md
-git add ./doc/VERSION.md
+git add ./VERSION.md
 git commit -am "VERSION.md in place"
 #
 cp $HOME/github/scripts/tex-templates/references.bib ./doc/references.bib
@@ -76,6 +76,7 @@ git add .
 git commit -am "main file (main.tex) in place"
 #
 cp $HOME/github/scripts/tex-templates/Nemesis ./Nemesis
+sed -i '' -- "s/main.tex/$PROJECT_NAME.tex/g" Nemesis
 git add .
 git commit -am "Nemesis (nemesis builder) file in place"
 #
