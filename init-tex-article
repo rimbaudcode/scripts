@@ -76,7 +76,7 @@ git add .
 git commit -am "main file (main.tex) in place"
 #
 cp $HOME/github/scripts/tex-templates/Nemesis ./Nemesis
-sed -i '' -- "s/main.tex/$PROJECT_NAME.tex/g" Nemesis
+sed -i '' -- "s/main.tex/$ARTICLE_TITLE.tex/g" Nemesis
 git add .
 git commit -am "Nemesis (nemesis builder) file in place"
 #
