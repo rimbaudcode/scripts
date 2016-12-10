@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-# name:          init-tex-article.zsh
+# name:          init-latex-article.zsh
 # version:       see VERSION.md
 # synopsis:      initializes a `TeX` article.
 # license:       BSD3
@@ -11,7 +11,7 @@
 # category:      Programming
 
 local REQUIRED_ARGC=1
-local USAGE="Usage: init-tex-article ARTICLE_TITLE"
+local USAGE="Usage: init-latex-article ARTICLE_TITLE"
 
 if (( $# != REQUIRED_ARGC )); then
     echo $USAGE
