@@ -32,7 +32,7 @@ git flow feature start initial-config
 #
 wget https://raw.githubusercontent.com/github/gitignore/master/Haskell.gitignore -O .gitignore
 git add .gitignore
-git commit -am "github's .gitignore in place"
+git commit -am "Github's .gitignore in place"
 #
 mv LICENSE LICENSE.md
 git add LICENSE.md
@@ -42,19 +42,18 @@ sed -i '' -- "s/LICENSE/LICENSE.md/g" $PROJECT_NAME.cabal
 git add $PROJECT_NAME.cabal
 git commit -am "LICENSE renamed to LICENSE.md in $PROJECT_NAME.cabal"
 #
-touch README.md
 git add README.md
 git commit -am "README.md in place"
 #
 cp $TEMPLATE_DIR_PATH/CHANGELOG.org ./CHANGELOG.org
-git add CHANGELOG.org
-git commit -m "CHANGELOG.org in place"
+echo "\n# ORG\nCHANGELOG.org" >> .gitignore
+git add .gitignore
+git commit -m "CHANGELOG.org in place but not tracked by git"
 #
 hasktags -e . > TAGS
-echo "\n\n#Emacs\nTAGS" >> .gitignore
+echo "\n# Emacs\nTAGS" >> .gitignore
 git add .gitignore
 git commit -m "Emacs TAGS in place but not tracked by git"
-echo "emacs hasktags generated"
 #
 mkdir -p reps
 git add .
