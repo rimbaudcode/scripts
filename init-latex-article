@@ -1,8 +1,8 @@
 #!/bin/zsh
 #
-# name:          init-tex-article.zsh
+# name:          init-latex-article.zsh
 # version:       see VERSION.md
-# synopsis:      initializes a project for `TeX`.
+# synopsis:      initializes a `TeX` article.
 # license:       BSD3
 # license-file:  LICENSE.md
 # author:        art rimbaud
@@ -11,7 +11,7 @@
 # category:      Programming
 
 local REQUIRED_ARGC=1
-local USAGE="Usage: init-tex-article ARTICLE_TITLE"
+local USAGE="Usage: init-latex-article ARTICLE_TITLE"
 
 if (( $# != REQUIRED_ARGC )); then
     echo $USAGE
@@ -44,11 +44,11 @@ git add LICENSE.md
 git commit -am "CC-BY-NC v.4.0 license (LICENSE.md) in place"
 #
 cp $HOME/github/scripts/tex-templates/TODO.org ./TODO.org
-git add ./doc/TODO.org
+git add ./TODO.org
 git commit -am "TODO.org in place"
 #
 cp $HOME/github/scripts/tex-templates/VERSION.md ./VERSION.md
-git add ./doc/VERSION.md
+git add ./VERSION.md
 git commit -am "VERSION.md in place"
 #
 cp $HOME/github/scripts/tex-templates/references.bib ./doc/references.bib
@@ -76,6 +76,7 @@ git add .
 git commit -am "main file (main.tex) in place"
 #
 cp $HOME/github/scripts/tex-templates/Nemesis ./Nemesis
+sed -i '' -- "s/main.tex/$ARTICLE_TITLE.tex/g" Nemesis
 git add .
 git commit -am "Nemesis (nemesis builder) file in place"
 #
