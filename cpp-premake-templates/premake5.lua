@@ -2,8 +2,8 @@ workspace "tool_name"
 
 configurations {"Debug", "Release"}
 language "C++"
-targetdir "bin/%{cfg.buildcfg}"
 flags { "C++14" }
+location "build"
 
 filter "configurations:Debug"
 defines { "DEBUG" }

@@ -34,10 +34,7 @@ git add .gitignore
 git commit -am "Github's .gitignore in place"
 #
 echo "\n# premake" >> .gitignore
-echo "bin" >> .gitignore
-echo "obj" >> .gitignore
-echo "Makefile" >> .gitignore
-echo "*.make" >> .gitignore
+echo ".build" >> .gitignore
 git add .gitignore
 git commit -am "premake artifacts added to .gitignore"
 #
