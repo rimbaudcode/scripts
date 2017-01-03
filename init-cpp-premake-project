@@ -33,6 +33,14 @@ wget https://raw.githubusercontent.com/github/gitignore/master/C%2B%2B.gitignore
 git add .gitignore
 git commit -am "Github's .gitignore in place"
 #
+echo "\n# premake" >> .gitignore
+echo "bin" >> .gitignore
+echo "obj" >> .gitignore
+echo "Makefile" >> .gitignore
+echo "*.make" >> .gitignore
+git add .gitignore
+git commit -am "premake artifacts added to .gitignore"
+#
 wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
 git add LICENSE.md
 git commit -am "BSD3 license file in place"
