@@ -1,4 +1,4 @@
-workspace "hello"
+workspace "tool_name"
 
 configurations {"Debug", "Release"}
 language "C++"
@@ -14,18 +14,18 @@ defines { "RELEASE" }
 optimize "On"
 
 -- Library
-project "hello"
+project "tool_name"
 kind "SharedLib"
 files { "lib/**.h", "lib/**.cpp" }
 
 -- App
-project "hello"
+project "tool_name"
 kind "ConsoleApp"
 files { "app/**.h", "app/**.cpp" }
-links { "hello" }
+links { "tool_name" }
 includedirs { "lib" }
 
 -- Tests
-project "hello_test"
+project "tool_name_test"
 kind "SharedLib"
 files { "test/**.h", "test/**.cpp" }

@@ -22,8 +22,9 @@ local PROJECT_NAME=$1
 local SCRIPT_DIR_PATH=$HOME/github/scripts
 local TEMPLATE_DIR_PATH=$HOME/github/scripts/cpp-premake-templates
 
-cp $TEMPLATE_DIR_PATH $PROJECT_NAME
+cp -R $TEMPLATE_DIR_PATH $PROJECT_NAME
 cd $PROJECT_NAME
+echo "project stub files in place"
 #
 git flow init -d
 git flow feature start initial-config
@@ -32,14 +33,22 @@ wget https://raw.githubusercontent.com/github/gitignore/master/C%2B%2B.gitignore
 git add .gitignore
 git commit -am "Github's .gitignore in place"
 #
+wget https://raw.githubusercontent.com/rimbaudcode/scripts/develop/LICENSE.md -O LICENSE.md
+git add LICENSE.md
+git commit -am "BSD3 license file in place"
+#
 sed -i '' -- "s/tool_name/$PROJECT_NAME/g" README.md
 git add README.md
 git commit -am "README.md in place"
+#
+sed -i '' -- "s/tool_name/$PROJECT_NAME/g" premake5.lua
+git add premake5.lua
+git commit -am "premake5.lua edited and in place"
 #
 git add CHANGELOG.org
 git commit -m "CHANGELOG.org in place"
 #
 git add .
-git commit -am "project config files (stack generated files) in repo"
+git commit -am "project config files in repo"
 #
 git flow feature finish initial-config
