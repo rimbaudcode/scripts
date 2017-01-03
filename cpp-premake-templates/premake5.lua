@@ -3,7 +3,7 @@ workspace "tool_name"
 configurations {"Debug", "Release"}
 language "C++"
 flags { "C++14" }
-location "build"
+location ".build"
 
 filter "configurations:Debug"
 defines { "DEBUG" }
