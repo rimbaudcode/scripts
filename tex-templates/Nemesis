@@ -1,11 +1,11 @@
 -- name:          Nemesis
 -- version:       see VERSION.md
--- synopsis:      `Nemesis` file to handle `TeX` articles.
+-- synopsis:      `Nemesis` file to build `TeX` articles.
 -- license:       BSD3
 -- license-file:  LICENSE.md
 -- author:        art rimbaud
 -- maintainer:    rimbaudcode[at]gmail(DoT)com
--- copyright:     (c) 2016 rimbaudcode
+-- copyright:     (c) 2017 rimbaudcode
 -- category:      System
 
 import           System.FilePath.Posix (replaceExtension)
@@ -14,37 +14,32 @@ import           System.Nemesis.Env
 src :: String
 src = "main.tex"
 
-bib, exe :: String
+bib, pdf :: String
 bib      = replaceExtension src ".aux"
 exe      = replaceExtension src ".pdf"
 
+bib, pdf :: String
+bib      = replaceExtension src ".aux"
+pdf      = replaceExtension src ".pdf"
+
 comp, flags :: String
-comp        = "xelatex"
-flags       = "-interaction=batchmode"
+comp        = "latexmk"
+flags       = "-xelatex"
 
-bibtex, viewer :: String
-bibtex         = "bibtex"
-viewer         = "open"
-
+viewer :: String
+viewer = "open -a /Applications/Preview.app"
 
 main :: IO ()
 main = run $ do
 
   desc "Build latex to pdf."
-  task "build" $ do
-    sh . unwords $ [comp, flags, src]
-    sh . unwords $ [bibtex, bib]
-    sh . unwords $ [comp, flags, src]
-    sh . unwords $ [comp, flags, src]
-
-  desc "Quick build latex to pdf."
-  task "quick" $ sh . unwords $ [comp, flags, src]
+  task "build" $ sh . unwords $ [comp, flags, src]
 
   desc "Open pdf."
-  task "open" $ sh . unwords $ [viewer, exe]
+  task "open" $ sh . unwords $ [viewer, pdf]
 
   desc "Delete pdf."
-  task "rmpdf" $ sh . unwords $ ["rm", exe]
+  task "rmpdf" $ sh . unwords $ ["rm", pdf]
 
   clean [ "**/*.aux"
         , "*.acn"
