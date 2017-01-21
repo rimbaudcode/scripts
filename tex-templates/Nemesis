@@ -16,10 +16,6 @@ src = "main.tex"
 
 bib, pdf :: String
 bib      = replaceExtension src ".aux"
-exe      = replaceExtension src ".pdf"
-
-bib, pdf :: String
-bib      = replaceExtension src ".aux"
 pdf      = replaceExtension src ".pdf"
 
 comp, flags :: String
@@ -29,17 +25,18 @@ flags       = "-xelatex"
 viewer :: String
 viewer = "open -a /Applications/Preview.app"
 
+
 main :: IO ()
 main = run $ do
 
-  desc "Build latex to pdf."
+  desc "Build LaTeX to PDF."
   task "build" $ sh . unwords $ [comp, flags, src]
 
-  desc "Open pdf."
+  desc "Open PDF."
   task "open" $ sh . unwords $ [viewer, pdf]
 
-  desc "Delete pdf."
-  task "rmpdf" $ sh . unwords $ ["rm", pdf]
+  desc "Trash PDF."
+  task "trash" $ sh . unwords $ ["trash", pdf]
 
   clean [ "*.acn"
         , "*.acr"
