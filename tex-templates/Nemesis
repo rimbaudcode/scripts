@@ -41,8 +41,7 @@ main = run $ do
   desc "Delete pdf."
   task "rmpdf" $ sh . unwords $ ["rm", pdf]
 
-  clean [ "**/*.aux"
-        , "*.acn"
+  clean [ "*.acn"
         , "*.acr"
         , "*.bak"
         , "*.bbl"
@@ -68,6 +67,8 @@ main = run $ do
         , "*.synctex.gz*"
         , "*.thm"
         , "*.toc"
+        , "*.xdv"
         , "*Notes.bib"
         , "*~"
+        , "**/*.aux"
         ]
