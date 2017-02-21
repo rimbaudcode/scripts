@@ -1,4 +1,4 @@
--- name:          Nemesis
+-- name:          Nemesis.hs
 -- version:       see VERSION.md
 -- synopsis:      `Nemesis` file to build `TeX` articles.
 -- license:       BSD3
