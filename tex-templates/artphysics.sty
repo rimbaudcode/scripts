@@ -8,180 +8,26 @@
 % copyright:     (c) 2017 rimbaudcode
 % category:      Text
 
-\ProvidesPackage{sty/artphysics}[2017/01/12 physics macros, rimbaudcode]
+\ProvidesPackage{sty/artphysics}[2017/02/24 physics macros, rimbaudcode]
 
-% constants
+% baby geometry
 %
-\providecommand*{\klight}{c} % speed of light in vacuum
-
-% (coordinate-free) geometric objects
-%
-\providecommand*{\cov}[1]{\tilde{#1}}     % covector
-\providecommand*{\idtens}{i}              % identity tensor
-\providecommand*{\event}[1]{\mathcal{#1}} % events (points in spacetime)
-\providecommand*{\point}[1]{\mathcal{#1}} % point in a manifold
-\providecommand*{\uvec}[1]{\hat{#1}}      % unit vector
-\providecommand*{\inv}[1]{\br{#1}^{-1}}   % inverse
-\providecommand*{\vol}{\omega}            % volume
-\providecommand*{\area}{\sigma}           % area
-\providecommand*{\curve}{\Gamma}          % curve
-%
-\providecommand*{\pdist}{s}    % proper distance
-\providecommand*{\ptime}{\tau} % proper time
-%
-% regions
-%
-\providecommand*{\region}[1]{\set{#1}}                 % regions in space
-\providecommand*{\cregion}[1]{\region{#1}}             % closed regions in space
-\providecommand*{\oregion}[1]{\region{#1}^{{}\circ{}}} % open regions in space
-\providecommand*{\bregion}[1]{\partial\region{#1}}     % boundary of regions in space
-\providecommand*{\manifold}[1]{\region{#1}}            % manifold
-%
-% metric
-%
-\providecommand*{\fmetric}{\eta}              % flat metric
-\providecommand*{\kron}{\delta}               % Kronecker's delta
-\providecommand*{\metric}{g}                  % metric tensor
-\providecommand*{\invmet}{\inverse{\metric}}  % inverse metric tensor
-\providecommand*{\minkmet}{\eta}              % minkowski metric tensor
-\providecommand*{\levicivi}{\epsilon}         % levi-civita (symbol) tensor
-%
-% curvature
-%
-\providecommand*{\riemann}{r}  % riemann tensor
-\providecommand*{\ricci}{r}    % ricci tensor
-\providecommand*{\sricci}{r}   % ricci scalar
-\providecommand*{\einstein}{e} % einstein tensor
-%
-\providecommand*{\pos}{x}    % event position
-\providecommand*{\sep}{\xi}  % event separation
-\providecommand*{\dist}{s}   % distance between points or events
-%
-\providecommand*{\distance}{s}                            % distance between events
-\providecommand*{\difdist}{d\distance}                    % differential distance
-\providecommand*{\sqdifdist}{\br{\difdist}^2}             % squared differential distance
-\providecommand*{\norm}[1]{\mleft\lvert{#1}\mright\rvert} % norm, length
-%
-% basis
-%
-\providecommand*{\belem}{e}                  % basis element
-\providecommand*{\bcov}{\cov{\belem}}        % basis covector
-\providecommand*{\bvec}{\vec{\belem}}        % basis vector
-\providecommand*{\bset}[3]{\seq{#1}{#2}{#3}} % basis set
-\providecommand*{\chris}{\Gamma}             % Chirstoffel symbol
-
-% tensor products
-%
-\providecommand*{\cprod}{\times}                                  % cross product
-\providecommand*{\iprod}{\cdot}                                   % inner product
-\providecommand*{\oprod}{\wedge}                                  % outer product
-\providecommand*{\tprod}{\otimes}                                 % tensor product
-\providecommand*{\sprod}[2]{\mleft\langle{#1},{#2}\mright\rangle} % scalar product
-
-% tensor slots
-%
-\providecommand*{\cslot}{{\scriptstyle{}\sim{}}}        % covector slot
-\providecommand*{\eslot}{{\scriptstyle{}\cdot{}}}       % empty slot
-\providecommand*{\fslot}{{\scriptstyle{}\checkmark{}}}  % filled slot
-\providecommand*{\vslot}{{\scriptstyle{}\rightarrow{}}} % vector slot
-
-% tensor order
-%
-\providecommand*{\torder}[2]{\br{{#1},{#2}}} % order, rank, type of a tensor
-
-% operators
-%
-\DeclareMathOperator{\cont}{cont} % tensor contraction
-
-% index-notation
-%
-\providecommand*{\tcov}[2]{\tensor{#1}{_{#2}}}                 % covector components
-\providecommand*{\tvec}[2]{\tensor{#1}{^{#2}}}                 % vector components
-\providecommand*{\tvecfmet}[2]{\tensor{\fmetric}{^{#1}^{#2}}}  % flat metric components
-%
-\providecommand*{\tmetric}[2]{\tensor{\metric}{_{#1}_{#2}}}   % metric components
-\providecommand*{\tinvmet}[2]{\tensor{\metric}{^{#1}^{#2}}}   % inverse metric components
-\providecommand*{\tidtens}[2]{\tensor{\idtens}{^{#1}_{#2}}}   % identity tensor components
-\providecommand*{\tkron}[2]{\tensor{\kron}{^{#1}_{#2}}}       % Kronecker's delta components
-\providecommand*{\tminkmet}[2]{\tensor{\minkmet}{_{#1}_{#2}}} % minkowski metric tensor components
-%
-\providecommand*{\tlevicivi}[3]{\tensor{\levicivi}{_{#1}_{#2}_{#3}}} % levi-civita tensor components
-%
-\providecommand*{\tbcov}[1]{\tensor{\bcov}{^{#1}}} % basis covectors
-\providecommand*{\tbvec}[1]{\tensor{\bvec}{_{#1}}} % basis vectors
-%
-\providecommand*{\tvolel}[1]{d^{#1}\pos} % volume element
-%
-\providecommand*{\tevent}[2]{\tensor{\event{#1}}{_{#2}}} % "tensor" event
-%
-% tensor calculus
-%
-\providecommand*{\ipd}[1]{\partial_{#1}}                      % index partial derivative
-\providecommand*{\xpd}[2]{\dfrac{\partial{#1}}{\partial{#2}}} % expanded partial derivative
-%
-\providecommand*{\gradient}{\nabla}      % gradient
-\providecommand*{\gradcov}{\cov{\nabla}} % gradient covector
-\providecommand*{\gradvec}{\vec{\nabla}} % gradient vector
-%
-\providecommand*{\cgrad}{\gradcov}                  % gradient (covector)
-\providecommand*{\tgrad}[1]{\tensor{\nabla}{_{#1}}} % gradient covector
-%
-\providecommand*{\cgradcov}[1]{\tensor{\gradcov}{_{#1}}} % gradient covector along a curve
-%
-\providecommand*{\tchris}[3]{\tensor{\chris}{^{#1}_{#2}_{#3}}}          % chirstoffel symbol
-\providecommand*{\triemann}[4]{\tensor{\riemann}{^{#1}_{#2}_{#3}_{#4}}} % riemann tensor
-\providecommand*{\tricci}[2]{\tensor{\ricci}{_{#1}_{#2}}}               % ricci tensor
-\providecommand*{\teinstein}[2]{\tensor{\einstein}{_{#1}_{#2}}}         % einstein tensor
-%
-% coordinate systems
-%
-\providecommand*{\coordsys}[3]{\seq{#1}{#2}{#3}} % coordinate system
-\providecommand*{\coordbas}[3]{\seq{#1}{#2}{#3}} % coordinate basis
-%
-% time as coordinate
-%
-\providecommand*{\tpos}{t}      % time position
-\providecommand*{\ptpos}{\tau}  % proper time position
-%
-% rectangular
-%
-\providecommand*{\xpos}{x} % x position in rectangular coord.
-\providecommand*{\ypos}{y} % y position in rectangular coord.
-\providecommand*{\zpos}{z} % z position in rectangular coord.
-%
-% cylindrical polar
-%
-\providecommand*{\cxpos}{r}       % x position in cylindrical polar coord.
-\providecommand*{\cypos}{\theta}  % y position in cylindrical polar coord.
-\providecommand*{\czpos}{z}       % z position in cylindrical polar coord.
-%
-% spherical polar
-%
-\providecommand*{\sxpos}{\rho}    % x position in spherical polar coord.
-\providecommand*{\sypos}{\theta}  % y position in spherical polar coord.
-\providecommand*{\szpos}{\phi}    % z position in spherical polar coord.
-%
-% matrices
-%
-\providecommand*{\asmatrix}[1]{\mleft\lVert{#1}\mright\rVert}     % matrix representation
-\providecommand*{\transmat}{\Lambda}                              % transformation matrix
-\providecommand*{\ttransmat}[2]{\tensor{\transmat}{^{#1}_{#2}}}   % transformation matrix components
-\providecommand*{\aidx}[1]{{#1}\sp{\prime}}                       % alternate index
-\providecommand*{\ridx}[1]{\hat{#1}}                              % rectangular index
-\providecommand*{\trans}[1]{\br{#1}^{T}}                          % transpose (as superscript)
-%
-\providecommand*{\xttransmat}[2]{\dfrac{\partial\br{#1}}{\partial\br{#2}}} % expanded trans. matrix
+\providecommand*{\depth}{h}  % depth
+\providecommand*{\height}{h} % height
+\providecommand*{\length}{l} % length
+\providecommand*{\radius}{r} % radius
+\providecommand*{\thick}{t}  % thickness
+\providecommand*{\width}{w}  % width
 
 % misner notation for special tensors
 %
-\providecommand*{\omisnerstyle}[1]{\textbf{\textit{\textsf{#1}}}} % original misner style
-\providecommand*{\mtens}[1]{\textit{\textsf{#1}}}                 % new (mine) misner style
+\providecommand*{\mtens}[1]{\textit{\textsf{#1}}} % new (mine) misner style
 %
-\providecommand*{\mmetric}{\mtens{g}}           % misner metric
-\providecommand*{\minvmet}{\mtens{g}^{-1}}      % misner metric
-\providecommand*{\mriemann}{\mtens{riemann}}    % misner riemann
-\providecommand*{\mricci}{\mtens{ricci}}        % misner ricci
-\providecommand*{\meinstein}{\mtens{einstein}}  % misner einstein
+\providecommand*{\meinstein}{\mtens{einstein}} % misner einstein
+\providecommand*{\minvmet}{\mtens{g}^{-1}}     % misner inverse metric
+\providecommand*{\mmetric}{\mtens{g}}          % misner metric
+\providecommand*{\mricci}{\mtens{ricci}}       % misner ricci
+\providecommand*{\mriemann}{\mtens{riemann}}   % misner riemann
 
 % diagrammatic tensors
 %
@@ -200,29 +46,124 @@
     \node[draw,circle,inner sep=2pt](char) {$#1$};
   \end{tikzpicture}
 }
-%
-\providecommand*{\cigrad}[1]{\rightarrow\citensor{#1}} % circled gradient (covariant derivative)
-%
-\providecommand*{\tograph}{{}\leftrightsquigarrow{}} % from abs. notation and graph. notation
 
-% symmetries, commutator and anticommutator
+% (coordinate-free) geometric objects
 %
-\providecommand*{\acommutator}[2]{\mleft\lbrack{#1},{#2}\mright\rbrack_{+}} % anti-commutator
-\providecommand*{\commutator}[2]{\mleft\lbrack{#1},{#2}\mright\rbrack_{-}}  % commutator
+\providecommand*{\point}[1]{\mathcal{#1}} % point in a manifold
+\providecommand*{\pos}{x}                 % point position
 %
-\providecommand*{\commgrad}[2]{\commutator{\tgrad{#1}}{\tgrad{#2}}} % gradient commutator
+% regions
 %
-\providecommand*{\asymmetric}[1]{\mleft\lbrack{#1}\mright\rbrack} % symmetrization
-\providecommand*{\symmetric}[1]{\mleft({#1}\mright)}              % anti-symmetrization
+\providecommand*{\oregion}[1]{\region{#1}^{{}\circ{}}} % open regions in space
+\providecommand*{\region}[1]{\set{#1}}                 % regions in space
+\providecommand*{\sbound}{\partial}                    % set boundary
+\providecommand*{\sopen}[1]{{#1}^{\circ}}              % open set (set open)
+%
+% metric and co.
+%
+\providecommand*{\chris}{\Gamma}             % Christoffel symbol
+\providecommand*{\invmet}{\inverse{\metric}} % inverse metric
+\providecommand*{\kron}{\delta}              % Kronecker's delta
+\providecommand*{\levicivi}{\epsilon}        % levi-civita (symbol)
+\providecommand*{\metric}{g}                 % metric
 
-% mechanics
+% tensors
 %
-\providecommand*{\vel}{v}  % velocity
-\providecommand*{\lmom}{p} % linear momentum
+% slots
 %
-% transport
+\providecommand*{\cslot}{{\scriptstyle{}\sim{}}}        % covector slot
+\providecommand*{\eslot}{{\scriptstyle{}\cdot{}}}       % empty slot
+\providecommand*{\vslot}{{\scriptstyle{}\rightarrow{}}} % vector slot
 %
-% extensive quantities
-\providecommand*{\mass}{M}                  % mass
-\providecommand*{\energy}{E}                % general energy
-\providecommand*{\ekin}{\energy\sbtxt{kin}} % kinetic energy
+% products
+%
+\providecommand*{\cprod}{\times}  % cross product
+\providecommand*{\iprod}{\cdot}   % inner product
+\providecommand*{\oprod}{\wedge}  % outer product
+\providecommand*{\tprod}{\otimes} % tensor product
+%
+% operators
+%
+\let\div\idiv
+\DeclareMathOperator{\cont}{cont} % contraction
+\DeclareMathOperator{\curl}{curl} % curl
+\DeclareMathOperator{\div}{div}   % divergence
+\DeclareMathOperator{\grad}{grad} % gradient
+\DeclareMathOperator{\lap}{lap}   % Laplacian
+%
+% basis
+%
+\providecommand*{\belem}{e}                  % basis element
+\providecommand*{\bset}[3]{\seq{#1}{#2}{#3}} % basis set
+%
+\providecommand*{\bcov}{\tilde{\belem}} % basis covector
+\providecommand*{\bvec}{\belem}         % basis vector
+
+% index-notation
+%
+\providecommand*{\tcov}[2]{\tensor{#1}{_{#2}}} % covector components
+\providecommand*{\tvec}[2]{\tensor{#1}{^{#2}}} % vector components
+%
+\providecommand*{\tinvmet}[2]{\tensor{\metric}{^{#1}^{#2}}}          % inverse metric components
+\providecommand*{\tkron}[2]{\tensor{\kron}{^{#1}_{#2}}}              % Kronecker's delta components
+\providecommand*{\tlevicivi}[3]{\tensor{\levicivi}{_{#1}_{#2}_{#3}}} % levi-civita components
+\providecommand*{\tmetric}[2]{\tensor{\metric}{_{#1}_{#2}}}          % metric components
+%
+\providecommand*{\tbcov}[1]{\tensor{\bcov}{^{#1}}}             % basis covectors
+\providecommand*{\tbvec}[1]{\tensor{\bvec}{_{#1}}}             % basis vectors
+\providecommand*{\tchris}[3]{\tensor{\chris}{^{#1}_{#2}_{#3}}} % christoffel symbol
+%
+% coordinate systems
+%
+\providecommand*{\coordbas}[3]{\seq{#1}{#2}{#3}} % coordinate basis
+\providecommand*{\coordsys}[3]{\seq{#1}{#2}{#3}} % coordinate system
+%
+% rectangular
+%
+\providecommand*{\xpos}{x} % x position in rectangular coord.
+\providecommand*{\ypos}{y} % y position in rectangular coord.
+\providecommand*{\zpos}{z} % z position in rectangular coord.
+%
+% cylindrical polar
+%
+\providecommand*{\cxpos}{r}      % x position in cylindrical polar coord.
+\providecommand*{\cypos}{\theta} % y position in cylindrical polar coord.
+\providecommand*{\czpos}{z}      % z position in cylindrical polar coord.
+%
+% spherical polar
+%
+\providecommand*{\sxpos}{\rho}   % x position in spherical polar coord.
+\providecommand*{\sypos}{\theta} % y position in spherical polar coord.
+\providecommand*{\szpos}{\phi}   % z position in spherical polar coord.
+
+% calculus
+%
+% derivatives
+%
+\providecommand*{\imd}[1]{\mathrm{d}_{#1}}     % indexed material derivative
+\providecommand*{\iod}[1]{\mathrm{d}_{#1}}     % indexed ordinary derivative
+\providecommand*{\ipd}[1]{\partial_{#1}}       % indexed partial derivative
+%
+\providecommand*{\xpd}[2]{\dfrac{\partial{#1}}{\partial{#2}}} % exp. partial
+%
+% special derivatives
+%
+\providecommand*{\dder}[1]{\tder_{1}} % directional derivative
+\providecommand*{\tder}{\nabla}       % tensor derivative
+%
+\providecommand*{\dder}[1]{{1}\iprod\tder} % expanded directional derivative
+\providecommand*{\xcurl}{\tder\cprod}      % expanded curl
+\providecommand*{\xdiv}{\tder\iprod}       % expanded divergence
+\providecommand*{\xgrad}{\tder}            % expanded gradient
+%
+\providecommand*{\slap}{\delta}            % symbolic Laplace's operator
+\providecommand*{\xlap}{\tder^2}           % expanded Laplace's operator
+\providecommand*{\xxlap}{\tder\iprod\tder} % expanded Laplace's operator
+%
+\providecommand*{\ctder}[1]{\tcov{\tder}{#1}} % covector tensor derivative
+\providecommand*{\vtder}[1]{\tvec{\tder}{#1}} % vector tensor derivative
+
+% scaling
+%
+\providecommand*{\omag}[1]{o\vat{#1}} % order-of-magnitude
+\providecommand*{\scales}{\propto}    % scales as

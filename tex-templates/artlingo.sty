@@ -8,7 +8,7 @@
 % copyright:     (c) 2017 rimbaudcode
 % category:      Text
 
-\ProvidesPackage{sty/artlingo}[2017/01/12 linguistic macros, rimbaudcode]
+\ProvidesPackage{sty/artlingo}[2017/02/24 linguistic macros, rimbaudcode]
 
 % linguistics
 %
@@ -21,7 +21,7 @@
 \providecommand*{\circa}{\lingform{ca.}}
 \providecommand*{\cf}{\lingform{cf.}}
 \providecommand*{\eg}{\lingform{e.g.}}
-\providecommand*{\etc}{\lingform{etc}}
+\providecommand*{\etc}{\lingform{\&c.}}
 \providecommand*{\ie}{\lingform{i.e.}}
 \providecommand*{\vs}{\lingform{vs.}}
 \providecommand*{\vicvers}{\lingform{vice versa}}
@@ -33,20 +33,14 @@
 %
 \providecommand*{\acro}[1]{\propersmallcaps{#1}}  % acronym
 \providecommand*{\brand}[1]{\propersmallcaps{#1}} % brand
-%
-\providecommand*{\code}[1]{\texttt{#1}} % computer code
-%
-\providecommand*{\Iff}{if and only if\xspace}
-\providecommand*{\mwlog}{without loss of generality\xspace}
-\providecommand*{\Mwlog}{Without loss of generality\xspace}
+\providecommand*{\code}[1]{\texttt{#1}}           % computer code
 
 % quotation marks
 %
 \providecommand*{\scare}[1]{\guillemotleft\,{#1}\,\guillemotright\xspace}
 
-% custom enviroments
+% custom environments
 %
-\newenvironment{highlight}{\begin{quoting}}{\end{quoting}}
 \newenvironment{law}{\begin{quoting}}{\end{quoting}}
 
 % horizontal line
