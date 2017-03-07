@@ -8,7 +8,7 @@
 % copyright:     (c) 2017 rimbaudcode
 % category:      Text
 
-\ProvidesPackage{sty/artmath}[2017/02/24 math macros, rimbaudcode]
+\ProvidesPackage{sty/artmath}[2017/03/06 math macros, rimbaudcode]
 
 % amsthm package
 %
@@ -22,9 +22,6 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{theorem}{Theorem}
 %
-% for physics
-\newtheorem{observation}{Observation}
-%
 \theorembodyfont{\small}
 %
 \newtheorem*{note}{Note}
@@ -35,6 +32,7 @@
 %
 % theorem/proof analysis
 %
+\theoremstyle{plain}
 \newtheorem*{tologic}{Statement logic form}
 \newtheorem*{tvanalysis}{Truth value analysis}
 \newtheorem*{mathematica}{Mathematica experiment}
@@ -43,35 +41,10 @@
 \newtheorem*{proofanalysis}{Proof analysis}
 \newtheorem*{proofform}{Proof form}
 \newtheorem*{sanity}{Sanity check}
-\newtheorem*{reflection}{Reflection}
+\newtheorem*{reflexion}{Reflexion}
 \newtheorem*{generalization}{Generalization}
 \newtheorem*{specialization}{Specialization}
 %
-\newtheorem*{analyticsol}{Analytic solution}
-\newtheorem*{approximation}{Approximation}
-\newtheorem*{argument}{Argument}
-\newtheorem*{bounds}{Bounds}
-\newtheorem*{construction}{Construction}
-\newtheorem*{dimensions}{Dimensional analysis}
-\newtheorem*{extension}{Extension}
-\newtheorem*{extremes}{Extreme cases}
-\newtheorem*{geometry}{Geometry}
-\newtheorem*{guess}{Guesstimation}
-\newtheorem*{interpretation}{Interpretation}
-\newtheorem*{manalysis}{Math analysis}
-\newtheorem*{model}{Model}
-\newtheorem*{process}{Process}
-\newtheorem*{reference}{Reference}
-\newtheorem*{refine}{Refinement}
-\newtheorem*{scaling}{Scaling}
-\newtheorem*{values}{Numeric values}
-%
-\newtheorem*{assuming}{Assume}
-\newtheorem*{deriving}{Derive}
-\newtheorem*{calculating}{Calculate}
-\newtheorem*{checking}{Check}
-%
-\theoremstyle{nonumberplain}
 \theoremheaderfont{\itshape}
 \theorembodyfont{\upshape}
 \theoremseparator{.}
@@ -89,12 +62,12 @@
 % various
 %
 \providecommand*{\abs}[1]{\mleft\lvert{#1}\mright\rvert} % absolute value
-\providecommand*{\defas}{\circeq}                        % defined as
+\providecommand*{\defas}{\equiv}                         % alt. \circeq
 \providecommand*{\inv}[1]{{#1}^{-1}}                     % inverse
 %
-\providecommand*{\bracks}[1]{\mleft[{#1}\mright]}       % brackets
-\providecommand*{\parens}[1]{\mleft({#1}\mright)}       % parentheses
-\providecommand*{\vat}[1]{\parens{#1}}                  % value of a function
+\providecommand*{\bracks}[1]{\mleft[{#1}\mright]} % brackets
+\providecommand*{\parens}[1]{\mleft({#1}\mright)} % parentheses
+\providecommand*{\vat}[1]{\parens{#1}}            % value of a function
 
 % text in math environments
 %

@@ -8,15 +8,66 @@
 % copyright:     (c) 2017 rimbaudcode
 % category:      Text
 
-\ProvidesPackage{sty/artphysics}[2017/02/24 physics macros, rimbaudcode]
+\ProvidesPackage{sty/artphysics}[2017/03/06 physics macros, rimbaudcode]
+
+% amsthm package
+%
+\theoremheaderfont{\normalfont\scshape}
+\theoremseparator{.}
+\theorembodyfont{\normalfont\itshape}
+%
+\newtheorem{assumption}{Assumption}
+\newtheorem{model}{Model}
+\newtheorem{observation}{Observation}
+%
+\theorembodyfont{\upshape}
+%
+\newtheorem{notation}{Notation}
+\newtheorem{scaling}{Scaling}
+\newtheorem{summary}{Summary}
+%
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\scshape}
+\theoremseparator{.}
+\theorembodyfont{\small}
+%
+\newtheorem*{analyticsol}{Analytic solution}
+\newtheorem*{approximation}{Approximation}
+\newtheorem*{bounds}{Bounds}
+\newtheorem*{construction}{Construction}
+\newtheorem*{dimensions}{Dimensional analysis}
+\newtheorem*{extension}{Extension}
+\newtheorem*{extremes}{Extreme cases}
+\newtheorem*{geometry}{Geometry}
+\newtheorem*{guess}{Guesstimation}
+\newtheorem*{manalysis}{Math analysis}
+\newtheorem*{process}{Process}
+\newtheorem*{reference}{Reference}
+\newtheorem*{refine}{Refinement}
+\newtheorem*{values}{Numeric values}
+%
+\newtheorem*{assuming}{Assume}
+\newtheorem*{deriving}{Derive}
+\newtheorem*{calculating}{Calculate}
+\newtheorem*{checking}{Check}
+%
+\theoremheaderfont{\itshape}
+\theorembodyfont{\upshape}
+\theoremsymbol{\ensuremath{\square}}
+%
+\newtheorem*{argument}{Argument}
+\newtheorem*{derivation}{Derivation}
+\newtheorem*{interpretation}{Interpretation}
 
 % baby geometry
 %
+\providecommand*{\area}{a}   % area
 \providecommand*{\depth}{h}  % depth
 \providecommand*{\height}{h} % height
 \providecommand*{\length}{l} % length
 \providecommand*{\radius}{r} % radius
 \providecommand*{\thick}{t}  % thickness
+\providecommand*{\vol}{v}    % volume
 \providecommand*{\width}{w}  % width
 
 % misner notation for special tensors
@@ -140,21 +191,31 @@
 %
 % derivatives
 %
-\providecommand*{\imd}[1]{\mathrm{d}_{#1}}     % indexed material derivative
-\providecommand*{\iod}[1]{\mathrm{d}_{#1}}     % indexed ordinary derivative
-\providecommand*{\ipd}[1]{\partial_{#1}}       % indexed partial derivative
+\providecommand*{\dx}{\mathrm{d}}          % differential
+\providecommand*{\iod}[1]{\mathrm{d}_{#1}} % indexed ordinary derivative
+\providecommand*{\ipd}[1]{\partial_{#1}}   % indexed partial derivative
 %
-\providecommand*{\xpd}[2]{\dfrac{\partial{#1}}{\partial{#2}}} % exp. partial
+% expanded derivatives
+%
+\providecommand*{\xod}[2]{\dfrac{\mathrm{d}{#1}}{\mathrm{d}{#2}}} % ord
+\providecommand*{\xpd}[2]{\dfrac{\partial{#1}}{\partial{#2}}}     % partial
 %
 % special derivatives
 %
-\providecommand*{\dder}[1]{\tder_{1}} % directional derivative
-\providecommand*{\tder}{\nabla}       % tensor derivative
+\providecommand*{\dder}[1]{\tder_{#1}}      % directional derivative
+\providecommand*{\mder}[1]{\mathrm{D}_{#1}} % indexed material derivative
+\providecommand*{\tder}{\nabla}             % tensor derivative
 %
-\providecommand*{\dder}[1]{{1}\iprod\tder} % expanded directional derivative
-\providecommand*{\xcurl}{\tder\cprod}      % expanded curl
-\providecommand*{\xdiv}{\tder\iprod}       % expanded divergence
-\providecommand*{\xgrad}{\tder}            % expanded gradient
+\providecommand*{\xdder}[1]{{#1}\iprod\tder} % expanded dir. derivative
+\providecommand*{\xcurl}{\tder\cprod}        % expanded curl
+\providecommand*{\xdiv}{\tder\iprod}         % expanded divergence
+\providecommand*{\xgrad}{\tder}              % expanded gradient
+%
+% expanded material derivative
+\providecommand*{\xmder}[2]{\dfrac{\mathrm{D}{#1}}{\mathrm{D}{#2}}} %
+%
+% indexed material derivative
+\providecommand*{\imder}{\mathrm{D}} %
 %
 \providecommand*{\slap}{\delta}            % symbolic Laplace's operator
 \providecommand*{\xlap}{\tder^2}           % expanded Laplace's operator
@@ -167,3 +228,55 @@
 %
 \providecommand*{\omag}[1]{o\vat{#1}} % order-of-magnitude
 \providecommand*{\scales}{\propto}    % scales as
+
+% dimensional analysis
+%
+\providecommand*{\diminv}[1]{\overline{#1}} % dimensionless inverse
+\providecommand*{\dq}[1]{\tilde{#1}}        % dim. physical quantity
+\providecommand*{\kdim}{\Pi}                % dimensionless quantity
+\providecommand*{\phdim}[1]{\si{#1}}        % physical dimension
+\providecommand*{\sdder}[1]{\tder^*_{#1}}   % scaled dir. derivative
+%
+\DeclareMathOperator{\kdarcy}{Da}    % Darcy's number
+\DeclareMathOperator{\kfroude}{Fr}   % Froude's number
+\DeclareMathOperator{\kmach}{Ma}     % Mach's number
+\DeclareMathOperator{\krdarcy}{Da^*} % reduced Darcy's number
+\DeclareMathOperator{\kreynolds}{Re} % Reynolds' number
+\DeclareMathOperator{\kvolratio}{Vr} % volumetric ratio
+
+% flow through porous media
+%
+\providecommand*{\change}{\Delta} % change
+\providecommand*{\darcy}{q}       % Darcy's volumetric flux
+\providecommand*{\dens}{\rho}     % density
+\providecommand*{\fdarcy}{Q}      % Darcy's volumetric flow
+\providecommand*{\grav}{g}        % free-fall acceleration
+\providecommand*{\kdvisc}{\mu}    % dynamic viscosity
+\providecommand*{\kkvisc}{\nu}    % kinematic viscosity
+\providecommand*{\permea}{k}      % permeability
+\providecommand*{\poros}{\phi}    % porosity
+\providecommand*{\press}{p}       % pressure
+\providecommand*{\spvol}{\eta}    % specific volume
+\providecommand*{\vel}{u}         % velocity
+\providecommand*{\shear}{\tau}    % shear stress
+\providecommand*{\stress}{\sigma} % Cauchy stress
+%
+\providecommand*{\vvol}{\vol_{\text{v}}} % void volume
+\providecommand*{\wvol}{\vol_{\text{w}}} % water volume
+%
+\providecommand*{\wcont}{\theta}           % water content (moisture)
+\providecommand*{\wdens}{\dens_{\text{w}}} % water mass density
+\providecommand*{\wfrac}{f_{\text{w}}}     % water fraction
+\providecommand*{\wsat}{s_\text{w}}        % water saturation
+\providecommand*{\wvel}{\vel_\text{w}}     % water velocity
+%
+\providecommand*{\vflow}{Q}             % volumetric flow
+\providecommand*{\wvflow}{Q_{\text{w}}} % water volumetric flow
+%
+\providecommand*{\fvol}{\vol_{\text{f}}} % fluid volume
+\providecommand*{\fcont}{\theta}         % fluid volumetric content
+\providecommand*{\ffrac}{f}              % fluid volumetric flow fraction
+\providecommand*{\fsat}{s}               % fluid volumetric saturation
+%
+\providecommand*{\dsurf}{\dx S} % differential surface (conservation laws)
+\providecommand*{\dvol}{\dx V}  % differential volume (conservation laws)
