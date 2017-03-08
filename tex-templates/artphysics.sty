@@ -15,6 +15,7 @@
 \theoremheaderfont{\normalfont\scshape}
 \theoremseparator{.}
 \theorembodyfont{\normalfont\itshape}
+\theoremsymbol{}
 %
 \newtheorem{assumption}{Assumption}
 \newtheorem{model}{Model}
@@ -223,6 +224,12 @@
 %
 \providecommand*{\ctder}[1]{\tcov{\tder}{#1}} % covector tensor derivative
 \providecommand*{\vtder}[1]{\tvec{\tder}{#1}} % vector tensor derivative
+%
+% material diffusive derivative
+% {#1} -> velocity
+% {#2} -> diffusivity
+\providecommand*{\mdder}[2]{\triangle_{#1}^{#2}}        % transient
+\providecommand*{\smdder}[2]{\overline{\mdder{#1}{#2}}} % steady state
 
 % scaling
 %
@@ -260,6 +267,7 @@
 \providecommand*{\vel}{u}         % velocity
 \providecommand*{\shear}{\tau}    % shear stress
 \providecommand*{\stress}{\sigma} % Cauchy stress
+\providecommand*{\mob}{\lambda}   % phase mobility
 %
 \providecommand*{\vvol}{\vol_{\text{v}}} % void volume
 \providecommand*{\wvol}{\vol_{\text{w}}} % water volume
@@ -280,3 +288,32 @@
 %
 \providecommand*{\dsurf}{\dx S} % differential surface (conservation laws)
 \providecommand*{\dvol}{\dx V}  % differential volume (conservation laws)
+%
+\providecommand*{\odarcy}{\darcy_{\text{o}}}     % darcy's flux (oil)
+\providecommand*{\odens}{\dens_{\text{o}}}       % mass density (oil)
+\providecommand*{\ofdarcy}{\fdarcy_{\text{o}}}   % darcy's flow (oil)
+\providecommand*{\okdvisc}{\kdvisc_{\text{o}}}   % dyn. viscosity (oil)
+\providecommand*{\omob}{\mob_{\text{o}}}         % phase mobility (oil)
+\providecommand*{\opress}{\press_{\text{o}}}     % pore pressure (oil)
+\providecommand*{\orpermea}{\permea_{\text{ro}}} % relative permea (oil)
+\providecommand*{\wdarcy}{\darcy_{\text{w}}}     % darcy's flux (water)
+\providecommand*{\wdens}{\dens_{\text{w}}}       % mass density (water)
+\providecommand*{\wfdarcy}{\fdarcy_{\text{w}}}   % darcy's flow (water)
+\providecommand*{\wkdvisc}{\kdvisc_{\text{w}}}   % dyn. viscosity (water)
+\providecommand*{\wmob}{\mob_{\text{w}}}         % phase mobility (water)
+\providecommand*{\wpress}{\press_{\text{w}}}     % pore pressure (water)
+\providecommand*{\wrpermea}{\permea_{\text{rw}}} % relative permea (water)
+%
+% multiphase flow through porous media
+\providecommand*{\idarcy}{\darcy_{i}}    % darcy's flux
+\providecommand*{\idens}{\dens_{i}}      % mass density
+\providecommand*{\ifdarcy}{\fdarcy_{i}}  % darcy's flow
+\providecommand*{\ikdvisc}{\kdvisc_{i}}  % dyn. viscosity
+\providecommand*{\imob}{\mob_{i}}        % phase mobility
+\providecommand*{\ipress}{\press_{i}}    % pore pressure
+\providecommand*{\irpermea}{\permea_{i}} % relative permeability
+
+% transport
+%
+\providecommand*{\kthdiff}{\alpha} % coefficient of thermal diffusivity
+\providecommand*{\temp}{\theta}    % temperature
