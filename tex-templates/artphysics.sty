@@ -163,7 +163,7 @@
 %
 \providecommand*{\tbcov}[1]{\tensor{\bcov}{^{#1}}}             % basis covectors
 \providecommand*{\tbvec}[1]{\tensor{\bvec}{_{#1}}}             % basis vectors
-\providecommand*{\tchris}[3]{\tensor{\chris}{^{#1}_{#2}_{#3}}} % chris. symbol
+\providecommand*{\tchris}[3]{\tensor{\chris}{^{#1}_{#2}_{#3}}} % christoffel symbol
 %
 % coordinate systems
 %
@@ -228,8 +228,11 @@
 % material diffusive derivative
 % {#1} -> velocity
 % {#2} -> diffusivity
-\providecommand*{\mdder}[2]{\triangle_{#1}^{#2}}        % transient
-\providecommand*{\smdder}[2]{\overline{\mdder{#1}{#2}}} % steady state
+\providecommand*{\cdder}[2]{\triangle_{#1}^{#2}\,}       % transient
+\providecommand*{\scdder}[2]{\underline{\cdder{#1}{#2}}} % steady state
+%
+% null material derivative (mnemonic: steady-steady state)
+\providecommand*{\sscdder}[2]{\underline{\scdder{#1}{#2}}} % sscdder
 
 % scaling
 %
@@ -251,15 +254,17 @@
 \DeclareMathOperator{\kreynolds}{Re} % Reynolds' number
 \DeclareMathOperator{\kvolratio}{Vr} % volumetric ratio
 
-% fluid mechanics
+% flow through porous media
 %
-\providecommand*{\dsurf}{\dx S} % differential surface (conservation laws)
-\providecommand*{\dvol}{\dx V}  % differential volume (conservation laws)
-%
+\providecommand*{\change}{\Delta} % change
+\providecommand*{\darcy}{q}       % Darcy's volumetric flux
 \providecommand*{\dens}{\rho}     % density
+\providecommand*{\fdarcy}{Q}      % Darcy's volumetric flow
 \providecommand*{\grav}{g}        % free-fall acceleration
 \providecommand*{\kdvisc}{\mu}    % dynamic viscosity
 \providecommand*{\kkvisc}{\nu}    % kinematic viscosity
+\providecommand*{\permea}{k}      % permeability
+\providecommand*{\poros}{\phi}    % porosity
 \providecommand*{\press}{p}       % pressure
 \providecommand*{\spvol}{\eta}    % specific volume
 \providecommand*{\vel}{u}         % velocity
@@ -267,22 +272,42 @@
 \providecommand*{\stress}{\sigma} % Cauchy stress
 \providecommand*{\mob}{\lambda}   % phase mobility
 %
-% flow through permeable media
-%
-\providecommand*{\permea}{k}   % permeability
-\providecommand*{\poros}{\phi} % porosity
-%
 \providecommand*{\vvol}{\vol_{\text{v}}} % void volume
 \providecommand*{\wvol}{\vol_{\text{w}}} % water volume
 %
-\providecommand*{\fcont}{\theta}           % fluid content (water: moisture)
+\providecommand*{\wcont}{\theta}           % water content (moisture)
+\providecommand*{\wdens}{\dens_{\text{w}}} % water mass density
+\providecommand*{\wfrac}{f_{\text{w}}}     % water fraction
+\providecommand*{\wsat}{s_\text{w}}        % water saturation
+\providecommand*{\wvel}{\vel_\text{w}}     % water velocity
+%
+\providecommand*{\vflow}{Q}             % volumetric flow
+\providecommand*{\wvflow}{Q_{\text{w}}} % water volumetric flow
+%
 \providecommand*{\fvol}{\vol_{\text{f}}} % fluid volume
 \providecommand*{\fcont}{\theta}         % fluid volumetric content
 \providecommand*{\ffrac}{f}              % fluid volumetric flow fraction
 \providecommand*{\fsat}{s}               % fluid volumetric saturation
 %
-% multiphase flow through porous media
+\providecommand*{\dsurf}{\dx S} % differential surface (conservation laws)
+\providecommand*{\dvol}{\dx V}  % differential volume (conservation laws)
 %
+\providecommand*{\odarcy}{\darcy_{\text{o}}}     % darcy's flux (oil)
+\providecommand*{\odens}{\dens_{\text{o}}}       % mass density (oil)
+\providecommand*{\ofdarcy}{\fdarcy_{\text{o}}}   % darcy's flow (oil)
+\providecommand*{\okdvisc}{\kdvisc_{\text{o}}}   % dyn. viscosity (oil)
+\providecommand*{\omob}{\mob_{\text{o}}}         % phase mobility (oil)
+\providecommand*{\opress}{\press_{\text{o}}}     % pore pressure (oil)
+\providecommand*{\orpermea}{\permea_{\text{ro}}} % relative permea (oil)
+\providecommand*{\wdarcy}{\darcy_{\text{w}}}     % darcy's flux (water)
+\providecommand*{\wdens}{\dens_{\text{w}}}       % mass density (water)
+\providecommand*{\wfdarcy}{\fdarcy_{\text{w}}}   % darcy's flow (water)
+\providecommand*{\wkdvisc}{\kdvisc_{\text{w}}}   % dyn. viscosity (water)
+\providecommand*{\wmob}{\mob_{\text{w}}}         % phase mobility (water)
+\providecommand*{\wpress}{\press_{\text{w}}}     % pore pressure (water)
+\providecommand*{\wrpermea}{\permea_{\text{rw}}} % relative permea (water)
+%
+% multiphase flow through porous media
 \providecommand*{\idarcy}{\darcy_{i}}    % darcy's flux
 \providecommand*{\idens}{\dens_{i}}      % mass density
 \providecommand*{\ifdarcy}{\fdarcy_{i}}  % darcy's flow
@@ -290,8 +315,9 @@
 \providecommand*{\imob}{\mob_{i}}        % phase mobility
 \providecommand*{\ipress}{\press_{i}}    % pore pressure
 \providecommand*{\irpermea}{\permea_{i}} % relative permeability
+\providecommand*{\ivel}{\vel_{i}}        % pore velocity
 
-% energy transport
+% transport
 %
 \providecommand*{\kthdiff}{\alpha} % coefficient of thermal diffusivity
 \providecommand*{\temp}{\theta}    % temperature
