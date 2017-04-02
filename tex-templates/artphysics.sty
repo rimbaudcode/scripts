@@ -8,13 +8,16 @@
 % copyright:     (c) 2017 rimbaudcode
 % category:      Text
 
-\ProvidesPackage{sty/artphysics}[2017/03/06 physics macros, rimbaudcode]
+\ProvidesPackage{sty/artphysics}
+                [02/04/2017 physics macros, rimbaudcode]
 
 % amsthm package
 %
 \theoremheaderfont{\normalfont\scshape}
 \theoremseparator{.}
-\theorembodyfont{\normalfont\itshape}
+\theorembodyfont{
+  \normalfont\itshape%
+}
 \theoremsymbol{}
 %
 \newtheorem{assumption}{Assumption}
@@ -52,7 +55,9 @@
 \newtheorem*{calculating}{Calculate}
 \newtheorem*{checking}{Check}
 %
-\theoremheaderfont{\itshape}
+\theoremheaderfont{
+  \itshape%
+}
 \theorembodyfont{\upshape}
 \theoremsymbol{\ensuremath{\square}}
 %
@@ -60,32 +65,11 @@
 \newtheorem*{derivation}{Derivation}
 \newtheorem*{interpretation}{Interpretation}
 
-% baby geometry
-%
-\providecommand*{\area}{a}   % area
-\providecommand*{\depth}{h}  % depth
-\providecommand*{\height}{h} % height
-\providecommand*{\length}{l} % length
-\providecommand*{\radius}{r} % radius
-\providecommand*{\thick}{t}  % thickness
-\providecommand*{\vol}{v}    % volume
-\providecommand*{\width}{w}  % width
-
-% misner notation for special tensors
-%
-\providecommand*{\mtens}[1]{\textit{\textsf{#1}}} % new (mine) misner style
-%
-\providecommand*{\meinstein}{\mtens{einstein}} % misner einstein
-\providecommand*{\minvmet}{\mtens{g}^{-1}}     % misner inverse metric
-\providecommand*{\mmetric}{\mtens{g}}          % misner metric
-\providecommand*{\mricci}{\mtens{ricci}}       % misner ricci
-\providecommand*{\mriemann}{\mtens{riemann}}   % misner riemann
-
 % diagrammatic tensors
 %
-% boxed tensor
+% boxed tensor (no scalars)
 %
-\providecommand*{\bxtensor}[1]{
+\providecommand*{\bxtens}[1]{
   \begin{tikzpicture}[baseline=(char.base)]
     \node[draw,inner sep=2pt](char) {$#1$};
   \end{tikzpicture}
@@ -93,39 +77,32 @@
 %
 % circled tensor
 %
-\providecommand*{\citensor}[1]{
+\providecommand*{\cirtens}[1]{
   \begin{tikzpicture}[baseline=(char.base)]
     \node[draw,circle,inner sep=2pt](char) {$#1$};
   \end{tikzpicture}
 }
 
-% (coordinate-free) geometric objects
-%
-\providecommand*{\point}[1]{\mathcal{#1}} % point in a manifold
-\providecommand*{\pos}{x}                 % point position
-%
 % regions
 %
-\providecommand*{\oregion}[1]{\region{#1}^{{}\circ{}}} % open regions in space
-\providecommand*{\region}[1]{\set{#1}}                 % regions in space
-\providecommand*{\sbound}{\partial}                    % set boundary
-\providecommand*{\sopen}[1]{{#1}^{\circ}}              % open set (set open)
-%
+\providecommand*{\bregion}{\partial}        % boundary
+\providecommand*{\oregion}[1]{{#1}^{\circ}} % open set (set open)
+
 % metric and co.
 %
-\providecommand*{\chris}{\Gamma}             % Christoffel symbol
-\providecommand*{\invmet}{\inverse{\metric}} % inverse metric
-\providecommand*{\kron}{\delta}              % Kronecker's delta
-\providecommand*{\levicivi}{\epsilon}        % levi-civita (symbol)
-\providecommand*{\metric}{g}                 % metric
+\providecommand*{\chris}{\Gamma}          % Christoffel's symbol
+\providecommand*{\imetric}{\metric^{*}  } % inverse metric
+\providecommand*{\kron}{\delta}           % Kronecker's delta
+\providecommand*{\levicivi}{\epsilon}     % levi-civita (symbol)
+\providecommand*{\metric}{g}              % metric
 
 % tensors
 %
-% slots
+% slots (covector, empty, vector)
 %
-\providecommand*{\cslot}{{\scriptstyle{}\sim{}}}        % covector slot
-\providecommand*{\eslot}{{\scriptstyle{}\cdot{}}}       % empty slot
-\providecommand*{\vslot}{{\scriptstyle{}\rightarrow{}}} % vector slot
+\providecommand*{\cslot}{{\scriptstyle{}\sim{}}}        %
+\providecommand*{\eslot}{{\scriptstyle{}\_}}            %
+\providecommand*{\vslot}{{\scriptstyle{}\rightarrow{}}} %
 %
 % products
 %
@@ -136,35 +113,90 @@
 %
 % operators
 %
-\let\div\idiv
+% in words
+%
+\let\div\idiv%
+\DeclareMathOperator{\vcurl}{curl} % vector curl
+\DeclareMathOperator{\vdiv}{div}   % vector divergence
+\DeclareMathOperator{\vgrad}{grad} % vector gradient
+\DeclareMathOperator{\vlap}{lap}   % vector Laplacian
+%
 \DeclareMathOperator{\cont}{cont} % contraction
-\DeclareMathOperator{\curl}{curl} % curl
-\DeclareMathOperator{\div}{div}   % divergence
-\DeclareMathOperator{\grad}{grad} % gradient
-\DeclareMathOperator{\lap}{lap}   % Laplacian
+\DeclareMathOperator{\trace}{tr}  % trace
+%
+% operators with decoration
+%
+\providecommand*{\adt}[1]{\dot{\overline{#1}}}      % abs. deriv.
+\providecommand*{\cder}[2]{{#1}|_{#2}}              % cov. deriv.
+\providecommand*{\ddt}[1]{\ddot{#1}}                % time, time deriv.
+\providecommand*{\dt}[1]{\dot{#1}}                  % time deriv.
+\providecommand*{\grad}[1]{\overline{#1}}           % gradient
+\providecommand*{\lap}[1]{\overline{\overline{#1}}} % Laplace's
+%
+% * musical isomorphisms
+%
+\providecommand*{\fvec}[1]{{#1}^{\flat}}  % flat vector
+\providecommand*{\scov}[1]{{#1}^{\sharp}} % sharp covec.
+%
+% without decoration
+%
+\providecommand*{\oadt}[1]{\mathrm{D}_{#1}} % abs. deriv.
+\providecommand*{\ocder}[1]{\ograd_{#1}}    % cov. deriv.
+\providecommand*{\ocurl}{\ograd\cprod}      % divergence
+\providecommand*{\odiv}{\ograd\iprod}       % divergence
+\providecommand*{\ograd}{\nabla}            % gradient
+\providecommand*{\olap}{\Delta}             % Laplace's
+%
+% * musical isomorphisms
+%
+\providecommand*{\ofvec}{\flat}  % flat vector
+\providecommand*{\oscov}{\sharp} % sharp covec.
 %
 % basis
 %
-\providecommand*{\belem}{e}                  % basis element
-\providecommand*{\bset}[3]{\seq{#1}{#2}{#3}} % basis set
-%
+\providecommand*{\belem}{e}             % basis element
 \providecommand*{\bcov}{\tilde{\belem}} % basis covector
 \providecommand*{\bvec}{\belem}         % basis vector
 
+% bra-ket notation
+%
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{
+  {#1}\delimsize\vert{#2}
+}
+\DeclarePairedDelimiterX\ketbra[2]{
+  \vert}{\vert}{{#1}\delimsize\rangle\delimsize\langle{#2}
+}
+
 % index-notation
 %
-\providecommand*{\tcov}[2]{\tensor{#1}{_{#2}}} % covector components
-\providecommand*{\tvec}[2]{\tensor{#1}{^{#2}}} % vector components
+\providecommand*{\tcov}[2]{\tensor{#1}{_{#2}}} % covector
+\providecommand*{\tvec}[2]{\tensor{#1}{^{#2}}} % vector
 %
-\providecommand*{\tinvmet}[2]{\tensor{\metric}{^{#1}^{#2}}}          % inverse metric components
-\providecommand*{\tkron}[2]{\tensor{\kron}{^{#1}_{#2}}}              % Kronecker's delta components
-\providecommand*{\tlevicivi}[3]{\tensor{\levicivi}{_{#1}_{#2}_{#3}}} % levi-civita components
-\providecommand*{\tmetric}[2]{\tensor{\metric}{_{#1}_{#2}}}          % metric components
+% inverse metric
+\providecommand*{\timetric}[2]{\tensor{\metric}{^{#1}^{#2}}}         %
+% Kronecker's delta
+\providecommand*{\tkron}[2]{\tensor{\kron}{^{#1}_{#2}}}              %
+% Levi-Civita
+\providecommand*{\tlevicivi}[3]{\tensor{\levicivi}{_{#1}_{#2}_{#3}}} %
+% metric
+\providecommand*{\tmetric}[2]{\tensor{\metric}{_{#1}_{#2}}}          %
 %
-\providecommand*{\tbcov}[1]{\tensor{\bcov}{^{#1}}}             % basis covectors
-\providecommand*{\tbvec}[1]{\tensor{\bvec}{_{#1}}}             % basis vectors
-\providecommand*{\tchris}[3]{\tensor{\chris}{^{#1}_{#2}_{#3}}} % christoffel symbol
+% basis
 %
+\providecommand*{\tbcov}[1]{\tensor{\bvec}{^{#1}}}             % covectors
+\providecommand*{\tbvec}[1]{\tensor{\bvec}{_{#1}}}             % vectors
+\providecommand*{\tchris}[3]{\tensor{\chris}{^{#1}_{#2}_{#3}}} % Chris
+%
+% derivatives
+%
+\providecommand*{\cpd}[1]{\tensor{\partial}{_{#1}}} % covector partial
+\providecommand*{\vpd}[1]{\tensor{\partial}{^{#1}}} % vector partial
+%
+% Feynman notation
+\providecommand*{\slashed}{\cancel} % covectors
+
 % coordinate systems
 %
 \providecommand*{\coordbas}[3]{\seq{#1}{#2}{#3}} % coordinate basis
@@ -188,57 +220,6 @@
 \providecommand*{\sypos}{\theta} % y position in spherical polar coord.
 \providecommand*{\szpos}{\phi}   % z position in spherical polar coord.
 
-% calculus
-%
-% derivatives
-%
-\providecommand*{\dx}{\mathrm{d}}          % differential
-\providecommand*{\iod}[1]{\mathrm{d}_{#1}} % indexed ordinary derivative
-\providecommand*{\ipd}[1]{\partial_{#1}}   % indexed partial derivative
-%
-% expanded derivatives
-%
-\providecommand*{\xod}[2]{\dfrac{\mathrm{d}{#1}}{\mathrm{d}{#2}}} % ord
-\providecommand*{\xpd}[2]{\dfrac{\partial{#1}}{\partial{#2}}}     % partial
-%
-% special derivatives
-%
-\providecommand*{\dder}[1]{\tder_{#1}}      % directional derivative
-\providecommand*{\mder}[1]{\mathrm{D}_{#1}} % indexed material derivative
-\providecommand*{\tder}{\nabla}             % tensor derivative
-%
-\providecommand*{\xdder}[1]{{#1}\iprod\tder} % expanded dir. derivative
-\providecommand*{\xcurl}{\tder\cprod}        % expanded curl
-\providecommand*{\xdiv}{\tder\iprod}         % expanded divergence
-\providecommand*{\xgrad}{\tder}              % expanded gradient
-%
-% expanded material derivative
-\providecommand*{\xmder}[2]{\dfrac{\mathrm{D}{#1}}{\mathrm{D}{#2}}} %
-%
-% indexed material derivative
-\providecommand*{\imder}{\mathrm{D}} %
-%
-\providecommand*{\slap}{\delta}            % symbolic Laplace's operator
-\providecommand*{\xlap}{\tder^2}           % expanded Laplace's operator
-\providecommand*{\xxlap}{\tder\iprod\tder} % expanded Laplace's operator
-%
-\providecommand*{\ctder}[1]{\tcov{\tder}{#1}} % covector tensor derivative
-\providecommand*{\vtder}[1]{\tvec{\tder}{#1}} % vector tensor derivative
-%
-% material diffusive derivative
-% {#1} -> velocity
-% {#2} -> diffusivity
-\providecommand*{\cdder}[2]{\triangle_{#1}^{#2}\,}       % transient
-\providecommand*{\scdder}[2]{\underline{\cdder{#1}{#2}}} % steady state
-%
-% null material derivative (mnemonic: steady-steady state)
-\providecommand*{\sscdder}[2]{\underline{\scdder{#1}{#2}}} % sscdder
-
-% scaling
-%
-\providecommand*{\omag}[1]{o\vat{#1}} % order-of-magnitude
-\providecommand*{\scales}{\propto}    % scales as
-
 % dimensional analysis
 %
 \providecommand*{\diminv}[1]{\overline{#1}} % dimensionless inverse
@@ -248,76 +229,50 @@
 \providecommand*{\sdder}[1]{\tder^*_{#1}}   % scaled dir. derivative
 %
 \DeclareMathOperator{\kdarcy}{Da}    % Darcy's number
+\DeclareMathOperator{\keuler}{Eu}    % Euler's number
 \DeclareMathOperator{\kfroude}{Fr}   % Froude's number
 \DeclareMathOperator{\kmach}{Ma}     % Mach's number
-\DeclareMathOperator{\krdarcy}{Da^*} % reduced Darcy's number
 \DeclareMathOperator{\kreynolds}{Re} % Reynolds' number
-\DeclareMathOperator{\kvolratio}{Vr} % volumetric ratio
+%
+% scaling
+%
+\providecommand*{\omag}[1]{o\vat{#1}} % order-of-magnitude
+\providecommand*{\scales}{\propto}    % scales as
 
-% flow through porous media
+% geometry
 %
-\providecommand*{\change}{\Delta} % change
-\providecommand*{\darcy}{q}       % Darcy's volumetric flux
-\providecommand*{\dens}{\rho}     % density
-\providecommand*{\fdarcy}{Q}      % Darcy's volumetric flow
-\providecommand*{\grav}{g}        % free-fall acceleration
-\providecommand*{\kdvisc}{\mu}    % dynamic viscosity
-\providecommand*{\kkvisc}{\nu}    % kinematic viscosity
-\providecommand*{\permea}{k}      % permeability
-\providecommand*{\poros}{\phi}    % porosity
-\providecommand*{\press}{p}       % pressure
-\providecommand*{\spvol}{\eta}    % specific volume
-\providecommand*{\vel}{u}         % velocity
-\providecommand*{\shear}{\tau}    % shear stress
-\providecommand*{\stress}{\sigma} % Cauchy stress
-\providecommand*{\mob}{\lambda}   % phase mobility
-%
-\providecommand*{\vvol}{\vol_{\text{v}}} % void volume
-\providecommand*{\wvol}{\vol_{\text{w}}} % water volume
-%
-\providecommand*{\wcont}{\theta}           % water content (moisture)
-\providecommand*{\wdens}{\dens_{\text{w}}} % water mass density
-\providecommand*{\wfrac}{f_{\text{w}}}     % water fraction
-\providecommand*{\wsat}{s_\text{w}}        % water saturation
-\providecommand*{\wvel}{\vel_\text{w}}     % water velocity
-%
-\providecommand*{\vflow}{Q}             % volumetric flow
-\providecommand*{\wvflow}{Q_{\text{w}}} % water volumetric flow
-%
-\providecommand*{\fvol}{\vol_{\text{f}}} % fluid volume
-\providecommand*{\fcont}{\theta}         % fluid volumetric content
-\providecommand*{\ffrac}{f}              % fluid volumetric flow fraction
-\providecommand*{\fsat}{s}               % fluid volumetric saturation
+\providecommand*{\area}{a}   % area
+\providecommand*{\depth}{h}  % depth
+\providecommand*{\height}{h} % height
+\providecommand*{\length}{l} % length
+\providecommand*{\radius}{r} % radius
+\providecommand*{\thick}{t}  % thickness
+\providecommand*{\vol}{v}    % volume
+\providecommand*{\width}{w}  % width
 %
 \providecommand*{\dsurf}{\dx S} % differential surface (conservation laws)
 \providecommand*{\dvol}{\dx V}  % differential volume (conservation laws)
+
+% mechanics
 %
-\providecommand*{\odarcy}{\darcy_{\text{o}}}     % darcy's flux (oil)
-\providecommand*{\odens}{\dens_{\text{o}}}       % mass density (oil)
-\providecommand*{\ofdarcy}{\fdarcy_{\text{o}}}   % darcy's flow (oil)
-\providecommand*{\okdvisc}{\kdvisc_{\text{o}}}   % dyn. viscosity (oil)
-\providecommand*{\omob}{\mob_{\text{o}}}         % phase mobility (oil)
-\providecommand*{\opress}{\press_{\text{o}}}     % pore pressure (oil)
-\providecommand*{\orpermea}{\permea_{\text{ro}}} % relative permea (oil)
-\providecommand*{\wdarcy}{\darcy_{\text{w}}}     % darcy's flux (water)
-\providecommand*{\wdens}{\dens_{\text{w}}}       % mass density (water)
-\providecommand*{\wfdarcy}{\fdarcy_{\text{w}}}   % darcy's flow (water)
-\providecommand*{\wkdvisc}{\kdvisc_{\text{w}}}   % dyn. viscosity (water)
-\providecommand*{\wmob}{\mob_{\text{w}}}         % phase mobility (water)
-\providecommand*{\wpress}{\press_{\text{w}}}     % pore pressure (water)
-\providecommand*{\wrpermea}{\permea_{\text{rw}}} % relative permea (water)
+\providecommand*{\acc}{a}     % acceleration
+\providecommand*{\dens}{\rho} % density
+\providecommand*{\force}{f}   % force
+\providecommand*{\grav}{g}    % free-fall acceleration
+\providecommand*{\mass}{m}    % mass
+\providecommand*{\mom}{p}     % momentum
+\providecommand*{\pos}{x}     % position
+\providecommand*{\vel}{u}     % velocity
+
+% fluid mechanics
 %
-% multiphase flow through porous media
-\providecommand*{\idarcy}{\darcy_{i}}    % darcy's flux
-\providecommand*{\idens}{\dens_{i}}      % mass density
-\providecommand*{\ifdarcy}{\fdarcy_{i}}  % darcy's flow
-\providecommand*{\ikdvisc}{\kdvisc_{i}}  % dyn. viscosity
-\providecommand*{\imob}{\mob_{i}}        % phase mobility
-\providecommand*{\ipress}{\press_{i}}    % pore pressure
-\providecommand*{\irpermea}{\permea_{i}} % relative permeability
-\providecommand*{\ivel}{\vel_{i}}        % pore velocity
+\providecommand*{\kdvisc}{\mu}    % dynamic viscosity
+\providecommand*{\kkvisc}{\nu}    % kinematic viscosity
+\providecommand*{\press}{p}       % pressure
+\providecommand*{\spvol}{\eta}    % specific volume
 
 % transport
 %
-\providecommand*{\kthdiff}{\alpha} % coefficient of thermal diffusivity
-\providecommand*{\temp}{\theta}    % temperature
+\providecommand*{\flux}{f}      % flux
+\providecommand*{\temp}{\theta} % temperature
+\providecommand*{\ssink}{s}     % sources, sinks

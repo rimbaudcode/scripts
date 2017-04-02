@@ -1,5 +1,145 @@
 
-\section{Placeholder text}
-\label{sec:placeholder-text}
+\section{Newton's second law of motion}
+\label{sec:newton-second-law-motion}
+
+Write Newton's second law of motion in various notations.~\cite{misner1973}
+
+In \lingo{slot notation}:
 %
-Some placeholder text~\cite{misner1973}.
+\begin{equation*}
+  \force = \adt\mom
+  = \mass\fvec{\adt\vel}
+  = \mass\fvec\acc
+  = \mass\metric\vat{\eslot,\acc}\,.
+\end{equation*}
+%
+In \lingo{braket notation} (\aka\ Dirac notation):
+%
+\begin{equation*}
+  \bra\force = \mass\bra{\mass\acc}\metric\,.
+\end{equation*}
+%
+In index notation with \lingo{Einstein summation convention}, \acro{esc}:
+%
+\begin{equation*}
+  \tcov\force i\tbcov i = \mass\tmetric ij\tvec\acc j\tbcov i\,.
+\end{equation*}
+%
+In \lingo{Feynman slash notation}, \acro{fsn}:
+%
+\begin{equation*}
+  \tcov\force i\tbcov i = \mass\tmetric ij\tvec\acc j\tbcov i
+  = \mass\tcov\acc i\tbcov i
+  \implies
+  \slashed\force = \mass\slashed\acc\,.
+\end{equation*}
+%
+In diagrammatic notation:
+%
+\begin{equation*}
+  {\rightarrow\bxtens\force}
+  = {\rightarrow\bxtens\metric\leftarrow
+  \leftarrow\bxtens\acc}\,.
+\end{equation*}
+
+
+\section{Navier-Stokes' equation}
+\label{sec:nse}
+
+Write Navier-Stokes' equation in various notations.~\cite{misner1973}
+
+
+With decorations:
+%
+\begin{equation*}
+  \adt\vel - \kkvisc\lap\vel = -\spvol\scov{\grad\press} + \grav\,.
+\end{equation*}
+%
+\begin{equation*}
+  \dt\vel + \cder\vel\vel - \kkvisc\lap\vel = -\spvol\scov{\grad\press} + \grav\,.
+\end{equation*}
+%
+With operators:
+%
+\begin{equation*}
+  \oadt t\vel - \kkvisc\olap\vel = -\spvol\oscov\ograd\press + \grav\,.
+\end{equation*}
+%
+\begin{equation*}
+  \cpd t\vel + \ocder\vel\vel - \kkvisc\olap\vel = -\spvol\oscov\ograd\press + \grav\,.
+\end{equation*}
+%
+In braket notation:
+%
+\begin{equation*}
+  \ket{\adt\vel} - \kkvisc\ket{\lap\vel} = -\spvol\imetric\ket{\grad\press} + \ket\grav\,,
+\end{equation*}
+%
+where $\imetric$ represents the \lingo{inverse metric}.
+
+
+\section{Gradient}
+\label{sec:gradient}
+
+Construct the gradient of a scalar field $\phi$.
+
+Recall that a scalar field is a tensor field of rank 0 and, by definition, the gradient of a tensor field $t$ is
+%
+\begin{equation*}
+  \grad t = \ograd t
+  = \tbcov j\tprod\cder t{\tbvec j}
+  = \tbcov j\tprod\ocder{\tbvec j}t\,.
+\end{equation*}
+%
+Apply this definition to $\grad\phi$ to find
+%
+\begin{equation*}
+  \grad\phi = \tbcov i\tprod\ocder{\tbvec i}\phi
+  = \tbcov i\cpd i\phi
+  = \slashed\partial\phi\,.
+\end{equation*}
+%
+Note that $\grad\phi$ is a covector, by construction. So, if the gradient \emph{vector} is required, $\vgrad\phi$, then the covector $\grad\phi$ needs to be sharpen:
+%
+\begin{equation*}
+  \vgrad\phi = \scov{\grad\phi}
+  = \scov{\slashed\partial\phi}\,.
+\end{equation*}
+
+
+\section{Divergence}
+\label{sec:divergence}
+
+Construct the divergence of a vector $v$.
+
+Recall that, by definition, the divergence of a vector is the contraction of its gradient; \ie,
+%
+\begin{equation*}
+  \vdiv v = \cont\grad v
+  = \cont\ograd v
+  = \odiv v\,.
+\end{equation*}
+%
+So, find first $\grad v$:
+%
+\begin{equation*}
+  \grad v = \ograd v
+  = \tbcov j\tprod\ocder{\tbvec j}\br{\tvec vi\tbvec i}
+  = \br{\cpd j\tvec vi + \tchris ijk\tvec vk}\tbcov j\tprod\tbvec i\,.
+\end{equation*}
+%
+Now, contract $\grad v$ by replacing the tensor product in $\grad v$ with the inner product: $\tbcov j\tprod\tbvec i = \tbcov j\iprod\tbvec i = \tkron ji$, which means that
+%
+\begin{align*}
+  \cont\grad v &= \br{\cpd j\tvec vi + \tchris ijk\tvec vk}\tkron ji\,,\\
+  &= \cpd j\tvec vi\tkron ji + \tchris ijk\tkron ji\tvec vk \,,\\
+  &= \cpd j\tvec vj + \tchris jjk\tvec vk \,.
+\end{align*}
+%
+Finally, rename the (dummy) $j$ indices to $i$ and then the $k$ indices to $j$:
+%
+\begin{equation*}
+  \vdiv v = \cpd i\tvec vi + \tchris iij\tvec vj\,.
+\end{equation*}
+%
+which gives the desired result.

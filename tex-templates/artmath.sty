@@ -45,7 +45,9 @@
 \newtheorem*{generalization}{Generalization}
 \newtheorem*{specialization}{Specialization}
 %
-\theoremheaderfont{\itshape}
+\theoremheaderfont{
+  \itshape%
+}
 \theorembodyfont{\upshape}
 \theoremseparator{.}
 \theoremsymbol{\ensuremath{\square}}
@@ -54,7 +56,9 @@
 \newtheorem*{proof}{Proof}
 \newtheorem*{counterexample}{Counterexample}
 %
-\theoremheaderfont{\small\itshape}
+\theoremheaderfont{
+  \small\itshape%
+}
 \theorembodyfont{\small\upshape}
 %
 \newtheorem*{solution}{Solution}
@@ -69,11 +73,15 @@
 \providecommand*{\parens}[1]{\mleft({#1}\mright)} % parentheses
 \providecommand*{\vat}[1]{\parens{#1}}            % value of a function
 %
-\providecommand*{\underbracetext}[2]{\underbrace{#1}_{\text{#2}}} % text under braces
-
+% text
+%
+% text under braces
+\providecommand*{\underbracetext}[2]{\underbrace{#1}_{\text{#2}}} %
+%
 % text in math environments
 %
 \providecommand*{\eqtxt}[1]{\mleft\lbrack\text{\footnotesize{#1}}\mright\rbrack}
+
 % set
 %
 \providecommand*{\bset}[2]{\mleft\lbrace{#1}\mid{#2}\mright\rbrace} % building
@@ -101,11 +109,12 @@
 \providecommand*{\posnats}{\nonneg{\nats}}          % naturals (exc. zero)
 \providecommand*{\strneg}[1]{\nonpos{\notzero{#1}}} % strictly negative
 \providecommand*{\strpos}[1]{\nonneg{\notzero{#1}}} % strictly positive
-\providecommand*{\xreals}{\overline{\reals}}        % extended real numbers (to include +/- infinity)
+\providecommand*{\xreals}{\overline{\reals}}        % ext. reals: +/- infinity
 %
 % operations on sets
 %
-\providecommand*{\fscard}[1]{\mleft\lvert{#1}\mright\rvert} % (finite) set cardinality
+% finite set cardinality
+\providecommand*{\fscard}[1]{\mleft\lvert{#1}\mright\rvert} %
 %
 \providecommand*{\sdiff}{\setminus}       % set difference
 \providecommand*{\sinter}{\cap}           % set intersection
@@ -118,16 +127,15 @@
 
 % functions
 %
-\providecommand*{\fdef}[3]{{#1}\coloncolon{#2}\to{#3}}     % function definition
-\providecommand*{\fmap}[3]{{#1}\coloncolon{#2}\mapsto{#3}} % function as map (function defined with equation)
+\providecommand*{\fdef}[3]{{#1}\coloncolon{#2}\to{#3}}     % definition
+\providecommand*{\fmap}[3]{{#1}\coloncolon{#2}\mapsto{#3}} % as map: with eqn.
 %
-\providecommand*{\fcomp}{\circ} % function composition
-%
-\providecommand*{\fdclass}[1]{C^{#1}} % function class wrt differentiation
+\providecommand*{\fcomp}{\circ}       % composition
+\providecommand*{\fdclass}[1]{C^{#1}} % class wrt diff.
 
 % tuples
 %
-\providecommand*{\tuple}[1]{\mleft\langle{#1}\mright\rangle}  % tuple
+\providecommand*{\tuple}[1]{\mleft\langle{#1}\mright\rangle} % tuple
 
 % math constants
 %
@@ -141,7 +149,7 @@
 \providecommand*{\derives}{\vdash}  % is derivable from
 \providecommand*{\unique}{\exists!} % exists exactly one
 %
-\providecommand*{\gstyle}[2]{\Gamma,{#1}\derives{#2},\Delta} % Grentzen style of deduction
+\providecommand*{\gstyle}[2]{\Gamma,{#1}\derives{#2},\Delta} % Grentzen
 
 % integers
 %
