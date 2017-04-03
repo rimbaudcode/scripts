@@ -121,14 +121,13 @@
 \DeclareMathOperator{\vgrad}{grad} % vector gradient
 \DeclareMathOperator{\vlap}{lap}   % vector Laplacian
 %
-\DeclareMathOperator{\cont}{cont} % contraction
-\DeclareMathOperator{\trace}{tr}  % trace
-%
 % operators with decoration
 %
 \providecommand*{\adt}[1]{\dot{\overline{#1}}}      % abs. deriv.
 \providecommand*{\cder}[2]{{#1}|_{#2}}              % cov. deriv.
+\providecommand*{\cont}[1]{{#1}^{\natural}}         % contraction
 \providecommand*{\ddt}[1]{\ddot{#1}}                % time, time deriv.
+\providecommand*{\div}[1]{\cont{\grad{#1}}}         % divergence
 \providecommand*{\dt}[1]{\dot{#1}}                  % time deriv.
 \providecommand*{\grad}[1]{\overline{#1}}           % gradient
 \providecommand*{\lap}[1]{\overline{\overline{#1}}} % Laplace's
@@ -146,6 +145,9 @@
 \providecommand*{\odiv}{\ograd\iprod}       % divergence
 \providecommand*{\ograd}{\nabla}            % gradient
 \providecommand*{\olap}{\Delta}             % Laplace's
+%
+\DeclareMathOperator{\ocont}{cont} % contraction
+\DeclareMathOperator{\otrace}{tr}  % trace
 %
 % * musical isomorphisms
 %

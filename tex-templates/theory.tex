@@ -2,30 +2,43 @@
 \section{Newton's second law of motion}
 \label{sec:newton-second-law-motion}
 
-Write Newton's second law of motion in various notations.~\cite{misner1973}
+Write Newton's second law of motion, \acro{nsl}, in various notations.~\cite{misner1973}
 
-In \lingo{slot notation}:
+Before writing \acro{nsl} in various forms, recall that
+%
+\begin{itemize}
+\item acceleration is \emph{not} simply the temporal derivative of velocity, but its \emph{absolute} derivative: $\acc = \adt\vel \neq \dt\vel$, and
+\item force and (linear) momentum are \emph{not} vectors, but rather \lingo{covectors} (one-forms).
+\end{itemize}
+
+Then, in \lingo{geometric notation}, \acro{nsl} becomes
 %
 \begin{equation*}
   \force = \adt\mom
   = \mass\fvec{\adt\vel}
-  = \mass\fvec\acc
+  = \mass\fvec\acc\,.
+\end{equation*}
+%
+In \lingo{slot notation}:
+%
+\begin{equation*}
+  \force = \mass\metric\vat{\eslot,\adt\vel}
   = \mass\metric\vat{\eslot,\acc}\,.
 \end{equation*}
 %
-In \lingo{braket notation} (\aka\ Dirac notation):
+In \lingo{braket notation} (\aka\ Dirac's notation):
 %
 \begin{equation*}
-  \bra\force = \mass\bra{\mass\acc}\metric\,.
+  \bra\force = \mass\bra\acc\metric\,.
 \end{equation*}
 %
-In index notation with \lingo{Einstein summation convention}, \acro{esc}:
+In \lingo{slot naming notation} (index notation) with \lingo{Einstein summation convention}, \acro{esc}:
 %
 \begin{equation*}
   \tcov\force i\tbcov i = \mass\tmetric ij\tvec\acc j\tbcov i\,.
 \end{equation*}
 %
-In \lingo{Feynman slash notation}, \acro{fsn}:
+In \lingo{Feynman's slash notation}, \acro{fsn}:
 %
 \begin{equation*}
   \tcov\force i\tbcov i = \mass\tmetric ij\tvec\acc j\tbcov i
@@ -34,7 +47,7 @@ In \lingo{Feynman slash notation}, \acro{fsn}:
   \slashed\force = \mass\slashed\acc\,.
 \end{equation*}
 %
-In diagrammatic notation:
+In \lingo{diagrammatic notation}:
 %
 \begin{equation*}
   {\rightarrow\bxtens\force}
@@ -47,7 +60,6 @@ In diagrammatic notation:
 \label{sec:nse}
 
 Write Navier-Stokes' equation in various notations.~\cite{misner1973}
-
 
 With decorations:
 %
@@ -83,7 +95,7 @@ where $\imetric$ represents the \lingo{inverse metric}.
 
 Construct the gradient of a scalar field $\phi$.
 
-Recall that a scalar field is a tensor field of rank 0 and, by definition, the gradient of a tensor field $t$ is
+Recall that the gradient of a tensor field $t$ is defined as
 %
 \begin{equation*}
   \grad t = \ograd t
@@ -91,15 +103,16 @@ Recall that a scalar field is a tensor field of rank 0 and, by definition, the g
   = \tbcov j\tprod\ocder{\tbvec j}t\,.
 \end{equation*}
 %
-Apply this definition to $\grad\phi$ to find
+Since a scalar field as $\phi$ can be regarded as a 0-rank tensor, apply the definition of gradient to $\phi$ to find
 %
 \begin{equation*}
-  \grad\phi = \tbcov i\tprod\ocder{\tbvec i}\phi
+  \grad\phi = \ograd\phi
+  = \tbcov i\tprod\ocder{\tbvec i}\phi
   = \tbcov i\cpd i\phi
   = \slashed\partial\phi\,.
 \end{equation*}
 %
-Note that $\grad\phi$ is a covector, by construction. So, if the gradient \emph{vector} is required, $\vgrad\phi$, then the covector $\grad\phi$ needs to be sharpen:
+Note that $\grad\phi$ is a covector, by construction. So, if the gradient \emph{vector}, $\vgrad\phi$, is required, then $\grad\phi$ needs to be \scare{sharpened}:
 %
 \begin{equation*}
   \vgrad\phi = \scov{\grad\phi}
@@ -115,8 +128,8 @@ Construct the divergence of a vector $v$.
 Recall that, by definition, the divergence of a vector is the contraction of its gradient; \ie,
 %
 \begin{equation*}
-  \vdiv v = \cont\grad v
-  = \cont\ograd v
+  \vdiv v = \div v
+  = \ocont\ograd v
   = \odiv v\,.
 \end{equation*}
 %
@@ -128,18 +141,16 @@ So, find first $\grad v$:
   = \br{\cpd j\tvec vi + \tchris ijk\tvec vk}\tbcov j\tprod\tbvec i\,.
 \end{equation*}
 %
-Now, contract $\grad v$ by replacing the tensor product in $\grad v$ with the inner product: $\tbcov j\tprod\tbvec i = \tbcov j\iprod\tbvec i = \tkron ji$, which means that
+Now, contract $\grad v$ by replacing the tensor product in $\grad v$ with the inner product: $\tbcov j\tprod\tbvec i = \tbcov j\iprod\tbvec i = \tkron ji$. This means that
 %
 \begin{align*}
-  \cont\grad v &= \br{\cpd j\tvec vi + \tchris ijk\tvec vk}\tkron ji\,,\\
-  &= \cpd j\tvec vi\tkron ji + \tchris ijk\tkron ji\tvec vk \,,\\
-  &= \cpd j\tvec vj + \tchris jjk\tvec vk \,.
+  \cont{\grad v} &= \br{\cpd j\tvec vi + \tchris ijk\tvec vk}\tkron ji\,,\\
+  &= \cpd j\tkron ji\tvec vi + \tkron ji\tchris ijk\tvec vk \,,\\
+  &= \cpd i\tvec vi + \tchris iik\tvec vk \,.
 \end{align*}
 %
-Finally, rename the (dummy) $j$ indices to $i$ and then the $k$ indices to $j$:
+Finally, relabel the dummy $k$ to $j$ to arrive to our desired result
 %
 \begin{equation*}
-  \vdiv v = \cpd i\tvec vi + \tchris iij\tvec vj\,.
+  \vdiv v = \cpd i\tvec vi + \tchris iij\tvec vj \,.
 \end{equation*}
-%
-which gives the desired result.
