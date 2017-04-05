@@ -9,7 +9,7 @@
 % category:      Text
 
 \ProvidesPackage{sty/artphysics}
-                [02/04/2017 physics macros, rimbaudcode]
+                [03/04/2017 physics macros, rimbaudcode]
 
 % amsthm package
 %
@@ -128,9 +128,9 @@
 \providecommand*{\cont}[1]{{#1}^{\natural}}         % contraction
 \providecommand*{\ddt}[1]{\ddot{#1}}                % time, time deriv.
 \providecommand*{\div}[1]{\cont{\grad{#1}}}         % divergence
-\providecommand*{\dt}[1]{\dot{#1}}                  % time deriv.
 \providecommand*{\grad}[1]{\overline{#1}}           % gradient
 \providecommand*{\lap}[1]{\overline{\overline{#1}}} % Laplace's
+\providecommand*{\mdt}[1]{\dot{#1}}                 % material deriv.
 %
 % * musical isomorphisms
 %
@@ -139,12 +139,14 @@
 %
 % without decoration
 %
-\providecommand*{\oadt}[1]{\mathrm{D}_{#1}} % abs. deriv.
+\providecommand*{\oadt}[1]{\overline{\mathrm{d}}_{#1}} % abs. deriv.
+%
 \providecommand*{\ocder}[1]{\ograd_{#1}}    % cov. deriv.
 \providecommand*{\ocurl}{\ograd\cprod}      % divergence
 \providecommand*{\odiv}{\ograd\iprod}       % divergence
 \providecommand*{\ograd}{\nabla}            % gradient
 \providecommand*{\olap}{\Delta}             % Laplace's
+\providecommand*{\omdt}[1]{\mathrm{d}_{#1}} % material deriv.
 %
 \DeclareMathOperator{\ocont}{cont} % contraction
 \DeclareMathOperator{\otrace}{tr}  % trace
@@ -173,8 +175,18 @@
 
 % index-notation
 %
+\providecommand*{\jacob}{J}                    % Jacob's matrix
 \providecommand*{\tcov}[2]{\tensor{#1}{_{#2}}} % covector
 \providecommand*{\tvec}[2]{\tensor{#1}{^{#2}}} % vector
+%
+% physical components
+\providecommand*{\pbvec}[1]{\tensor{\hat{\belem}}{_{#1}}}                %
+\providecommand*{\pvec}[2]{\tensor{#1}{^{\hat{#2}}}}                     %
+\providecommand*{\pmetric}[2]{\tensor{\metric}{_{\underline{{#1}{#2}}}}} %
+%
+\providecommand*{\pbcov}[1]{\tensor{\hat{\belem}}{^{#1}}}                 %
+\providecommand*{\pcov}[2]{\tensor{#1}{_{\hat{#2}}}}                      %
+\providecommand*{\pimetric}[2]{\tensor{\metric}{^{\underline{{#1}{#2}}}}} %
 %
 % inverse metric
 \providecommand*{\timetric}[2]{\tensor{\metric}{^{#1}^{#2}}}         %
@@ -275,6 +287,17 @@
 
 % transport
 %
+\providecommand*{\energy}{e}    % energy
 \providecommand*{\flux}{f}      % flux
 \providecommand*{\temp}{\theta} % temperature
 \providecommand*{\ssink}{s}     % sources, sinks
+%
+\providecommand*{\kediff}{k} % energy (thermal) diffusivity
+
+% flow through permeable media
+%
+\providecommand*{\fluidity}{\phi}         % fluidity
+\providecommand*{\mobility}{\lambda}      % mobility
+\providecommand*{\permea}{k}              % permeability
+\providecommand*{\poros}{\psi}            % porosity
+\providecommand*{\rfluidity}{\fluidity^*} % reduced fluidity

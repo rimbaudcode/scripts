@@ -1,13 +1,11 @@
 
-\section{Newton's second law of motion}
+\section{Newton's second law of motion, \acro{nsl}}
 \label{sec:newton-second-law-motion}
 
-Write Newton's second law of motion, \acro{nsl}, in various notations.~\cite{misner1973}
-
-Before writing \acro{nsl} in various forms, recall that
+Before writing \acro{nsl} in various forms, recall that~\cite{misner1973}
 %
 \begin{itemize}
-\item acceleration is \emph{not} simply the temporal derivative of velocity, but its \emph{absolute} derivative: $\acc = \adt\vel \neq \dt\vel$, and
+\item acceleration is \emph{not} simply the temporal derivative of velocity, but its \emph{absolute} derivative: $\acc = \adt\vel = \oadt t\vel$, and
 \item force and (linear) momentum are \emph{not} vectors, but rather \lingo{covectors} (one-forms).
 \end{itemize}
 
@@ -16,7 +14,8 @@ Then, in \lingo{geometric notation}, \acro{nsl} becomes
 \begin{equation*}
   \force = \adt\mom
   = \mass\fvec{\adt\vel}
-  = \mass\fvec\acc\,.
+  = \mass\fvec\acc
+  = \mass\flat\oadt t\vel\,.
 \end{equation*}
 %
 In \lingo{slot notation}:
@@ -56,46 +55,10 @@ In \lingo{diagrammatic notation}:
 \end{equation*}
 
 
-\section{Navier-Stokes' equation}
-\label{sec:nse}
-
-Write Navier-Stokes' equation in various notations.~\cite{misner1973}
-
-With decorations:
-%
-\begin{equation*}
-  \adt\vel - \kkvisc\lap\vel = -\spvol\scov{\grad\press} + \grav\,.
-\end{equation*}
-%
-\begin{equation*}
-  \dt\vel + \cder\vel\vel - \kkvisc\lap\vel = -\spvol\scov{\grad\press} + \grav\,.
-\end{equation*}
-%
-With operators:
-%
-\begin{equation*}
-  \oadt t\vel - \kkvisc\olap\vel = -\spvol\oscov\ograd\press + \grav\,.
-\end{equation*}
-%
-\begin{equation*}
-  \cpd t\vel + \ocder\vel\vel - \kkvisc\olap\vel = -\spvol\oscov\ograd\press + \grav\,.
-\end{equation*}
-%
-In braket notation:
-%
-\begin{equation*}
-  \ket{\adt\vel} - \kkvisc\ket{\lap\vel} = -\spvol\imetric\ket{\grad\press} + \ket\grav\,,
-\end{equation*}
-%
-where $\imetric$ represents the \lingo{inverse metric}.
-
-
 \section{Gradient}
 \label{sec:gradient}
 
-Construct the gradient of a scalar field $\phi$.
-
-Recall that the gradient of a tensor field $t$ is defined as
+To construct the gradient of a scalar field $\phi$, recall that the gradient of a tensor field $t$ is defined as
 %
 \begin{equation*}
   \grad t = \ograd t
@@ -144,8 +107,8 @@ So, find first $\grad v$:
 Now, contract $\grad v$ by replacing the tensor product in $\grad v$ with the inner product: $\tbcov j\tprod\tbvec i = \tbcov j\iprod\tbvec i = \tkron ji$. This means that
 %
 \begin{align*}
-  \cont{\grad v} &= \br{\cpd j\tvec vi + \tchris ijk\tvec vk}\tkron ji\,,\\
-  &= \cpd j\tkron ji\tvec vi + \tkron ji\tchris ijk\tvec vk \,,\\
+  \cont{\grad v} &= \br{\cpd j\tvec vi + \tchris ijk\tvec vk}\tkron ji
+  = \cpd j\tkron ji\tvec vi + \tkron ji\tchris ijk\tvec vk \,,\\
   &= \cpd i\tvec vi + \tchris iik\tvec vk \,.
 \end{align*}
 %
@@ -154,3 +117,247 @@ Finally, relabel the dummy $k$ to $j$ to arrive to our desired result
 \begin{equation*}
   \vdiv v = \cpd i\tvec vi + \tchris iij\tvec vj \,.
 \end{equation*}
+
+
+\section{Advective mass transport}
+\label{sec:advective-mass-transport}
+
+Suppose a fluid of mass density $\dens$ flow with velocity $\vel$. Suppose advection be the only transport agent. Then, the advective flux is $\flux = \dens\vel$; while the evolution of the fluid mass,
+%
+\begin{equation*}
+  0 = \cpd t\dens + \div{\dens\vel}
+  = \cpd t\dens + \odiv{\br{\dens\vel}} \,.
+\end{equation*}
+%
+Distribute the divergence over the $\dens\vel$ product using the product rule, replace the definition of the covariant derivative and then that of the material derivative to find
+%
+\begin{align*}
+  0 &= \cpd t\dens + \vel\iprod\ograd\dens + \dens\ograd\iprod\vel
+  = \cpd t\dens + \ocder\vel\dens + \dens\odiv\vel \,,\\
+  &= \omdt t\dens + \dens\odiv\vel \,.
+\end{align*}
+%
+Finally, replace the operators for decorations:
+%
+\begin{equation*}
+  \mdt\dens + \dens\div\vel = 0\,.
+\end{equation*}
+%
+Now, let us work out the coordinate form of the last equation. First, $\mdt\dens$:
+%
+\begin{equation*}
+  \mdt\dens = \omdt t\dens
+  = \cpd t\dens + \vel\iprod\ograd\dens \,.
+\end{equation*}
+%
+Recall that $\ograd\dens = \tbcov i\tprod\ocder{\tbcov i}\dens = \tbcov i\cpd i\dens$. Thus,
+%
+\begin{equation*}
+  \vel\iprod\ograd\dens = \tvec\vel j\tbvec j\iprod\tbcov i\cpd i\dens
+  = \tvec\vel j\tkron ij\cpd i\dens
+  = \tvec\vel i\cpd i\dens \,.
+\end{equation*}
+%
+And hence
+%
+\begin{equation*}
+  \mdt\dens = \cpd t\dens + \tvec\vel i\cpd i\dens \,.
+\end{equation*}
+%
+On the other hand, using the results from the previous section, see that
+%
+\begin{equation*}
+  \dens\odiv\vel = \dens\br{\cpd i\tvec\vel i + \tchris iij\tvec\vel j} \,.
+\end{equation*}
+%
+Finally, putting the values for $\mdt\dens$ and $\dens\div\vel$ together, one has that $\mdt\dens + \dens\div\vel = 0$ becomes
+%
+\begin{equation*}
+  \cpd t\dens + \tvec\vel i\cpd i\dens
+  + \dens\br{\cpd i\tvec\vel i + \tchris iij\tvec\vel j}
+  = 0\,.
+\end{equation*}
+
+
+\section{Physical components}
+\label{sec:physical-components}
+
+A physical component of a vector field has the same units as the field. Thus, a physical component of velocity has units $\si{m/s}$.
+
+Consider a vector $v\in\reals^n$. Then, $v$ can be expanded in a \lingo{coordinate basis} $\tbvec i$ or in a \lingo{physical basis} $\pbvec i$ (unit vectors):
+%
+\begin{equation*}
+  v = \tvec vi\tbvec i = \pvec vi\pbvec i\,.
+\end{equation*}
+%
+Recall that unit (physical) basis vectors are constructed as
+%
+\begin{equation*}
+  \pbvec i = \dfrac{\tbvec i}{\sqrt{\pmetric ii}}\,,
+\end{equation*}
+%
+where the underlined indices $\underline{ii}$ prevent an unwanted trigger of \acro{esc}.
+
+This means that
+%
+\begin{equation*}
+  v = \tvec vi\tbvec i = \tvec vi\sqrt{\pmetric ii}\pbvec i\,,
+\end{equation*}
+%
+which gives the relation between contravariant components and coordinate basis vectors and physical components and unit basis vectors.
+
+On the other hand, consider a covector $v\u\in\reals^n$. Then, $u$ can be expanded in a \lingo{coordinate basis} $\tbcov i$ or in a \lingo{physical basis} $\pbcov i$ (unit vectors):
+%
+\begin{equation*}
+  v = \tcov vi\tbcov i = \pcov vi\pbcov i\,.
+\end{equation*}
+%
+Recall that unit (physical) basis covectors are constructed as
+%
+\begin{equation*}
+  \pbcov i = \dfrac{\tbcov i}{\sqrt{\pimetric ii}}\,,
+\end{equation*}
+%
+where the underlined indices $\underline{ii}$ prevent an unwanted trigger of \acro{esc}.
+
+This means that
+%
+\begin{equation*}
+  v = \tcov vi\tbcov i = \tcov vi\sqrt{\pimetric ii}\pbcov i\,,
+\end{equation*}
+%
+which gives the relation between covariant components and coordinate basis vectors and physical components and unit basis vectors.
+
+
+\section{Polar coordinates}
+\label{sec:polar-coordinates}
+
+
+\subsection{Metric in polar coordinates}
+\label{subsec:metric-polar-coordinates}
+
+Polar coordinates $\tuple{\cxpos,\cypos}$ are related to Cartesians $\tuple{\xpos,\ypos}$ \via\ the transformations:
+%
+\begin{equation*}
+  \xpos = \cxpos\cos\cypos\,,
+  \quad
+  \ypos = \cxpos\sin\cypos\,.
+\end{equation*}
+%
+\lingo{Jacob's matrix transformation} is given by
+%
+\begin{equation*}
+  \jacob = \cpd i\tvec\pos{\hat\jmath}
+  =
+  \begin{pmatrix}
+    \cpd\xpos\cxpos & \cpd\xpos\cypos \\
+    \cpd\ypos\cxpos & \cpd\ypos\cypos \\
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos\cypos & -\cxpos\sin\cypos \\
+    \sin\cypos & \cxpos\cos\cypos
+  \end{pmatrix}
+  \,;
+\end{equation*}
+%
+while the \lingo{coefficients of the metric} (tensor) by
+%
+\begin{equation*}
+  \metric = \jacob^T\jacob
+  =
+  \begin{pmatrix}
+    1 & 0 \\
+    0 & \cxpos^2 \\
+  \end{pmatrix}
+  \,.
+\end{equation*}
+
+
+\subsection{Kinetic energy during circular motion}
+\label{subsec:kin-energy-circular-motion}
+
+Consider a particle of mass $\mass$ orbiting a larger body. The particle position can be modeled by
+%
+\begin{equation*}
+  \pos = \cxpos\tbvec\cxpos + \cypos\tbvec\cypos\,,
+\end{equation*}
+%
+and hence its velocity by
+%
+\begin{equation*}
+  \vel = \mdt\pos = \mdt\cxpos\tbvec\cxpos + \mdt\cypos\tbvec\cypos\,.
+\end{equation*}
+%
+(Note that we are using local coordinates -- local components and local coordinate basis --, so we do the physics as we would do with Cartesians.)
+
+Now, the particle kinetic energy is given by
+%
+\begin{equation*}
+  2\energy = \mass\vel^2
+  = \mass\vel\fvec\vel
+  = \mass\metric\vat{\vel,\vel}\,,
+\end{equation*}
+%
+which in local coordinates turns into
+%
+\begin{equation*}
+  2\energy = \mass\tmetric ij\tvec\vel i\tvec\vel j\,,
+\end{equation*}
+%
+with $i,j$ take the $\cxpos,\cypos$ values.
+
+Expand then the indices and replace the values of the metric coefficients to find
+%
+\begin{align*}
+  2\energy &= \mass\br{
+    \tmetric 11\tvec\vel 1\tvec\vel 1
+    + \tmetric 12\tvec\vel 1\tvec\vel 2
+    + \tmetric 21\tvec\vel 2\tvec\vel 1
+    + \tmetric 22\tvec\vel 2\tvec\vel 2
+  } \,,\\
+  &= \mass\br{\mdt\cxpos\mdt\cxpos + 0 + 0 + \cxpos^2\mdt\cypos\mdt\cypos}\,,
+\end{align*}
+%
+which, after some algebra, becomes
+%
+\begin{equation*}
+  2\energy = \mass\br{\mdt\cxpos\mdt\cxpos + \cxpos^2\mdt\cypos\mdt\cypos}\,.
+\end{equation*}
+%
+The last equation is our final result.
+
+
+\subsection{Velocity in circular motion}
+\label{subsec:velocity-circular-motion}
+
+Consider a particle orbiting a body. Let $\pos$ be the position of the particle at any time $t$. Then, its velocity is, by definition, $\vel = \mdt\pos$, which, in polar coordinates, in contravariant form, can be written as
+%
+\begin{equation*}
+  \vel = \mdt\cxpos\tbvec\cxpos + \mdt\cypos\tbvec\cypos\,.
+\end{equation*}
+%
+Notice that the basis is \emph{coordinate}, not \emph{unit}; \ie, the $\tbvec i$ have dimensions. To transform the components of $\vel$ into physical form, we use the metric:
+%
+\begin{equation*}
+  \tvec\vel\cxpos
+  = \mdt\cxpos\sqrt{\pmetric\cxpos\cxpos}\pbvec\cxpos
+  = \mdt\cxpos\br{1}\pbvec\cxpos \,,
+\end{equation*}
+%
+and
+%
+\begin{equation*}
+  \tvec\vel\cypos
+  = \mdt\cypos\sqrt{\pmetric\cypos\cypos}\pbvec\cypos
+  = \mdt\cypos\sqrt{\cxpos^2}\pbvec\cypos
+  = \mdt\cypos\cxpos\pbvec\cypos \,,
+\end{equation*}
+%
+which leads to
+%
+\begin{equation*}
+  \vel = \mdt\cxpos\pbvec\cxpos + \cxpos\mdt\cypos\pbvec\cypos \,.
+\end{equation*}
+%
+This is the expression of velocity in \lingo{physical form} in polar coordinates.
