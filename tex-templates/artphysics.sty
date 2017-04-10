@@ -9,7 +9,7 @@
 % category:      Text
 
 \ProvidesPackage{sty/artphysics}
-                [03/04/2017 physics macros, rimbaudcode]
+                [07/04/2017 physics macros, rimbaudcode]
 
 % amsthm package
 %
@@ -94,7 +94,7 @@
 \providecommand*{\imetric}{\metric^{*}  } % inverse metric
 \providecommand*{\kron}{\delta}           % Kronecker's delta
 \providecommand*{\levicivi}{\epsilon}     % levi-civita (symbol)
-\providecommand*{\metric}{g}              % metric
+\providecommand*{\metric}{\mathsf{g}}     % metric
 
 % tensors
 %
@@ -282,16 +282,15 @@
 
 % fluid mechanics
 %
-\providecommand*{\kdvisc}{\mu}    % dynamic viscosity
-\providecommand*{\kkvisc}{\nu}    % kinematic viscosity
-\providecommand*{\press}{p}       % pressure
-\providecommand*{\spvol}{\eta}    % specific volume
+\providecommand*{\kdvisc}{\mu} % dynamic viscosity
+\providecommand*{\kkvisc}{\nu} % kinematic viscosity
+\providecommand*{\press}{p}    % pressure
+\providecommand*{\spvol}{\eta} % specific volume
 
 % transport
 %
 \providecommand*{\energy}{e}    % energy
 \providecommand*{\flux}{f}      % flux
-\providecommand*{\naflux}{f^*}  % non-advective flux (excludes advection)
 \providecommand*{\temp}{\theta} % temperature
 \providecommand*{\ssink}{s}     % sources, sinks
 %
