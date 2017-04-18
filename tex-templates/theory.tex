@@ -2,7 +2,7 @@
 \section{The geometric principle of physics laws}
 \label{sec:geometric-principle-physics-laws}
 %
-\epigraph{Ubi Materia, Ibi Geometria}{Johannes Kepler}
+\epigraph{Ubi materia, ibi geometria.}{Johannes Kepler}
 
 Herein, the \lingo{geometric principle of physics laws} will permeate our way of doing physics:~\cite[chap. 1, p. iii]{thorne2013}
 %
@@ -109,7 +109,7 @@ The mass continuity equation \cref{eqn:mass-continuity-equation-lagrange} is oft
   \dt\dens + \div{\dens\vel} = 0\,,
 \end{equation}
 %
-which falls directly from \cref{eqn:differential-balance-law-euler} with $\phi = \dens$, $\flux = \dens\vel$, and $\ssink = 0$.
+which falls directly from \cref{eqn:differential-balance-law-euler} with $\phi = \dens$, with $\flux = \dens\vel$, and with $\ssink = 0$.
 
 \begin{definition}
   Consider a fluid flow. Call the flow \lingo{incompressible} if and only if the fluid density changes neither in space nor in time.
@@ -135,6 +135,74 @@ The following model shows that, during incompressible flow, the divergence of th
 \begin{argument}
   Since the fluid mass is conserved and there are no mass sources neither sinks, depart from \cref{eqn:mass-continuity-equation-lagrange}. Apply the definition of incompressible flow.
 \end{argument}
+%
+Whenever a flow can be modeled as incompressible, it means that the fluid volume is conserved.
+
+\begin{definition}
+  In local coordinates $\tbcov i$, define the \lingo{gradient of a tensor $t$} as
+  %
+  \begin{equation}\label{eqn:covariant derivative}
+    \grad t = \tbcov j\tprod\ocder{\tbvec j} t\,.
+  \end{equation}
+  %
+\end{definition}
+
+\begin{theorem}
+  In local coordinates $\tbvec i$, the gradient of a vector $\vel$ is given by
+  %
+  \begin{equation}\label{eqn:gradient-vector-local-coordinates}
+    \grad\vel =
+    \br{
+      \cpd j\tvec\vel i + \tchris ijk\tvec\vel k
+    }\tbcov j\tprod\tbvec i\,.
+  \end{equation}
+\end{theorem}
+%
+\begin{proof}
+  Apply the definition of gradient to $\vel$, express $\vel$ in local coordinates, and perform straightforward tensor calculus operations:
+  %
+  \begin{align*}
+    \grad\vel &= \tbcov j\tprod\ocder{\tbvec j}\br{\tvec\vel i\tbvec i}\,,\\
+    %
+    &= \tbcov j\tprod\br{
+      \tbvec i\ocder{\tbvec j}\tvec\vel i
+      + \tvec\vel i\ocder{\tbvec j}\tbvec i
+    }\,,\\
+    %
+    &= \tbcov j\tprod\br{
+      \tbvec i\cpd j\tvec\vel i
+      + \tvec\vel i\tchris kji\tbvec k
+    }\,,\\
+    %
+    &= \tbcov j\tprod\br{
+      \tbvec i\cpd j\tvec\vel i
+      + \tvec\vel k\tchris ijk\tbvec i
+    }\,,\\
+    %
+    &= \tbcov j\tprod\tbvec i\br{
+      \cpd j\tvec\vel i
+      + \tvec\vel k\tchris ijk
+    }\,.
+  \end{align*}
+  %
+\end{proof}
+
+\begin{definition}
+  In local coordinates $\tbvec i$, the contraction of a unit second rank tensor $\tbcov i\tprod\tbvec j$ is defined as
+  %
+  \begin{equation}\label{eqn:contraction--unit-second-rank-tensor}
+    \cont{\br{\tbcov i\tprod\tbvec j}}
+    = \ocont\vat{\tbcov i\tprod\tbvec j}
+    = \tbcov i\iprod\tbvec j
+    = \tkron ij\,.
+  \end{equation}
+\end{definition}
+%
+That is, given a second rank tensor, to contract it means to change the tensor product into an inner product.
+
+\begin{definition}
+  Define the \lingo{divergence of a vector} as the contraction of its gradient.
+\end{definition}
 
 
 \section{Cauchy's momentum equation}
@@ -229,7 +297,7 @@ The next theorem states the product rule for the material derivative.
     = \ssink\,.
   \end{equation*}
   %
-  See that the first term vanishes due to mass continuity, \cref{eqn:mass-continuity-equation-euler}, and that the second represents the material derivative of the continuum velocity:
+  See that the first term vanishes due to mass continuity, \cref{eqn:mass-continuity-equation-euler}, and that the second represents the material derivative of the continuum velocity to get
   %
   \begin{equation*}
     \dens\omdt t\vel

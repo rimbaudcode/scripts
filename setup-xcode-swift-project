@@ -37,13 +37,14 @@ cp $TEMPLATE_DIR_PATH/Credits.rtf ./$PROJECT_NAME/Credits.rtf
 git add ./$PROJECT_NAME/Credits.rtf
 git commit -am "Credits.rtf in place"
 #
-cp $TEMPLATE_DIR_PATH/CHANGELOG.org ./CHANGELOG.org
-git add CHANGELOG.org
-git commit -m "CHANGELOG.org in place"
-#
 touch README.md
 git add README.md
 git commit -am "README.md in place"
+#
+cp $TEMPLATE_DIR_PATH/CHANGELOG.org ./CHANGELOG.org
+echo "\n# $PROJECT_NAME\nCHANGELOG.org" >> .gitignore
+git add .gitignore
+git commit -m "CHANGELOG.org not under git"
 #
 git add .
 git commit -am "initial commit of Xcode generated files"
