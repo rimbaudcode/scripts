@@ -1,13 +1,12 @@
 #+STARTUP: showall hidestars
 
-# CHANGELOG
+* CHANGELOG
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](http://keepachangelog.com/). This project adheres to [Semantic Versioning](http://semver.org/).
 
 * [Unreleased]
-
 ** Added
 - [ ] LICENSE.md added to Xcode's folders.
 - [ ] Credits.rtf added to Xcode's folders.
@@ -18,12 +17,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ** Changed
 -
 
-* RELEASES
 
-** [0.1.0] - 18.04.2017
-
-*** Added
+* [0.1.0] - 18.04.2017
+** Added
 -
 
-*** Changed
-- [ ] Bumped version number
+** Changed
+- Bumped version number
