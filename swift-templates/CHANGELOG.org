@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 * [Unreleased]
 ** Added
-- [ ] xcode_config: LICENSE.md in Xcode's folders
-- [ ] xcode_config: Credits.rtf in Xcode's folders
-- [ ] xcode_config: LICENSE.md in 'Build Phases/Copy bundle resources'
-- [ ] xcode_config: Xcode sections configured (General, capabilities, ...)
-- [ ] xcode_config: Xcode folders organized (MVC folders, assets, configuration)
+- [ ] 
 
 ** Changed
 - [ ] Bumped version number
