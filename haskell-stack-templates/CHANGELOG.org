@@ -1,23 +1,24 @@
 #+STARTUP: showall hidestars
 
-* Change Log
+* CHANGELOG
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-** [Unreleased]
-*** Added
--
 
-*** Changed
--
+* [Unreleased]
 
-** [0.1.0] - 2016-11-19
-*** Added
--
+** Added
+- [ ]
 
-*** Changed
-- Bumped version number
+** Changed
+-[ ]
 
-** Notes
+
+* [0.1.0] - 21.04.2017
+
+** Added
+
+** Changed
+- [ ] Bumped version number

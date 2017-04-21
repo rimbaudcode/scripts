@@ -54,8 +54,11 @@ echo "\n# Emacs\nTAGS" >> .gitignore
 git add .gitignore
 git commit -m "Emacs TAGS in place but not tracked by git"
 #
-mkdir -p reps
+mkdir -p rep
+git add rep
+git commit -m "report folder in place"
+#
 git add .
-git commit -am "project config files (stack generated files) in repo"
+git commit -am "project config files (stack generated files) under git"
 #
 git flow feature finish initial-config
