@@ -46,8 +46,10 @@ git add README.md
 git commit -am "README.md in place"
 #
 cp $TEMPLATE_DIR_PATH/CHANGELOG.org ./CHANGELOG.org
-git add CHANGELOG.org
-git commit -m "CHANGELOG.org in place"
+#
+echo "\n# CHANGELOG\nCHANGELOG.org" >> .gitignore
+git add .gitignore
+git commit -m "CHANGELOG.org in place but not tracked by git"
 #
 hasktags -e . > TAGS
 echo "\n# Emacs\nTAGS" >> .gitignore
