@@ -56,6 +56,18 @@ echo "\n# Emacs\nTAGS" >> .gitignore
 git add .gitignore
 git commit -m "Emacs TAGS in place but not tracked by git"
 #
+mkdir -p data
+git add data
+git commit -m "data folder in place"
+#
+mkdir -p dep
+git add dep
+git commit -m "dependency folder in place"
+#
+mkdir -p prof
+git add prof
+git commit -m "profiling folder in place"
+#
 mkdir -p rep
 git add rep
 git commit -m "report folder in place"
