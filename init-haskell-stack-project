@@ -57,8 +57,9 @@ git add .gitignore
 git commit -m "Emacs TAGS in place but not tracked by git"
 #
 mkdir -p bench
-git add bench
-git commit -m "bench folder in place"
+touch bench/Bench.hs
+git add bench bench/Bench.hs
+git commit -m "bench folder and Bench.hs in place"
 #
 mkdir -p data
 git add data
