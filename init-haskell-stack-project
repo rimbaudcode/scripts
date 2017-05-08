@@ -59,7 +59,7 @@ git commit -m "Emacs TAGS in place but not tracked by git"
 mkdir -p bench
 touch bench/Bench.hs
 git add bench bench/Bench.hs
-git commit -m "bench folder and Bench.hs in place"
+git commit -m "benchmark folder and Bench.hs in place"
 #
 mkdir -p data
 git add data
@@ -68,6 +68,10 @@ git commit -m "data folder in place"
 mkdir -p dep
 git add dep
 git commit -m "dependency folder in place"
+#
+mkdir -p doc
+git add doc
+git commit -m "documentation folder in place"
 #
 mkdir -p prof
 git add prof
