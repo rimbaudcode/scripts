@@ -38,7 +38,8 @@ main = run $ do
   desc "Trash PDF."
   task "trash" $ sh . unwords $ ["trash", pdf]
 
-  clean [ "*.acn"
+  clean [ "**/*.aux"
+        , "*.acn"
         , "*.acr"
         , "*.bak"
         , "*.bbl"
@@ -60,6 +61,7 @@ main = run $ do
         , "*.ntn"
         , "*.out"
         , "*.pdfsync"
+        , "*.run.xml"
         , "*.snm"
         , "*.synctex.gz*"
         , "*.thm"
@@ -67,5 +69,4 @@ main = run $ do
         , "*.xdv"
         , "*Notes.bib"
         , "*~"
-        , "**/*.aux"
         ]
