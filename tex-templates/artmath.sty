@@ -9,7 +9,7 @@
 % category:      Text
 
 \ProvidesPackage{sty/artmath}
-                [06/04/2017 math macros, rimbaudcode]
+                [02/06/2017 math macros, rimbaudcode]
 
 % amsthm package
 %
@@ -156,3 +156,11 @@
 %
 \providecommand*{\ceil}[1]{\mleft\lceil{#1}\mright\rceil}    % ceiling
 \providecommand*{\floor}[1]{\mleft\lfloor{#1}\mright\rfloor} % floor
+%
+% structured derivations
+%
+\newcommand*{\sdend}[1]{$\square$ & {#1} \\}
+\newcommand*{\sdexp}[1]{{} & {#1} \\}
+\newcommand*{\sdhypo}[1]{- & {#1} \\}
+\newcommand*{\sdstart}[1]{$\bullet$ & {#1} \\}
+\newcommand*{\sdstep}[2]{${#1}$ & $\mleft\{\text{#2}\mright\}$ \\}
