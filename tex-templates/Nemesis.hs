@@ -8,37 +8,50 @@
 -- copyright:     (c) 2017 rimbaudcode
 -- category:      System
 
-import           System.FilePath.Posix (replaceExtension)
-import           System.Nemesis.Env
+import System.FilePath.Posix (replaceExtension, (</>))
+import System.Nemesis.Env
 
 src :: String
 src = "main.tex"
 
-bib, pdf :: String
-bib      = replaceExtension src ".aux"
-pdf      = replaceExtension src ".pdf"
+bib :: String
+bib = replaceExtension src ".aux"
 
-comp, flags :: String
-comp        = "latexmk"
-flags       = "-xelatex"
+pdf :: String
+pdf = replaceExtension src ".pdf"
+
+comp :: String
+comp = "latexmk"
+
+flags :: String
+flags = "-xelatex"
+
+auxdir :: String
+auxdir = "aux"
+
+trash :: String
+trash = "trash"
 
 viewer :: String
-viewer = "open -a /Applications/Preview.app"
+viewer = "open -a /Applications/Preview.app -g"
 
 
 main :: IO ()
 main = run $ do
 
   desc "Build LaTeX to PDF."
-  task "build" $ sh . unwords $ [comp, flags, src]
+  task "build" $ do
+    sh . unwords $ ["mkdir -p", auxdir]
+    sh . unwords $ [comp, flags, "-output-directory=" ++ auxdir, src]
 
   desc "Open PDF."
-  task "open" $ sh . unwords $ [viewer, pdf]
+  task "open" $ sh . unwords $ [viewer, auxdir </> pdf]
 
   desc "Trash PDF."
-  task "trash" $ sh . unwords $ ["trash", pdf]
+  task "trash" $ sh . unwords $ [trash, pdf]
 
-  clean [ "**/*.aux"
+  clean [ "aux"
+        , "**/*.aux"
         , "*.acn"
         , "*.acr"
         , "*.bak"

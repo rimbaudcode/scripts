@@ -9,7 +9,7 @@
 % category:      Text
 
 \ProvidesPackage{sty/artmath}
-                [02/06/2017 math macros, rimbaudcode]
+                [06/06/2017 math macros, rimbaudcode]
 
 % amsthm package
 %
@@ -67,12 +67,13 @@
 % various
 %
 \providecommand*{\abs}[1]{\mleft\lvert{#1}\mright\rvert} % absolute value
-\providecommand*{\defas}{\equiv}                         % alt. \circeq
+\providecommand*{\defas}{\circeq}                        % alt. \circeq
 \providecommand*{\inv}[1]{{#1}^{-1}}                     % inverse
 %
 \providecommand*{\bracks}[1]{\mleft[{#1}\mright]} % brackets
 \providecommand*{\parens}[1]{\mleft({#1}\mright)} % parentheses
-\providecommand*{\vat}[1]{\parens{#1}}            % value of a function
+\providecommand*{\vat}[1]{\parens{#1}}            % value at a point
+\providecommand*{\lvat}[1]{\,{#1}}                % (lambda) \vat
 %
 % text
 %
@@ -147,7 +148,12 @@
 
 % logic
 %
-\providecommand*{\derives}{\vdash}  % is derivable from
+\providecommand*{\mcond}{\supset} % material conditional
+\providecommand*{\bcond}{\equiv}  % biconditional
+%
+\providecommand*{\conclude}{\Vdash} % conclusion
+\providecommand*{\derives}{\vdash}  % is derivable from (provable)
+\providecommand*{\entails}{\models} % entails (truth in every model)
 \providecommand*{\unique}{\exists!} % exists exactly one
 %
 \providecommand*{\gstyle}[2]{\Gamma,{#1}\derives{#2},\Delta} % Grentzen
@@ -157,10 +163,25 @@
 \providecommand*{\ceil}[1]{\mleft\lceil{#1}\mright\rceil}    % ceiling
 \providecommand*{\floor}[1]{\mleft\lfloor{#1}\mright\rfloor} % floor
 %
-% structured derivations
+% structured proofs
 %
-\newcommand*{\sdend}[1]{$\square$ & {#1} \\}
-\newcommand*{\sdexp}[1]{{} & {#1} \\}
-\newcommand*{\sdhypo}[1]{- & {#1} \\}
-\newcommand*{\sdstart}[1]{$\bullet$ & {#1} \\}
+% sp: structured derivations
+\newcommand*{\sdanswer}[1]{$\square$ & {#1} \\} % answer
+\newcommand*{\sdconc}[1]{$\conclude$ & {#1} \\} % conclusion
+\newcommand*{\sddef}[1]{$+$ & {#1} \\}          % definition
+\newcommand*{\sdend}[1]{$\square$ & {#1} \\}    % end
+\newcommand*{\sdexp}[1]{{} & {#1} \\}           % expression
+\newcommand*{\sdfact}[1]{$+$ & {#1} \\}         % fact
+\newcommand*{\sdhypo}[1]{$-$ & {#1} \\}         % hypothesis
+\newcommand*{\sdjust}[1]{$\conclude$ & {#1} \\} % justification
+\newcommand*{\sdnum}[2]{{#1} & {#2} \\}         % numbered step
+\newcommand*{\sdobs}[2]{{#1} & {#2} \\}         % observation
+\newcommand*{\sdprop}[1]{{} & {#1} \\}          % proposition
+\newcommand*{\sdstart}[1]{$\bullet$ & {#1} \\}  % start
+\newcommand*{\sdtask}[1]{$\bullet$ & {#1} \\}   % task
+%
 \newcommand*{\sdstep}[2]{${#1}$ & $\mleft\{\text{#2}\mright\}$ \\}
+%
+% Velleman given-goal stuff
+%
+\providecommand*{\vlrow}[2]{${#1}$ & \qquad\qquad & ${#2}$ \\ } % (Velleman row)
