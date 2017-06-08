@@ -9,7 +9,7 @@
 % category:      Text
 
 \ProvidesPackage{sty/artmath}
-                [06/06/2017 math macros, rimbaudcode]
+                [07/06/2017 math macros, rimbaudcode]
 
 % amsthm package
 %
@@ -97,6 +97,7 @@
 % number sets
 %
 \providecommand*{\compl}{\specialset{C}} % complex
+\providecommand*{\evens}{\specialset{E}} % evens
 \providecommand*{\ints}{\specialset{Z}}  % integers
 \providecommand*{\nats}{\specialset{N}}  % naturals (includes zero)
 \providecommand*{\odds}{\specialset{O}}  % odds
@@ -126,6 +127,13 @@
 %
 \providecommand*{\psset}{\subset}  % proper subset
 \providecommand*{\sset}{\subseteq} % subset
+
+% intervals
+%
+\providecommand*{\ccint}[2]{\mleft[{#1},{#2}\mright]} % close-close
+\providecommand*{\coint}[2]{\mleft[{#1},{#2}\mright[} % close-open
+\providecommand*{\ocint}[2]{\mleft]{#1},{#2}\mright]} % open-close
+\providecommand*{\ooint}[2]{\mleft]{#1},{#2}\mright[} % open-open
 
 % functions
 %
@@ -167,6 +175,7 @@
 %
 % sp: structured derivations
 \newcommand*{\sdanswer}[1]{$\square$ & {#1} \\} % answer
+\newcommand*{\sdcomm}[1]{{\sdicomm} & {#1} \\}  % comment
 \newcommand*{\sdconc}[1]{$\conclude$ & {#1} \\} % conclusion
 \newcommand*{\sddef}[1]{$+$ & {#1} \\}          % definition
 \newcommand*{\sdend}[1]{$\square$ & {#1} \\}    % end
@@ -180,6 +189,8 @@
 \newcommand*{\sdstart}[1]{$\bullet$ & {#1} \\}  % start
 \newcommand*{\sdtask}[1]{$\bullet$ & {#1} \\}   % task
 %
+% in-line comment and step
+\newcommand*{\sdicomm}{\#\#\ }
 \newcommand*{\sdstep}[2]{${#1}$ & $\mleft\{\text{#2}\mright\}$ \\}
 %
 % Velleman given-goal stuff
