@@ -75,9 +75,9 @@ cp $HOME/github/scripts/tex-templates/main.tex ./$ARTICLE_TITLE.tex
 git add .
 git commit -am "main file (main.tex) in place"
 #
-cp $HOME/github/scripts/tex-templates/Nemesis ./Nemesis
-sed -i '' -- "s/main.tex/$ARTICLE_TITLE.tex/g" Nemesis
+cp $HOME/github/scripts/tex-templates/Nemesis.hs ./Nemesis.hs
+sed -i '' -- "s/main.tex/$ARTICLE_TITLE.tex/g" Nemesis.hs
 git add .
-git commit -am "Nemesis (nemesis builder) file in place"
+git commit -am "Nemesis.hs (nemesis builder) file in place"
 #
 git flow feature finish initial-config

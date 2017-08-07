@@ -5,10 +5,10 @@
 % license-file:  scripts/LICENSE.md
 % author:        art rimbaud
 % maintainer:    rimbaudcode[at]gmail(DoT)com
-% copyright:     (c) 2016 rimbaudcode
+% copyright:     (c) 2017 rimbaudcode
 % category:      Text
 
-\ProvidesPackage{sty/artlingo}[2016/11/10 linguistic macros, rimbaudcode]
+\ProvidesPackage{sty/artlingo}[2017/02/24 linguistic macros, rimbaudcode]
 
 % linguistics
 %
@@ -21,7 +21,7 @@
 \providecommand*{\circa}{\lingform{ca.}}
 \providecommand*{\cf}{\lingform{cf.}}
 \providecommand*{\eg}{\lingform{e.g.}}
-\providecommand*{\etc}{\lingform{etc}}
+\providecommand*{\etc}{\lingform{\&c.}}
 \providecommand*{\ie}{\lingform{i.e.}}
 \providecommand*{\vs}{\lingform{vs.}}
 \providecommand*{\vicvers}{\lingform{vice versa}}
@@ -33,22 +33,24 @@
 %
 \providecommand*{\acro}[1]{\propersmallcaps{#1}}  % acronym
 \providecommand*{\brand}[1]{\propersmallcaps{#1}} % brand
-%
-\providecommand*{\code}[1]{\texttt{#1}} % computer code
-%
-\providecommand*{\Iff}{if and only if\xspace}
-\providecommand*{\mwlog}{without loss of generality\xspace}
-\providecommand*{\Mwlog}{Without loss of generality\xspace}
+\providecommand*{\code}[1]{\texttt{#1}}           % computer code
 
 % quotation marks
 %
 \providecommand*{\scare}[1]{\guillemotleft\,{#1}\,\guillemotright\xspace}
 
-% custom enviroments
+% ellipsis in quotations
 %
-\newenvironment{highlight}{\begin{quoting}}{\end{quoting}}
+\providecommand*{\dotsq}[1]{[\dots]\xspace} % dots in quotations
+
+% custom environments
+%
 \newenvironment{law}{\begin{quoting}}{\end{quoting}}
 
 % horizontal line
 %
 \providecommand*{\holine}{\noindent\rule[0.5ex]{\linewidth}{0.5pt}}
+
+% rubric
+%
+\providecommand*{\rubric}[1]{\propersmallcaps{#1}} % RUBRIC

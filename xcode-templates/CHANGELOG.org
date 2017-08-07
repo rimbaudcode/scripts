@@ -1,27 +1,21 @@
 #+STARTUP: showall hidestars
 
-* Change Log
+* CHANGELOG
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-** [Unreleased]
-*** Added
-- [ ] LICENSE.md added to Xcode's folders.
-- [ ] Credits.rtf added to Xcode's folders.
-- [ ] LICENSE.md placed in 'Build Phases/Copy bundle resources' rather than in 'Build Phases/Compile sources'
-- [ ] Xcode setup sections (General, capabilities, ...) configured.
-- [ ] Xcode folders (MVC folders, assets, configuration) organized.
+* [Unreleased]
+** Added
+- [ ] xcode_config: LICENSE.md in Xcode's folders
+- [ ] xcode_config: Credits.rtf in Xcode's folders
+- [ ] xcode_config: LICENSE.md in 'Build Phases/Copy bundle resources'
+- [ ] xcode_config: Xcode sections configured (General, capabilities, ...)
+- [ ] xcode_config: Xcode folders organized (MVC folders, assets, configuration)
 
-*** Changed
--
+** Changed
+- [ ] Bumped version number
 
-** [0.1.0] - 2016-11-19
-*** Added
--
 
-*** Changed
-- Bumped version number
-
-** Notes
+* [0.1.0] - 18.04.2017

@@ -5,10 +5,11 @@
 % license-file:  scripts/LICENSE.md
 % author:        art rimbaud
 % maintainer:    rimbaudcode[at]gmail(DoT)com
-% copyright:     (c) 2016 rimbaudcode
+% copyright:     (c) 2017 rimbaudcode
 % category:      Text
 
-\ProvidesPackage{sty/artmath}[2016/11/10 math macros, rimbaudcode]
+\ProvidesPackage{sty/artmath}
+                [08/06/2017 math macros, rimbaudcode]
 
 % amsthm package
 %
@@ -24,14 +25,15 @@
 %
 \theorembodyfont{\small}
 %
+\newtheorem*{note}{Note}
+\newtheorem*{remark}{Remark}
 \newtheorem{comment}{Commentary}
 \newtheorem{example}{Example}
 \newtheorem{experiment}{Experiment}
-\newtheorem*{note}{Note}
-\newtheorem*{remark}{Remark}
 %
 % theorem/proof analysis
 %
+\theoremstyle{plain}
 \newtheorem*{tologic}{Statement logic form}
 \newtheorem*{tvanalysis}{Truth value analysis}
 \newtheorem*{mathematica}{Mathematica experiment}
@@ -44,219 +46,153 @@
 \newtheorem*{generalization}{Generalization}
 \newtheorem*{specialization}{Specialization}
 %
-\newtheorem*{analyticsol}{Analytic solution}
-\newtheorem*{argument}{Argument}
-\newtheorem*{approximation}{Approximation}
-\newtheorem*{bounds}{Bounds}
-\newtheorem*{construction}{Construction}
-\newtheorem*{dimensions}{Dimensional analysis}
-\newtheorem*{extension}{Extension}
-\newtheorem*{extremes}{Extreme cases}
-\newtheorem*{geometry}{Geometry}
-\newtheorem*{guess}{Guesstimation}
-\newtheorem*{interpretation}{Interpretation}
-\newtheorem*{manalysis}{Math analysis}
-\newtheorem*{model}{Model}
-\newtheorem*{process}{Process}
-\newtheorem*{reference}{Reference}
-\newtheorem*{refine}{Refinement}
-\newtheorem*{scaling}{Scaling}
-\newtheorem*{values}{Numeric values}
-%
-\newtheorem*{assuming}{Assume}
-\newtheorem*{deriving}{Derive}
-\newtheorem*{calculating}{Calculate}
-\newtheorem*{checking}{Check}
-%
-\theoremstyle{nonumberplain}
-\theoremheaderfont{\itshape}
+\theoremheaderfont{
+  \itshape%
+}
 \theorembodyfont{\upshape}
 \theoremseparator{.}
 \theoremsymbol{\ensuremath{\square}}
 %
-\newtheorem{proof}{Proof}
-\newtheorem{counterexample}{Counterexample}
+\theoremstyle{plain}
+\newtheorem*{proof}{Proof}
+\newtheorem*{counterexample}{Counterexample}
 %
-\theoremheaderfont{\small\itshape}
+\theoremheaderfont{
+  \small\itshape%
+}
 \theorembodyfont{\small\upshape}
-\theoremsymbol{\ensuremath{\triangle}} % \mathsmaller\square
 %
-\newtheorem{solution}{Solution}
+\newtheorem*{solution}{Solution}
 
 % various
 %
-\providecommand{\abs}[1]{\mleft\lvert{#1}\mright\rvert} % absolute value
-\providecommand*{\defas}{\circeq}                       % defined as
-\providecommand*{\inv}[1]{{#1}^{-1}}                    % inverse
-\providecommand*{\parens}[1]{\mleft({#1}\mright)}       % parentheses
-\providecommand*{\vat}[1]{\parens{#1}}                  % value of a function at a point
-
-% text in math mode
+\providecommand*{\abs}[1]{\mleft\lvert{#1}\mright\rvert} % absolute value
+\providecommand*{\defas}{\circeq}                        % alt. \circeq
+\providecommand*{\inv}[1]{{#1}^{-1}}                     % inverse
 %
-\providecommand*{\eqtxt}[1]{\mleft\lbrack\text{\footnotesize{#1}}\mright\rbrack} % text in math environments
-\providecommand*{\sbce}[1]{_{\ce{#1}}}                                           % chem subscript
-\providecommand*{\sbtxt}[1]{_\text{\textsf{#1}}}                                 % subscript
+\providecommand*{\bracks}[1]{\mleft[{#1}\mright]} % brackets
+\providecommand*{\parens}[1]{\mleft({#1}\mright)} % parentheses
+\providecommand*{\vat}[1]{\parens{#1}}            % value at a point
+\providecommand*{\lvat}[1]{\,{#1}}                % (lambda) \vat
+%
+% text
+%
+% text under braces
+\providecommand*{\underbracetext}[2]{\underbrace{#1}_{\text{#2}}} %
+%
+% text in math environments
+%
+\providecommand*{\eqtxt}[1]{\mleft\lbrack\text{\footnotesize{#1}}\mright\rbrack}
 
 % set
 %
-\providecommand*{\lset}[1]{\mleft\lbrace{#1}\mright\rbrace}         % listing a set
-\providecommand*{\bset}[2]{\mleft\lbrace{#1}\mid{#2}\mright\rbrace} % building a set
-%
-\providecommand*{\svoid}{\cancel{\mathrm{O}}} % void (empty) set
+\providecommand*{\bset}[2]{\mleft\lbrace{#1}\mid{#2}\mright\rbrace} % building
+\providecommand*{\lset}[1]{\mleft\lbrace{#1}\mright\rbrace}         % listing
 %
 % special sets
 %
+\providecommand*{\svoid}{\cancel{\mathrm{O}}} % the void (empty) set
 \providecommand*{\specialset}[1]{\mathbb{#1}} % special number sets
 %
 % number sets
 %
 \providecommand*{\compl}{\specialset{C}} % complex
+\providecommand*{\evens}{\specialset{E}} % evens
 \providecommand*{\ints}{\specialset{Z}}  % integers
 \providecommand*{\nats}{\specialset{N}}  % naturals (includes zero)
 \providecommand*{\odds}{\specialset{O}}  % odds
 \providecommand*{\rats}{\specialset{Q}}  % rationals
 \providecommand*{\reals}{\specialset{R}} % reals
 %
-\providecommand*{\espace}{\specialset{E}} % euclidean space (a real space with metric)
+\providecommand*{\espace}{\specialset{E}} % euclidean space (real with metric)
 %
-\providecommand*{\nonneg}[1]{{#1}^{+}} % non-negative (+ and 0)
-\providecommand*{\nonpos}[1]{{#1}^{-}} % non-positive (- and 0)
-%
-\providecommand*{\notzero}[1]{{#1}^{\prime}} % zero not included
-%
+\providecommand*{\nonneg}[1]{{#1}^{+}}              % non-negative (+ and 0)
+\providecommand*{\nonpos}[1]{{#1}^{-}}              % non-positive (- and 0)
+\providecommand*{\notzero}[1]{{#1}^{\prime}}        % zero not included
+\providecommand*{\posnats}{\nonneg{\nats}}          % naturals (exc. zero)
 \providecommand*{\strneg}[1]{\nonpos{\notzero{#1}}} % strictly negative
 \providecommand*{\strpos}[1]{\nonneg{\notzero{#1}}} % strictly positive
-%
-\providecommand*{\posnats}{\nonneg{\nats}}    % positive naturals (excludes zero)
-\providecommand*{\xreals}{\overline{\reals}}  % extended real numbers (to include +/- infinity)
+\providecommand*{\xreals}{\overline{\reals}}        % ext. reals: +/- infinity
 %
 % operations on sets
 %
-\providecommand*{\fscard}[1]{\mleft\lvert{#1}\mright\rvert} % (finite) set cardinality
+% finite set cardinality
+\providecommand*{\fscard}[1]{\mleft\lvert{#1}\mright\rvert} %
 %
 \providecommand*{\sdiff}{\setminus}       % set difference
-\providecommand*{\ssdiff}{\bigtriangleup} % set symmetric difference
 \providecommand*{\sinter}{\cap}           % set intersection
 \providecommand*{\sprod}{\times}          % set (Cartesian) product
+\providecommand*{\ssdiff}{\bigtriangleup} % set symmetric difference
 \providecommand*{\sunion}{\cup}           % set union
 %
-\providecommand*{\sset}{\subseteq} % subset
 \providecommand*{\psset}{\subset}  % proper subset
+\providecommand*{\sset}{\subseteq} % subset
 
-% topology
+% intervals
 %
-\providecommand*{\sopen}[1]{{#1}^{\circ}} % open set (set open)
-\providecommand*{\sbound}{\partial}       % set boundary
+\providecommand*{\ccint}[2]{\mleft[{#1},{#2}\mright]} % close-close
+\providecommand*{\coint}[2]{\mleft[{#1},{#2}\mright[} % close-open
+\providecommand*{\ocint}[2]{\mleft]{#1},{#2}\mright]} % open-close
+\providecommand*{\ooint}[2]{\mleft]{#1},{#2}\mright[} % open-open
 
 % functions
 %
-\providecommand*{\fdef}[3]{{#1}\coloncolon{#2}\to{#3}}     % function definition
-\providecommand*{\fmap}[3]{{#1}\coloncolon{#2}\mapsto{#3}} % function as map (function defined with equation)
+\providecommand*{\fdef}[3]{{#1}\coloncolon{#2}\to{#3}}     % definition
+\providecommand*{\fmap}[3]{{#1}\coloncolon{#2}\mapsto{#3}} % as map: with eqn.
 %
-\providecommand*{\fcomp}{\circ} % function composition
-%
-\providecommand*{\fdclass}[1]{C^{#1}} % function class wrt differentiation
+\providecommand*{\fcomp}{\circ}       % composition
+\providecommand*{\fdclass}[1]{C^{#1}} % class wrt diff.
 
 % tuples
 %
-\providecommand*{\tuple}[1]{\mleft\langle{#1}\mright\rangle}  % tuple
+\providecommand*{\tuple}[1]{\mleft\langle{#1}\mright\rangle} % tuple
 
 % math constants
 %
-\providecommand*{\kpi}{\uppi}
 \providecommand*{\ke}{\mathrm{e}}
 \providecommand*{\ki}{\mathrm{i}}
+\providecommand*{\kpi}{\uppi}
 \providecommand*{\ktau}{\uptau}
 
 % logic
 %
-\renewcommand{\implies}{\rightarrow}
-\renewcommand{\iff}{\leftrightarrow}
+\providecommand*{\mcond}{\supset} % material conditional
+\providecommand*{\bcond}{\equiv}  % biconditional
 %
-\providecommand*{\derives}{\vdash}  % is derivable from
+\providecommand*{\conclude}{\Vdash} % conclusion
+\providecommand*{\derives}{\vdash}  % is derivable from (provable)
+\providecommand*{\entails}{\models} % entails (truth in every model)
 \providecommand*{\unique}{\exists!} % exists exactly one
 %
-\providecommand*{\dquant}{\mathpzc{D}} % domain of quantification
-\providecommand*{\tset}{\mathpzc{T}}   % truth set
-%
-%\providecommand*{\udisc}{\mathpzc{U}}  % universe of discourse
-%
-\providecommand*{\udisc}{U}  % universe of discourse
-%
-\providecommand*{\wehave}{\br} % we have
-\providecommand*{\such}{\,.\,} % such that
-%
-\providecommand*{\grensty}[2]{\Gamma,{#1}\derives{#2},\Delta} % grentzen style of deduction
+\providecommand*{\gstyle}[2]{\Gamma,{#1}\derives{#2},\Delta} % Grentzen
 
 % integers
 %
 \providecommand*{\ceil}[1]{\mleft\lceil{#1}\mright\rceil}    % ceiling
 \providecommand*{\floor}[1]{\mleft\lfloor{#1}\mright\rfloor} % floor
-
-% sequences and sums
 %
-% sequences
+% structured proofs
 %
-\providecommand*{\cseq}[4]{\mleft.{#1}_{#2}\mright\rvert_{#3}^{#4}}   % compact notation
-\providecommand*{\fseq}[3]{\parens{#1}_{#2}^{#3}}                     % formula sequence
-\providecommand*{\lseq}[1]{\parens{#1}}                               % listed sequence
+% sp: structured derivations
+\newcommand*{\sdanswer}[1]{$\square$ & {#1} \\} % answer
+\newcommand*{\sdcomm}[1]{{\sdicomm} & {#1} \\}  % comment
+\newcommand*{\sdconc}[1]{$\derives$ & {#1} \\}  % conclusion
+\newcommand*{\sddef}[1]{$+$ & {#1} \\}          % definition
+\newcommand*{\sdend}[1]{$\square$ & {#1} \\}    % end
+\newcommand*{\sdexp}[1]{{} & {#1} \\}           % expression
+\newcommand*{\sdfact}[1]{$+$ & {#1} \\}         % fact
+\newcommand*{\sdhypo}[1]{$-$ & {#1} \\}         % hypothesis
+\newcommand*{\sdjust}[1]{$\conclude$ & {#1} \\} % justification
+\newcommand*{\sdnum}[2]{{#1} & {#2} \\}         % numbered step
+\newcommand*{\sdobs}[2]{{#1} & {#2} \\}         % observation
+\newcommand*{\sdprop}[1]{{} & {#1} \\}          % proposition
+\newcommand*{\sdstart}[1]{$\bullet$ & {#1} \\}  % start
+\newcommand*{\sdtask}[1]{$\bullet$ & {#1} \\}   % task
 %
-% sums
+% in-line comment and step
+\newcommand*{\sdicomm}{\#\#\ }
+\newcommand*{\sdstep}[2]{${#1}$ & $\mleft\{\text{#2}\mright\}$ \\}
 %
-\providecommand*{\gsum}[1]{\sum_{\mathclap{\substack{#1}}}}         % generalized sigma notation
-\providecommand*{\iverson}[1]{\mleft\lbrack{#1}\mright\rbrack}      % iverson brackets
-\providecommand*{\ivsum}[3]{\sum_{\mathclap{#1}}{#2}\;\iverson{#3}} % sum with iverson notation
-
-% calculus
+% Velleman given-goal stuff
 %
-% derivatives
-%
-\providecommand*{\iod}[1]{\mathrm{d}_{#1}}     % indexed ordinary derivative
-\providecommand*{\ipd}[1]{\partial_{#1}}       % indexed partial derivative
-\providecommand*{\nipd}[2]{\partial^{#1}_{#2}} % n-th indexed partial derivative
-%
-\providecommand*{\xod}[2]{\dfrac{d{#2}}{d{#1}}}                     % expanded ordinary derivative
-\providecommand*{\xpd}[2]{\dfrac{\partial{#2}}{\partial{#1}}}       % expanded partial derivative
-\providecommand*{\cxpd}[2]{\dfrac{\partial{#1}}{\partial{#2}}}      % corrected expanded partial derivative
-\providecommand*{\nxpd}[3]{\dfrac{\partial^{#1}{#2}}{\partial{#3}}}
-%
-\providecommand*{\dt}[1]{\dot{#1}} % derivative with respect to time
-
-% tensors
-%
-\let\div\idiv
-\DeclareMathOperator{\div}{div}   % divergence
-\DeclareMathOperator{\curl}{curl} % curl
-\DeclareMathOperator{\grad}{grad} % gradient
-\DeclareMathOperator{\lap}{lap}   % laplacian
-%
-% products
-%
-\providecommand*{\iprod}{\cdot} % inner product
-
-% geometry
-%
-\providecommand*{\area}{a}                 % area of a measurable set
-\providecommand*{\region}[1]{\mathpzc{#1}} % region in space
-%
-\providecommand*{\depth}{h}  % depth
-\providecommand*{\height}{h} % height
-\providecommand*{\length}{l} % length
-\providecommand*{\thick}{t}  % thickness
-\providecommand*{\width}{w}  % width
-%
-\providecommand*{\diam}{d}   % diameter
-\providecommand*{\radius}{r} % radius
-%
-\providecommand*{\bound}{\partial} % boundary
-\providecommand*{\curve}{\gamma}   % curve
-\providecommand*{\surf}{s}         % surface
-\providecommand*{\vol}{v}          % volume
-%
-% scaling
-%
-\providecommand*{\omag}[1]{o\vat{#1}} % order-of-magnitude
-\providecommand*{\scales}{\propto}    % scales as
-%
-\providecommand*{\scq}[1]{{#1}\sbtxt{sc}} % scaled quantity
-\providecommand*{\dlq}[1]{\overline{#1}}  % dimensionless quantity
+\providecommand*{\vlrow}[2]{${#1}$ & \qquad\qquad & ${#2}$ \\ } % (Velleman row)

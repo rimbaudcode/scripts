@@ -1,15 +1,309 @@
 
-\section{MTW notation} % (fold)
-\label{sec:mtw_notation}
+\section{The geometric principle of physics laws}
+\label{sec:geometric-principle-physics-laws}
 %
-MTW's tensor notation in Gravitation~\cite{misner1973}:
+\epigraph{Ubi materia, ibi geometria.}{Johannes Kepler}
+
+Herein, the \lingo{geometric principle of physics laws} will permeate our way of doing physics:~\cite[chap. 1, p. iii]{thorne2013}
 %
-\begin{align*}
-  \mricci\vat{\cslot,\cslot} &= \cont_{1,3}\mriemann\vat{\vslot,\cslot,\cslot,\cslot}\,,\quad \\
-  \sricci                    &= \mmetric\vat{\mricci\vat{\cslot,\cslot}}\,,\quad \\
-  \gradcov\meinstein         &= 0\,,\\
-  \gradcov\meinstein\vat{\cslot,\cslot} &\defas \mricci\vat{\cslot,\cslot}
-    - \dfrac 12\sricci\mmetric\vat{\cslot,\cslot}\,.
-\end{align*}
+\begin{axiom}[Geometric principle]\label{axm:geometric-principle-physics-laws}
+  The laws of physics must be expressible as geometric relationships between geometric objects, which represent physical quantities.
+\end{axiom}
 %
-% section mtw_notation (end)
+We will profit from this principle not only to express laws, but also to assess, derive, and interpret them.
+
+
+\section{Balance law of a conserved quantity}
+\label{sec:balance-law-conserved-quantity}
+%
+\epigraph{Being abstract is something profoundly different from being vague \dotsq\ The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise.}{Edsger Dijkstra}
+
+\begin{definition}
+  Refer to a \lingo{continuum} as a region in space.
+\end{definition}
+
+\begin{observation}\label{obs:balance-law-conserved-quantity}
+  Consider a conserved quantity move through a body. Suppose the body be represented as a \lingo{continuum} $\Omega$ and the quantity $\Phi$, of density $\phi$, be defined for all points in  $\Omega$. Choose now a control region $\omega$ in $\Omega$ bounded by a control surface $\bregion\omega$. Finally, denote by $\flux$ the flux of $\Phi$ across $\bregion\omega$. Then, the evolution of $\Phi$ can be modeled by an \lingo{integral balance law}:
+  %
+  \begin{equation}\label{eqn:integral-balance-law}
+    \odt t\int_{\omega}\phi\,\dvol
+    + \oint_{\bregion\omega}\flux\iprod\dsurf
+    =
+    \int_{\omega}\ssink\,\dvol\,,
+  \end{equation}
+  %
+  where $+\ssink,-\ssink$ represent a \lingo{source density of $\Phi$} and a \lingo{sink density of $\Phi$}.
+\end{observation}
+%
+The integral balance law can be stated in words:~\cite[p. 5]{mishra2016}
+%
+\begin{law}
+  for a conserved quantity moving through a body, the quantity temporal change plus its flux across the body surface equals the total amount of the quantity being consumed or generated inside the body.
+\end{law}
+
+\begin{model}
+  Consider a physical quantity of density $\phi$ move through a body, as in \cref{obs:balance-law-conserved-quantity}. Then, the evolution of $\phi$ can be modeled by a \lingo{differential balance law in Euler's form}:
+  %
+  \begin{equation}\label{eqn:differential-balance-law-euler}
+    \dt\phi + \div\flux = \ssink\,.
+  \end{equation}
+\end{model}
+%
+\begin{argument}
+  Since $\phi$ is conserved in the body, depart from \cref{eqn:integral-balance-law}. Differentiate under the volume integral, apply then the divergence theorem to the area integral, gather the resulting integrands into a volume integral, and finally apply the localization theorem to it.
+\end{argument}
+
+By changing notation, \cref{eqn:differential-balance-law-euler} can be recasted into its traditional form:
+%
+\begin{equation}%\label{eqn:differential-balance-law-euler-operator}
+  \cpd t\phi + \odiv\flux = \ssink\,.
+\end{equation}
+%
+That is, in words,
+%
+\begin{law}
+  the temporal derivative of a conserved quantity plus the divergence of its flux equals the quantity density of sinks or sources.
+\end{law}
+
+An advantage of abstract balance laws, like \cref{eqn:integral-balance-law,eqn:differential-balance-law-euler}, over other approaches lies in their generality:~\cite{thorne2013,mishra2016}
+%
+\begin{law}
+  once a conserved quantity has been chosen, we can derive its \scare{continuity equation} by inserting the relevant physics into the quantity flux $\flux$ and then evaluate its resulting contribution to the law. At each step, one gets out, in the form $\div\flux$, the physics that one puts into $\flux$.
+\end{law}
+%
+Another advantage is the efficiency with which we can generate conservation laws, which are merely specialized versions of the abstract ones.
+%
+\footnote{For instance, see how laboriously the \scare{continuity equation of mass}, a specialized version of \cref{eqn:differential-balance-law-euler}, is deduced in~\cite[p. 42]{holzbecher2012}.}
+
+
+\section{Conservation of mass}
+\label{sec:conservation-mass}
+
+\begin{model}
+  Consider a body deform. Suppose the body be represented as a fluid flowing with velocity $\vel$. Then, the evolution of the fluid density can be modeled by a \lingo{mass continuity equation in Lagrange's form}:
+  %
+  \begin{equation}\label{eqn:mass-continuity-equation-lagrange}
+    \mdt\dens + \dens\div\vel = 0\,.
+  \end{equation}
+\end{model}
+%
+\begin{argument}
+  Since the fluid mass is conserved and no mass is generated or consumed in the body, depart from a differential balance law, \cref{eqn:differential-balance-law-euler}, with vanishing sinks and sources:
+  %
+  \begin{equation*}%\label{eqn:mass-continuity-equation-euler}
+    \cpd t\dens + \odiv\vat{\dens\vel} = 0\,,
+  \end{equation*}
+  %
+  where $\dens\vel$ represents the fluid mass advective flux.
+
+  Apply then the product rule to the divergence and finally the definition of the material derivative:
+  %
+  \begin{equation*}
+    \omdt t\dens + \dens\odiv\vel = 0\,.
+  \end{equation*}
+\end{argument}
+%
+The mass continuity equation \cref{eqn:mass-continuity-equation-lagrange} is often useful in its Euler's form:
+%
+\begin{equation}\label{eqn:mass-continuity-equation-euler}
+  \dt\dens + \div{\dens\vel} = 0\,,
+\end{equation}
+%
+which falls directly from \cref{eqn:differential-balance-law-euler} with $\phi = \dens$, with $\flux = \dens\vel$, and with $\ssink = 0$.
+
+\begin{definition}
+  Consider a fluid flow. Call the flow \lingo{incompressible} if and only if the fluid density changes neither in space nor in time.
+\end{definition}
+%
+That is, during incompressible flow, the material derivative of the fluid density vanishes:
+%
+\begin{equation}\label{eqn:definition-incompressible-flow}
+  \mdt\dens = 0\,.
+\end{equation}
+
+The following model shows that, during incompressible flow, the divergence of the fluid velocity vanishes.
+%
+\begin{model}
+  Consider a fluid flow. Suppose the flow be represented as incompressible. Then, the fluid velocity can be modeled by a \lingo{incompressible flow equation}:
+  %
+  \begin{equation}\label{eqn:incompressible-flow-equation}
+    \div\vel = 0\,.
+  \end{equation}
+  %
+\end{model}
+%
+\begin{argument}
+  Since the fluid mass is conserved and there are no mass sources neither sinks, depart from \cref{eqn:mass-continuity-equation-lagrange}. Apply the definition of incompressible flow.
+\end{argument}
+%
+Whenever a flow can be modeled as incompressible, it means that the fluid volume is conserved.
+
+\begin{definition}
+  In local coordinates $\tbcov i$, define the \lingo{gradient of a tensor $t$} as
+  %
+  \begin{equation}\label{eqn:covariant derivative}
+    \grad t = \tbcov j\tprod\ocder{\tbvec j} t\,.
+  \end{equation}
+  %
+\end{definition}
+
+\begin{theorem}
+  In local coordinates $\tbvec i$, the gradient of a vector $\vel$ is given by
+  %
+  \begin{equation}\label{eqn:gradient-vector-local-coordinates}
+    \grad\vel =
+    \br{
+      \cpd j\tvec\vel i + \tchris ijk\tvec\vel k
+    }\tbcov j\tprod\tbvec i\,.
+  \end{equation}
+\end{theorem}
+%
+\begin{proof}
+  Apply the definition of gradient to $\vel$, express $\vel$ in local coordinates, and perform straightforward tensor calculus operations:
+  %
+  \begin{align*}
+    \grad\vel &= \tbcov j\tprod\ocder{\tbvec j}\br{\tvec\vel i\tbvec i}\,,\\
+    %
+    &= \tbcov j\tprod\br{
+      \tbvec i\ocder{\tbvec j}\tvec\vel i
+      + \tvec\vel i\ocder{\tbvec j}\tbvec i
+    }\,,\\
+    %
+    &= \tbcov j\tprod\br{
+      \tbvec i\cpd j\tvec\vel i
+      + \tvec\vel i\tchris kji\tbvec k
+    }\,,\\
+    %
+    &= \tbcov j\tprod\br{
+      \tbvec i\cpd j\tvec\vel i
+      + \tvec\vel k\tchris ijk\tbvec i
+    }\,,\\
+    %
+    &= \tbcov j\tprod\tbvec i\br{
+      \cpd j\tvec\vel i
+      + \tvec\vel k\tchris ijk
+    }\,.
+  \end{align*}
+  %
+\end{proof}
+
+\begin{definition}
+  In local coordinates $\tbvec i$, the contraction of a unit second rank tensor $\tbcov i\tprod\tbvec j$ is defined as
+  %
+  \begin{equation}\label{eqn:contraction--unit-second-rank-tensor}
+    \cont{\br{\tbcov i\tprod\tbvec j}}
+    = \ocont\vat{\tbcov i\tprod\tbvec j}
+    = \tbcov i\iprod\tbvec j
+    = \tkron ij\,.
+  \end{equation}
+\end{definition}
+%
+That is, given a second rank tensor, to contract it means to change the tensor product into an inner product.
+
+\begin{definition}
+  Define the \lingo{divergence of a vector} as the contraction of its gradient.
+\end{definition}
+
+
+\section{Cauchy's momentum equation}
+\label{sec:cauchy-momentum-equation}
+
+\begin{theorem}
+  Consider a scalar field $\phi$ and a vector field $v$. Then, the divergence of their product is given by
+  %
+  \begin{equation}\label{eqn:divergence-scalar-vector-product}
+    \odiv\vat{\phi v} = v\iprod\ograd\phi + \phi\odiv v\,.
+  \end{equation}
+  %
+\end{theorem}
+%
+\begin{proof}
+  By direct application of the product rule.
+\end{proof}
+
+The next theorem states the product rule for the material derivative.
+%
+\begin{theorem}
+  Consider a scalar field $\phi$ and the vector fields $u,v$. Then, the material derivative of the product $\phi u$, along $v$, satisfies the \lingo{product rule}:
+  %
+  \begin{equation}\label{eqn:product-rule-material-derivative}
+    \mdt{\phi u} = \mdt\phi u + \phi\mdt u\,.
+  \end{equation}
+\end{theorem}
+%
+\begin{proof}
+  By definition of material derivative:
+  %
+  \begin{equation*}
+    \omdt t\vat{\phi u} = \cpd t\vat{\phi u} + \ocder v\vat{\phi u}\,.
+  \end{equation*}
+  %
+  Use then the product rule to expand the partials and the directional derivatives:
+  %
+  \begin{equation*}
+    \cpd t\vat{\phi u} + \ocder v\vat{\phi u}
+    =
+    u\cpd t\phi + \phi\cpd tu + \phi\ocder vu + u\ocder v\phi\,.
+  \end{equation*}
+  %
+  Rearrange the terms of the \acro{rhs} and gather $\phi$ and $u$:
+  %
+  \begin{equation*}
+    \cpd t\vat{\phi u} + \ocder v\vat{\phi u}
+    =
+    \phi\br{\cpd tu + \ocder vu} + u\br{\cpd t\phi + \ocder v\phi}\,.
+  \end{equation*}
+  %
+  Finally, apply the definition of material derivative to the terms in parentheses.
+\end{proof}
+
+\begin{model}
+  Consider a body deform. Suppose the body be represented as a continuum. Then, the evolution of the body momentum can be modeled by a \lingo{Cauchy's momentum equation in Lagrange's form}:
+  %
+  \begin{equation}\label{eqn:cauchy-momentum-equation-lagrange}
+    \dens\mdt\vel = \div\stress + \ssink\,,
+  \end{equation}
+  %
+  where $\stress$ represents the continuum stress.
+  %
+\end{model}
+%
+\begin{argument}
+  Since the continuum momentum is conserved, depart from a differential balance law, \cref{eqn:differential-balance-law-euler}, with $\dens\vel$ as the momentum density; $\dens\vel\vel + \stress$ as the momentum flux; and $\ssink$ as the momentum density consumed or generated in the continuum:
+  %
+  \begin{equation*}
+    \cpd t\vat{\dens\vel} + \odiv\vat{\dens\vel\vel} + \odiv\stress
+    = \ssink\,,
+  \end{equation*}
+  %
+  due to the linearity of the divergence.
+
+  Then, expand the temporal derivative and the divergence:
+  %
+  \begin{equation*}
+    \vel\cpd t\dens + \dens\cpd t\vel
+    + \vel\vel\iprod\ograd\dens + \dens\vel\iprod\ograd\vel
+    + \dens\vel\odiv\vel
+    + \odiv\stress
+    = \ssink\,.
+  \end{equation*}
+  %
+  Rearrange terms and reckon the \acro{rhs} of the product $\dens\vel$, \cref{eqn:divergence-scalar-vector-product}, to get
+  %
+  \begin{equation*}
+    \vel\br{\cpd t\dens + \odiv\br{\dens\vel}}
+    + \dens\br{\cpd t\vel + \vel\iprod\ograd\vel}
+    + \odiv\stress
+    = \ssink\,.
+  \end{equation*}
+  %
+  See that the first term vanishes due to mass continuity, \cref{eqn:mass-continuity-equation-euler}, and that the second represents the material derivative of the continuum velocity to get
+  %
+  \begin{equation*}
+    \dens\omdt t\vel
+    + \odiv\stress
+    = \ssink\,.
+  \end{equation*}
+\end{argument}
+%
+Note the generality of Cauchy's momentum equation: it models momentum transport in \emph{any} continuum.

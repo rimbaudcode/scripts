@@ -5,143 +5,217 @@
 % license-file:  scripts/LICENSE.md
 % author:        art rimbaud
 % maintainer:    rimbaudcode[at]gmail(DoT)com
-% copyright:     (c) 2016 rimbaudcode
+% copyright:     (c) 2017 rimbaudcode
 % category:      Text
 
-\ProvidesPackage{sty/artphysics}[2016/11/10 physics macros, rimbaudcode]
+\ProvidesPackage{sty/artphysics}
+                [07/04/2017 physics macros, rimbaudcode]
 
-% constants
+% amsthm package
 %
-\providecommand*{\klight}{c} % speed of light in vacuum
+\theoremheaderfont{\normalfont\scshape}
+\theoremseparator{.}
+\theorembodyfont{
+  \normalfont\itshape%
+}
+\theoremsymbol{}
+%
+\newtheorem{assumption}{Assumption}
+\newtheorem{model}{Model}
+\newtheorem{observation}{Observation}
+%
+\theorembodyfont{\upshape}
+%
+\newtheorem{notation}{Notation}
+\newtheorem{scaling}{Scaling}
+\newtheorem{summary}{Summary}
+%
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\scshape}
+\theoremseparator{.}
+\theorembodyfont{\small}
+%
+\newtheorem*{analyticsol}{Analytic solution}
+\newtheorem*{approximation}{Approximation}
+\newtheorem*{bounds}{Bounds}
+\newtheorem*{construction}{Construction}
+\newtheorem*{dimensions}{Dimensional analysis}
+\newtheorem*{extension}{Extension}
+\newtheorem*{extremes}{Extreme cases}
+\newtheorem*{geometry}{Geometry}
+\newtheorem*{guess}{Guesstimation}
+\newtheorem*{manalysis}{Math analysis}
+\newtheorem*{process}{Process}
+\newtheorem*{reference}{Reference}
+\newtheorem*{refine}{Refinement}
+\newtheorem*{values}{Numeric values}
+%
+\newtheorem*{assuming}{Assume}
+\newtheorem*{deriving}{Derive}
+\newtheorem*{calculating}{Calculate}
+\newtheorem*{checking}{Check}
+%
+\theoremheaderfont{
+  \itshape%
+}
+\theorembodyfont{\upshape}
+\theoremsymbol{\ensuremath{\square}}
+%
+\newtheorem*{argument}{Argument}
+\newtheorem*{derivation}{Derivation}
+\newtheorem*{interpretation}{Interpretation}
 
-% (coordinate-free) geometric objects
+% diagrammatic tensors
 %
-\providecommand*{\cov}[1]{\tilde{#1}}     % covector
-\providecommand*{\idtens}{i}              % identity tensor
-\providecommand*{\event}[1]{\mathcal{#1}} % events (points in spacetime)
-\providecommand*{\point}[1]{\mathcal{#1}} % point in a manifold
-\providecommand*{\uvec}[1]{\hat{#1}}      % unit vector
-\providecommand*{\inv}[1]{\br{#1}^{-1}}   % inverse
-\providecommand*{\vol}{\omega}            % volume
-\providecommand*{\area}{\sigma}           % area
-\providecommand*{\curve}{\Gamma}          % curve
+% boxed tensor (no scalars)
 %
-\providecommand*{\pdist}{s}    % proper distance
-\providecommand*{\ptime}{\tau} % proper time
+\providecommand*{\bxtens}[1]{
+  \begin{tikzpicture}[baseline=(char.base)]
+    \node[draw,inner sep=2pt](char) {$#1$};
+  \end{tikzpicture}
+}
 %
+% circled tensor
+%
+\providecommand*{\cirtens}[1]{
+  \begin{tikzpicture}[baseline=(char.base)]
+    \node[draw,circle,inner sep=2pt](char) {$#1$};
+  \end{tikzpicture}
+}
+
 % regions
 %
-\providecommand*{\region}[1]{\set{#1}}                 % regions in space
-\providecommand*{\cregion}[1]{\region{#1}}             % closed regions in space
-\providecommand*{\oregion}[1]{\region{#1}^{{}\circ{}}} % open regions in space
-\providecommand*{\bregion}[1]{\partial\region{#1}}     % boundary of regions in space
-\providecommand*{\manifold}[1]{\region{#1}}            % manifold
+\providecommand*{\bregion}{\partial}        % boundary
+\providecommand*{\oregion}[1]{{#1}^{\circ}} % open set (set open)
+
+% metric and co.
 %
-% metric
+\providecommand*{\chris}{\Gamma}          % Christoffel's symbol
+\providecommand*{\imetric}{\metric^{*}  } % inverse metric
+\providecommand*{\kron}{\delta}           % Kronecker's delta
+\providecommand*{\levicivi}{\epsilon}     % levi-civita (symbol)
+\providecommand*{\metric}{\mathsf{g}}     % metric
+
+% tensors
 %
-\providecommand*{\fmetric}{\eta}              % flat metric
-\providecommand*{\kron}{\delta}               % Kronecker's delta
-\providecommand*{\metric}{g}                  % metric tensor
-\providecommand*{\invmet}{\inverse{\metric}}  % inverse metric tensor
-\providecommand*{\minkmet}{\eta}              % minkowski metric tensor
-\providecommand*{\levicivi}{\epsilon}         % levi-civita (symbol) tensor
+% slots (covector, empty, vector)
 %
-% curvature
+\providecommand*{\cslot}{{\scriptstyle{}\sim{}}}        %
+\providecommand*{\eslot}{{\scriptstyle{}\_}}            %
+\providecommand*{\vslot}{{\scriptstyle{}\rightarrow{}}} %
 %
-\providecommand*{\riemann}{r}  % riemann tensor
-\providecommand*{\ricci}{r}    % ricci tensor
-\providecommand*{\sricci}{r}   % ricci scalar
-\providecommand*{\einstein}{e} % einstein tensor
+% products
 %
-\providecommand*{\pos}{x}    % event position
-\providecommand*{\sep}{\xi}  % event separation
-\providecommand*{\dist}{s}   % distance between points or events
+\providecommand*{\cprod}{\times}  % cross product
+\providecommand*{\iprod}{\cdot}   % inner product
+\providecommand*{\oprod}{\wedge}  % outer product
+\providecommand*{\tprod}{\otimes} % tensor product
 %
-\providecommand*{\distance}{s}                            % distance between events
-\providecommand*{\difdist}{d\distance}                    % differential distance
-\providecommand*{\sqdifdist}{\br{\difdist}^2}             % squared differential distance
-\providecommand*{\norm}[1]{\mleft\lvert{#1}\mright\rvert} % norm, length
+% operators
+%
+% in words
+%
+\let\div\idiv%
+\DeclareMathOperator{\vcurl}{curl} % vector curl
+\DeclareMathOperator{\vdiv}{div}   % vector divergence
+\DeclareMathOperator{\vgrad}{grad} % vector gradient
+\DeclareMathOperator{\vlap}{lap}   % vector Laplacian
+%
+% operators with decoration
+%
+\providecommand*{\adt}[1]{\dot{\overline{\overline{#1}}}} % abs. deriv.
+\providecommand*{\cder}[2]{{#1}|_{#2}}                    % cov. deriv.
+\providecommand*{\cont}[1]{{#1}^{\natural}}               % contraction
+\providecommand*{\ddt}[1]{\ddot{#1}}                      % time, time deriv.
+\providecommand*{\div}[1]{\cont{\grad{#1}}}               % divergence
+\providecommand*{\dt}[1]{\dot{#1}}                        % part. temp.
+\providecommand*{\dx}{\mathrm{d}}                         % differential
+\providecommand*{\grad}[1]{\overline{#1}}                 % gradient
+\providecommand*{\lap}[1]{\overline{\overline{#1}}}       % Laplace's
+\providecommand*{\mdt}[1]{\dot{\overline{#1}}}            % material deriv.
+%
+% * musical isomorphisms
+%
+\providecommand*{\fvec}[1]{{#1}^{\flat}}  % flat vector
+\providecommand*{\scov}[1]{{#1}^{\sharp}} % sharp covec.
+%
+% without decoration
+%
+\providecommand*{\oadt}[1]{\overline{\overline{\mathrm{D}}_{#1}}} % abs. der.
+\providecommand*{\ocder}[1]{\ograd_{#1}}                          % cov.der.
+\providecommand*{\ocurl}{\ograd\cprod}                            % curl
+\providecommand*{\odiv}{\ograd\iprod}                             % div.
+\providecommand*{\odt}[1]{\mathrm{d}_{#1}}                        %
+\providecommand*{\ograd}{\nabla}                                  % grad.
+\providecommand*{\olap}{\Delta}                                   % Lap.
+\providecommand*{\omdt}[1]{\mathrm{D}_{#1}}                       % mat.der. %
+\DeclareMathOperator{\ocont}{cont} % contraction
+\DeclareMathOperator{\otrace}{tr}  % trace
+%
+% * musical isomorphisms
+%
+\providecommand*{\ofvec}{\flat}  % flat vector
+\providecommand*{\oscov}{\sharp} % sharp covec.
 %
 % basis
 %
-\providecommand*{\belem}{e}                  % basis element
-\providecommand*{\bcov}{\cov{\belem}}        % basis covector
-\providecommand*{\bvec}{\vec{\belem}}        % basis vector
-\providecommand*{\bset}[3]{\seq{#1}{#2}{#3}} % basis set
-\providecommand*{\chris}{\Gamma}             % Chirstoffel symbol
+\providecommand*{\belem}{e}             % basis element
+\providecommand*{\bcov}{\tilde{\belem}} % basis covector
+\providecommand*{\bvec}{\belem}         % basis vector
 
-% tensor products
+% bra-ket notation
 %
-\providecommand*{\cprod}{\times}                                  % cross product
-\providecommand*{\iprod}{\cdot}                                   % inner product
-\providecommand*{\oprod}{\wedge}                                  % outer product
-\providecommand*{\tprod}{\otimes}                                 % tensor product
-\providecommand*{\sprod}[2]{\mleft\langle{#1},{#2}\mright\rangle} % scalar product
-
-% tensor slots
-%
-\providecommand*{\cslot}{{\scriptstyle{}\sim{}}}        % covector slot
-\providecommand*{\eslot}{{\scriptstyle{}\cdot{}}}       % empty slot
-\providecommand*{\fslot}{{\scriptstyle{}\checkmark{}}}  % filled slot
-\providecommand*{\vslot}{{\scriptstyle{}\rightarrow{}}} % vector slot
-
-% tensor order
-%
-\providecommand*{\torder}[2]{\br{{#1},{#2}}} % order, rank, type of a tensor
-
-% operators
-%
-\DeclareMathOperator{\cont}{cont} % tensor contraction
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{
+  {#1}\delimsize\vert{#2}
+}
+\DeclarePairedDelimiterX\ketbra[2]{
+  \vert}{\vert}{{#1}\delimsize\rangle\delimsize\langle{#2}
+}
 
 % index-notation
 %
-\providecommand*{\tcov}[2]{\tensor{#1}{_{#2}}}                 % covector components
-\providecommand*{\tvec}[2]{\tensor{#1}{^{#2}}}                 % vector components
-\providecommand*{\tvecfmet}[2]{\tensor{\fmetric}{^{#1}^{#2}}}  % flat metric components
+\providecommand*{\jacob}{J}                    % Jacob's matrix
+\providecommand*{\tcov}[2]{\tensor{#1}{_{#2}}} % covector
+\providecommand*{\tvec}[2]{\tensor{#1}{^{#2}}} % vector
 %
-\providecommand*{\tmetric}[2]{\tensor{\metric}{_{#1}_{#2}}}   % metric components
-\providecommand*{\tinvmet}[2]{\tensor{\metric}{^{#1}^{#2}}}   % inverse metric components
-\providecommand*{\tidtens}[2]{\tensor{\idtens}{^{#1}_{#2}}}   % identity tensor components
-\providecommand*{\tkron}[2]{\tensor{\kron}{^{#1}_{#2}}}       % Kronecker's delta components
-\providecommand*{\tminkmet}[2]{\tensor{\minkmet}{_{#1}_{#2}}} % minkowski metric tensor components
+% physical components
+\providecommand*{\pbvec}[1]{\tensor{\hat{\belem}}{_{#1}}}                %
+\providecommand*{\pvec}[2]{\tensor{#1}{^{\hat{#2}}}}                     %
+\providecommand*{\pmetric}[2]{\tensor{\metric}{_{\underline{{#1}{#2}}}}} %
 %
-\providecommand*{\tlevicivi}[3]{\tensor{\levicivi}{_{#1}_{#2}_{#3}}} % levi-civita tensor components
+\providecommand*{\pbcov}[1]{\tensor{\hat{\belem}}{^{#1}}}                 %
+\providecommand*{\pcov}[2]{\tensor{#1}{_{\hat{#2}}}}                      %
+\providecommand*{\pimetric}[2]{\tensor{\metric}{^{\underline{{#1}{#2}}}}} %
 %
-\providecommand*{\tbcov}[1]{\tensor{\bcov}{^{#1}}} % basis covectors
-\providecommand*{\tbvec}[1]{\tensor{\bvec}{_{#1}}} % basis vectors
+% inverse metric
+\providecommand*{\timetric}[2]{\tensor{\metric}{^{#1}^{#2}}}         %
+% Kronecker's delta
+\providecommand*{\tkron}[2]{\tensor{\kron}{^{#1}_{#2}}}              %
+% Levi-Civita
+\providecommand*{\tlevicivi}[3]{\tensor{\levicivi}{_{#1}_{#2}_{#3}}} %
+% metric
+\providecommand*{\tmetric}[2]{\tensor{\metric}{_{#1}_{#2}}}          %
 %
-\providecommand*{\tvolel}[1]{d^{#1}\pos} % volume element
+% basis
 %
-\providecommand*{\tevent}[2]{\tensor{\event{#1}}{_{#2}}} % "tensor" event
+\providecommand*{\tbcov}[1]{\tensor{\bvec}{^{#1}}}             % covectors
+\providecommand*{\tbvec}[1]{\tensor{\bvec}{_{#1}}}             % vectors
+\providecommand*{\tchris}[3]{\tensor{\chris}{^{#1}_{#2}_{#3}}} % Chris
 %
-% tensor calculus
+% derivatives
 %
-\providecommand*{\ipd}[1]{\partial_{#1}}                      % index partial derivative
-\providecommand*{\xpd}[2]{\dfrac{\partial{#1}}{\partial{#2}}} % expanded partial derivative
+\providecommand*{\cpd}[1]{\tensor{\partial}{_{#1}}} % covector partial
+\providecommand*{\vpd}[1]{\tensor{\partial}{^{#1}}} % vector partial
 %
-\providecommand*{\gradient}{\nabla}      % gradient
-\providecommand*{\gradcov}{\cov{\nabla}} % gradient covector
-\providecommand*{\gradvec}{\vec{\nabla}} % gradient vector
-%
-\providecommand*{\cgrad}{\gradcov}                  % gradient (covector)
-\providecommand*{\tgrad}[1]{\tensor{\nabla}{_{#1}}} % gradient covector
-%
-\providecommand*{\cgradcov}[1]{\tensor{\gradcov}{_{#1}}} % gradient covector along a curve
-%
-\providecommand*{\tchris}[3]{\tensor{\chris}{^{#1}_{#2}_{#3}}}          % chirstoffel symbol
-\providecommand*{\triemann}[4]{\tensor{\riemann}{^{#1}_{#2}_{#3}_{#4}}} % riemann tensor
-\providecommand*{\tricci}[2]{\tensor{\ricci}{_{#1}_{#2}}}               % ricci tensor
-\providecommand*{\teinstein}[2]{\tensor{\einstein}{_{#1}_{#2}}}         % einstein tensor
-%
+% Feynman notation
+\providecommand*{\slashed}{\cancel} % covectors
+
 % coordinate systems
 %
-\providecommand*{\coordsys}[3]{\seq{#1}{#2}{#3}} % coordinate system
 \providecommand*{\coordbas}[3]{\seq{#1}{#2}{#3}} % coordinate basis
-%
-% time as coordinate
-%
-\providecommand*{\tpos}{t}      % time position
-\providecommand*{\ptpos}{\tau}  % proper time position
+\providecommand*{\coordsys}[3]{\seq{#1}{#2}{#3}} % coordinate system
 %
 % rectangular
 %
@@ -151,78 +225,81 @@
 %
 % cylindrical polar
 %
-\providecommand*{\cxpos}{r}       % x position in cylindrical polar coord.
-\providecommand*{\cypos}{\theta}  % y position in cylindrical polar coord.
-\providecommand*{\czpos}{z}       % z position in cylindrical polar coord.
+\providecommand*{\cxpos}{r}      % x position in cylindrical polar coord.
+\providecommand*{\cypos}{\theta} % y position in cylindrical polar coord.
+\providecommand*{\czpos}{z}      % z position in cylindrical polar coord.
 %
 % spherical polar
 %
-\providecommand*{\sxpos}{\rho}    % x position in spherical polar coord.
-\providecommand*{\sypos}{\theta}  % y position in spherical polar coord.
-\providecommand*{\szpos}{\phi}    % z position in spherical polar coord.
-%
-% matrices
-%
-\providecommand*{\asmatrix}[1]{\mleft\lVert{#1}\mright\rVert}     % matrix representation
-\providecommand*{\transmat}{\Lambda}                              % transformation matrix
-\providecommand*{\ttransmat}[2]{\tensor{\transmat}{^{#1}_{#2}}}   % transformation matrix components
-\providecommand*{\aidx}[1]{{#1}\sp{\prime}}                       % alternate index
-\providecommand*{\ridx}[1]{\hat{#1}}                              % rectangular index
-\providecommand*{\trans}[1]{\br{#1}^{T}}                          % transpose (as superscript)
-%
-\providecommand*{\xttransmat}[2]{\dfrac{\partial\br{#1}}{\partial\br{#2}}} % expanded trans. matrix
+\providecommand*{\sxpos}{\rho}   % x position in spherical polar coord.
+\providecommand*{\sypos}{\theta} % y position in spherical polar coord.
+\providecommand*{\szpos}{\phi}   % z position in spherical polar coord.
 
-% misner notation for special tensors
+% dimensional analysis
 %
-\providecommand*{\omisnerstyle}[1]{\textbf{\textit{\textsf{#1}}}} % original misner style
-\providecommand*{\mtens}[1]{\textit{\textsf{#1}}}                 % new (mine) misner style
+\providecommand*{\diminv}[1]{\overline{#1}} % dimensionless inverse
+\providecommand*{\dq}[1]{\tilde{#1}}        % dim. physical quantity
+\providecommand*{\kdim}{\Pi}                % dimensionless quantity
+\providecommand*{\phdim}[1]{\si{#1}}        % physical dimension
+\providecommand*{\sdder}[1]{\tder^*_{#1}}   % scaled dir. derivative
 %
-\providecommand*{\mmetric}{\mtens{g}}           % misner metric
-\providecommand*{\minvmet}{\mtens{g}^{-1}}      % misner metric
-\providecommand*{\mriemann}{\mtens{riemann}}    % misner riemann
-\providecommand*{\mricci}{\mtens{ricci}}        % misner ricci
-\providecommand*{\meinstein}{\mtens{einstein}}  % misner einstein
+\DeclareMathOperator{\kdarcy}{Da}    % Darcy's number
+\DeclareMathOperator{\keuler}{Eu}    % Euler's number
+\DeclareMathOperator{\kfroude}{Fr}   % Froude's number
+\DeclareMathOperator{\kmach}{Ma}     % Mach's number
+\DeclareMathOperator{\kreynolds}{Re} % Reynolds' number
+%
+% scaling
+%
+\providecommand*{\omag}[1]{o\vat{#1}} % order-of-magnitude
+\providecommand*{\scales}{\propto}    % scales as
 
-% diagrammatic tensors
+% geometry
 %
-% boxed tensor
+\providecommand*{\area}{a}   % area
+\providecommand*{\depth}{h}  % depth
+\providecommand*{\height}{h} % height
+\providecommand*{\length}{l} % length
+\providecommand*{\radius}{r} % radius
+\providecommand*{\thick}{t}  % thickness
+\providecommand*{\vol}{v}    % volume
+\providecommand*{\width}{w}  % width
 %
-\providecommand*{\bxtensor}[1]{
-  \begin{tikzpicture}[baseline=(char.base)]
-    \node[draw,inner sep=2pt](char) {$#1$};
-  \end{tikzpicture}
-}
-%
-% circled tensor
-%
-\providecommand*{\citensor}[1]{
-  \begin{tikzpicture}[baseline=(char.base)]
-    \node[draw,circle,inner sep=2pt](char) {$#1$};
-  \end{tikzpicture}
-}
-%
-\providecommand*{\cigrad}[1]{\rightarrow\citensor{#1}} % circled gradient (covariant derivative)
-%
-\providecommand*{\tograph}{{}\leftrightsquigarrow{}} % from abs. notation and graph. notation
-
-% symmetries, commutator and anticommutator
-%
-\providecommand*{\acommutator}[2]{\mleft\lbrack{#1},{#2}\mright\rbrack_{+}} % anti-commutator
-\providecommand*{\commutator}[2]{\mleft\lbrack{#1},{#2}\mright\rbrack_{-}}  % commutator
-%
-\providecommand*{\commgrad}[2]{\commutator{\tgrad{#1}}{\tgrad{#2}}} % gradient commutator
-%
-\providecommand*{\asymmetric}[1]{\mleft\lbrack{#1}\mright\rbrack} % symmetrization
-\providecommand*{\symmetric}[1]{\mleft({#1}\mright)}              % anti-symmetrization
+\providecommand*{\dsurf}{\dx S} % differential surface (conservation laws)
+\providecommand*{\dvol}{\dx V}  % differential volume (conservation laws)
 
 % mechanics
 %
-\providecommand*{\vel}{v}  % velocity
-\providecommand*{\lmom}{p} % linear momentum
+\providecommand*{\acc}{a}         % acceleration
+\providecommand*{\dens}{\rho}     % density
+\providecommand*{\force}{f}       % force
+\providecommand*{\grav}{g}        % free-fall acceleration
+\providecommand*{\mass}{m}        % mass
+\providecommand*{\mom}{p}         % momentum
+\providecommand*{\pos}{x}         % position
+\providecommand*{\stress}{\sigma} % stress
+\providecommand*{\vel}{u}         % velocity
+
+% fluid mechanics
 %
+\providecommand*{\kdvisc}{\mu} % dynamic viscosity
+\providecommand*{\kkvisc}{\nu} % kinematic viscosity
+\providecommand*{\press}{p}    % pressure
+\providecommand*{\spvol}{\eta} % specific volume
+
 % transport
 %
-% extensive quantities
-\providecommand*{\mass}{M}                  % mass
-\providecommand*{\energy}{E}                % general energy
-\providecommand*{\ekin}{\energy\sbtxt{kin}} % kinetic energy
+\providecommand*{\energy}{e}    % energy
+\providecommand*{\flux}{f}      % flux
+\providecommand*{\temp}{\theta} % temperature
+\providecommand*{\ssink}{s}     % sources, sinks
+%
+\providecommand*{\kediff}{k} % energy (thermal) diffusivity
+
+% flow through permeable media
+%
+\providecommand*{\fluidity}{\phi}         % fluidity
+\providecommand*{\mobility}{\lambda}      % mobility
+\providecommand*{\permea}{k}              % permeability
+\providecommand*{\poros}{\psi}            % porosity
+\providecommand*{\rfluidity}{\fluidity^*} % reduced fluidity

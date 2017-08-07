@@ -1,25 +1,29 @@
 
-%\RequirePackage[l2tabu,orthodox]{nag}
-
-\documentclass[aip,jmp,10pt,a4paper,
+\documentclass[
+  aps,pra,
+  %aip,jmp,
+  10pt,a4paper,
   reprint,superscriptaddress,
-  amsfonts,amsmath,amssymb
+  amsfonts,amsmath,amssymb,
+  showpacs,showkeys,
+  floatfix
 ]{revtex4-1}
 
 \usepackage{sty/artarticle}
 \usepackage{sty/artlingo}
 \usepackage{sty/artmath}
 \usepackage{sty/artphysics}
+\usepackage{sty/arttikz}
 
 \begin{document}
 
-\input{doc/info}
-\input{doc/abstract}
-\maketitle
+  \input{doc/info}
+  \input{doc/abstract}
+  \maketitle
 
-\input{doc/theory}
+  \input{doc/theory}
 
-\bibliographystyle{aipnum4-1}
-\bibliography{doc/references}
+  \bibliographystyle{apsrev4-1}
+  \bibliography{doc/references}
 
 \end{document}
