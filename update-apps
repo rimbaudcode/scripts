@@ -10,11 +10,8 @@
 # copyright:     (c) 2016 rimbaudcode
 # category:      System
 
-#'/Applications/MacUpdate Desktop.app/Contents/MacOS/MacUpdate Desktop'
-#'/Applications/SourceTree.app/Contents/MacOS/SourceTree'
 '/Applications/App Store.app/Contents/MacOS/App Store'
 '/Applications/GitHub Desktop.app/Contents/MacOS/GitHub Desktop'
-'/Applications/Google Drive.app/Contents/MacOS/Google Drive'
+'/Applications/Backup and Sync.app/Contents/MacOS/Backup and Sync'
 '/Applications/OneDrive.app/Contents/MacOS/OneDrive'
-#
 '/Applications/iTunes.app/Contents/MacOS/iTunes'
