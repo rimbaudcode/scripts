@@ -1,0 +1,61 @@
+#!/bin/zsh
+#
+# name:          init-python-project.zsh
+# version:       see VERSION.md
+# synopsis:      initialize a `Python` project.
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2017 rimbaudcode
+# category:      Programming
+
+local REQUIRED_ARGC=1
+local USAGE="Usage: init-python-project PROJECT_NAME"
+
+if (( $# != REQUIRED_ARGC )); then
+    echo $USAGE
+    exit 1
+fi
+
+local PROJECT_NAME=$1
+local SCRIPT_DIR_PATH=$HOME/github/scripts
+local TEMPLATE_DIR_PATH=$HOME/github/scripts/python-templates
+
+mkdir -p $PROJECT_NAME/$PROJECT_NAME
+cd $PROJECT_NAME
+#
+git flow init -d
+git flow feature start initial-config
+#
+wget https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore -O .gitignore
+git add .gitignore
+git commit -am "Github's .gitignore in place"
+#
+cp $SCRIPT_DIR_PATH/LICENSE.md ./LICENSE.md
+git add LICENSE.md
+git commit -am "BSD3 LICENSE.md in place"
+#
+cp $TEMPLATE_DIR_PATH/CHANGELOG.org ./CHANGELOG.org
+echo "\n# CHANGELOG\nCHANGELOG.org" >> .gitignore
+git add .gitignore
+git commit -m "CHANGELOG.org in place but not tracked by git"
+#
+touch README.md
+git add README.md
+git commit -am "README.md in place"
+#
+cp $TEMPLATE_DIR_PATH/__init__.py ./$PROJECT_NAME/__init__.py
+git add $PROJECT_NAME/__init__.py
+git commit -m "__init__.py in place"
+#
+cp $TEMPLATE_DIR_PATH/text.py ./$PROJECT_NAME/text.py
+git add $PROJECT_NAME/text.py
+git commit -m "text.py in place"
+#
+cp $TEMPLATE_DIR_PATH/setup.py ./setup.py
+sed -i '' -- "s/package_name/$PROJECT_NAME/g" ./setup.py
+git add ./setup.py
+git commit -m "setup.py in place"
+#
+git flow feature finish initial-config
