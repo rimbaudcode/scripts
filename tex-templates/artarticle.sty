@@ -40,6 +40,22 @@
 \RequirePackage[dvipsnames,table]{xcolor}
 \RequirePackage{xspace}
 %
+\RequirePackage{listings}
+\lstset{language=Mathematica}
+\lstset{basicstyle={\ttfamily\footnotesize},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  numbersep=5pt,
+  breaklines=true,
+  captionpos={t},
+%  frame={lines},
+%  rulecolor=\color{black},
+%  framerule=0.5pt,
+  columns=flexible,
+  tabsize=2,
+  morekeywords={NDSolveValue, Laplacian, DirichletCondition, Disk, NeumannValue, ImplicitRegion}
+}
+%
 % special packages (preserve order!)
 %
 \RequirePackage{accents}
@@ -62,7 +78,7 @@
 
 \setmathsfont(Digits)[Numbers={OldStyle}]{MinionPro-Regular} %
 \setsansfont[Mapping=tex-text,Scale=0.9]{Myriad Pro}         % sans font
-\setmonofont[Mapping=tex-text,Scale=0.8]{Menlo}              % mono font
+\setmonofont[Mapping=tex-text,Scale=0.8]{Source Code Pro}    % mono font
 \defaultfontfeatures{Numbers=OldStyle}                       % before setting the roman font
 \setmainfont[Mapping=tex-text]{MinionPro-Regular}            % roman font
 \addfontfeature{Kerning=Uppercase}                           % space in Uppercase
