@@ -9,7 +9,7 @@
 % category:      Text
 
 \ProvidesPackage{sty/artphysics}
-                [07/04/2017 physics macros, rimbaudcode]
+                [17/10/2017 physics macros, rimbaudcode]
 
 % amsthm package
 %
@@ -148,7 +148,8 @@
 \providecommand*{\odt}[1]{\mathrm{d}_{#1}}                        %
 \providecommand*{\ograd}{\nabla}                                  % grad.
 \providecommand*{\olap}{\Delta}                                   % Lap.
-\providecommand*{\omdt}[1]{\mathrm{D}_{#1}}                       % mat.der. %
+\providecommand*{\omdt}[1]{\mathrm{D}_{#1}}                       % mat.der.
+%
 \DeclareMathOperator{\ocont}{cont} % contraction
 \DeclareMathOperator{\otrace}{tr}  % trace
 %
@@ -290,11 +291,13 @@
 % transport
 %
 \providecommand*{\energy}{e}    % energy
+\providecommand*{\flow}{q}      % flow
 \providecommand*{\flux}{f}      % flux
-\providecommand*{\temp}{\theta} % temperature
 \providecommand*{\ssink}{s}     % sources, sinks
+\providecommand*{\temp}{\theta} % temperature
 %
-\providecommand*{\kediff}{k} % energy (thermal) diffusivity
+\providecommand*{\kecond}{k}      % energy (thermal) conduction
+\providecommand*{\kediff}{\alpha} % energy (thermal) diffusivity
 
 % flow through permeable media
 %
