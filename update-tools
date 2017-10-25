@@ -30,6 +30,10 @@ pip3 install --upgrade pip setuptools
 #
 tlmgr update --all
 #
+load-conda
+conda update conda
+conda update anaconda
+#
 sudo gem update --system
 sudo gem update
 sudo -k
