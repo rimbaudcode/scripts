@@ -9,7 +9,7 @@
 % category:      Text
 
 \ProvidesPackage{sty/artmath}
-                [08/06/2017 math macros, rimbaudcode]
+                [27/10/2017 math macros, rimbaudcode]
 
 % amsthm package
 %
@@ -64,16 +64,22 @@
 %
 \newtheorem*{solution}{Solution}
 
+% assignments, equalities
+%
+\providecommand*{\defas}{\circeq}       % alt. \circeq
+\providecommand*{\meq}{\stackrel{?}{=}} % maybe equal
+
 % various
 %
 \providecommand*{\abs}[1]{\mleft\lvert{#1}\mright\rvert} % absolute value
-\providecommand*{\defas}{\circeq}                        % alt. \circeq
 \providecommand*{\inv}[1]{{#1}^{-1}}                     % inverse
 %
 \providecommand*{\bracks}[1]{\mleft[{#1}\mright]} % brackets
 \providecommand*{\parens}[1]{\mleft({#1}\mright)} % parentheses
 \providecommand*{\vat}[1]{\parens{#1}}            % value at a point
 \providecommand*{\lvat}[1]{\,{#1}}                % (lambda) \vat
+%
+\providecommand*{\dat}[2]{\mleft.{#1}\mright\rvert_{#2}} % derivative at
 %
 % text
 %
