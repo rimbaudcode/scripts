@@ -1,0 +1,28 @@
+#!/bin/zsh
+#
+# name:          init-latex-report.zsh
+# version:       see VERSION.md
+# synopsis:      initializes a `TeX` report.
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2017 rimbaudcode
+# category:      Programming
+
+local REQUIRED_ARGC=1
+local USAGE="Usage: init-latex-report REPORT_TITLE"
+
+if (( $# != REQUIRED_ARGC )); then
+    echo $USAGE
+    exit 1
+fi
+
+local REPORT_TITLE=$1
+local TEMPLATE_DIR_PATH="$HOME/playground/report-template"
+local TEMPLATE_DIR_NAME="report-template"
+
+tlmgr update --all
+
+cp -r $TEMPLATE_DIR_PATH ./
+mv $TEMPLATE_DIR_NAME $REPORT_TITLE
