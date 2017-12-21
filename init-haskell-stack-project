@@ -23,6 +23,7 @@ local SCRIPT_DIR_PATH=$HOME/github/scripts
 local STACK_TEMPLATE_NAME=$2
 local TEMPLATE_DIR_PATH=$HOME/github/scripts/haskell-stack-templates
 
+stack upgrade
 stack update
 stack new $PROJECT_NAME $STACK_TEMPLATE_NAME
 cd $PROJECT_NAME
