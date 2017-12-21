@@ -21,7 +21,7 @@ sh $ZSH/tools/upgrade.sh
 #
 freshclam
 #
-stack update
+stack upgrade
 #
 #pip install --upgrade pip
 #pip install --upgrade pip setuptools
