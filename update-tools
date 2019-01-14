@@ -14,7 +14,6 @@ brew analytics off
 brew update
 brew upgrade
 brew cleanup
-brew prune
 brew doctor
 #
 sh $ZSH/tools/upgrade.sh
