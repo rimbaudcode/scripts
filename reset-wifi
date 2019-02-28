@@ -1,0 +1,18 @@
+#!/usr/local/bin/zsh
+#
+# name:          reset-wifi.zsh
+# version:       see VERSION.md
+# synopsis:      reset and test the wifi connection.
+# license:       BSD3
+# license-file:  LICENSE.md
+# author:        art rimbaud
+# maintainer:    rimbaudcode[at]gmail(DoT)com
+# copyright:     (c) 2019 rimbaudcode
+# category:      System
+
+wifi
+sleep 5 # s?
+wifi
+sleep 30 # s?
+ping -c5 www.google.com
+speedtest

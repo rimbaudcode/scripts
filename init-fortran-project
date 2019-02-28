@@ -1,8 +1,8 @@
 #!/bin/zsh
 #
-# name:          init-racket-project.zsh
+# name:          init-fortran-project.zsh
 # version:       see VERSION.md
-# synopsis:      initializes a `racket` project.
+# synopsis:      initializes a `fortran 90` project.
 # license:       BSD3
 # license-file:  LICENSE.md
 # author:        art rimbaud
@@ -11,7 +11,7 @@
 # category:      Programming
 
 local REQUIRED_ARGC=1
-local USAGE="Usage: init-racket-project PROJECT_NAME"
+local USAGE="Usage: init-fortran-project PROJECT_NAME"
 
 if (( $# != REQUIRED_ARGC )); then
     echo $USAGE
@@ -28,11 +28,13 @@ git flow feature start initial-config
 #
 mkdir -p bin data src
 #
-touch LICENSE README.md VERSION .gitignore src/main.ss
-echo '#! /usr/bin/env racket' > src/main.ss
-echo '#lang racket/base' >> src/main.ss
-echo '' >> src/main.ss
-echo '(displayln "Hello, world!")' >> src/main.ss
+touch LICENSE README.md VERSION .gitignore src/main.f90
+
+echo '' > src/main.f90
+echo 'program hello' >> src/main.f90
+echo '  implicit none' >> src/main.f90
+echo '  print *, "Hello, world!"' >> src/main.f90
+echo 'end program hello' >> src/main.f90
 echo '0.1.0' > VERSION
 echo 'bin' > .gitignore
 #

@@ -1,8 +1,8 @@
 #!/bin/zsh
 #
-# name:          init-racket-project.zsh
+# name:          init-octave-project.zsh
 # version:       see VERSION.md
-# synopsis:      initializes a `racket` project.
+# synopsis:      initializes an `octave` project.
 # license:       BSD3
 # license-file:  LICENSE.md
 # author:        art rimbaud
@@ -11,7 +11,7 @@
 # category:      Programming
 
 local REQUIRED_ARGC=1
-local USAGE="Usage: init-racket-project PROJECT_NAME"
+local USAGE="Usage: init-octave-project PROJECT_NAME"
 
 if (( $# != REQUIRED_ARGC )); then
     echo $USAGE
@@ -26,15 +26,15 @@ cd $PROJECT_NAME
 git flow init -d
 git flow feature start initial-config
 #
-mkdir -p bin data src
+mkdir -p data src
 #
-touch LICENSE README.md VERSION .gitignore src/main.ss
-echo '#! /usr/bin/env racket' > src/main.ss
-echo '#lang racket/base' >> src/main.ss
-echo '' >> src/main.ss
-echo '(displayln "Hello, world!")' >> src/main.ss
+touch LICENSE README.md VERSION src/main.m
+#
+echo '#!/usr/bin/env octave' > src/main.m
+echo '' >> src/main.m
+echo 'disp("Hello, world!")' >> src/main.m
+#
 echo '0.1.0' > VERSION
-echo 'bin' > .gitignore
 #
 git add .
 git commit -m 'added: files'

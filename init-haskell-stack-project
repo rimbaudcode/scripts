@@ -34,13 +34,9 @@ wget https://raw.githubusercontent.com/github/gitignore/master/Haskell.gitignore
 git add .gitignore
 git commit -am "Github's .gitignore in place"
 #
-mv LICENSE LICENSE.md
-git add LICENSE.md
-git commit -am "BSD3 LICENSE.md in place"
-#
-sed -i '' -- "s/LICENSE/LICENSE.md/g" $PROJECT_NAME.cabal
-git add $PROJECT_NAME.cabal
-git commit -am "LICENSE renamed to LICENSE.md in $PROJECT_NAME.cabal"
+touch LICENSE
+git add LICENSE
+git commit -am "LICENSE in place"
 #
 git add README.md
 git commit -am "README.md in place"
@@ -51,10 +47,10 @@ echo "\n# CHANGELOG\nCHANGELOG.org" >> .gitignore
 git add .gitignore
 git commit -m "CHANGELOG.org in place but not tracked by git"
 #
-hasktags -e . > TAGS
-echo "\n# Emacs\nTAGS" >> .gitignore
-git add .gitignore
-git commit -m "Emacs TAGS in place but not tracked by git"
+#hasktags -e . > TAGS
+#echo "\n# Emacs\nTAGS" >> .gitignore
+#git add .gitignore
+#git commit -m "Emacs TAGS in place but not tracked by git"
 #
 mkdir -p bench
 touch bench/Bench.hs

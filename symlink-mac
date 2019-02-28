@@ -7,7 +7,7 @@
 # license-file:  LICENSE.md
 # author:        art rimbaud
 # maintainer:    rimbaudcode[at]gmail(DoT)com
-# copyright:     (c) 2016 rimbaudcode
+# copyright:     (c) 2019 rimbaudcode
 # category:      System
 
 DOT_FILES_PATH=$HOME/github/dotfiles
@@ -34,5 +34,7 @@ rm -i $DOT_FILES_PATH/sublime/User $HOME/Library/Application\ Support/Sublime\ T
 
 ln -is $DOT_FILES_PATH/emacs.d $HOME/.emacs.d
 ln -is $DOT_FILES_PATH/sublime/User $HOME/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+
+ln -s $DOT_FILES_PATH/summoner.toml $HOME/.summoner.toml
 
 echo 'configure ranger'
