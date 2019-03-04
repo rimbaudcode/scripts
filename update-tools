@@ -30,12 +30,6 @@ pip3 install --upgrade pip setuptools
 #
 tlmgr update --all
 #
-export PATH=$JUPYTER_PATH:$PATH
-source ~/.zshrc
-sleep 5
-conda update conda
-conda update anaconda
-#
 sudo gem update --system
 sudo gem update
 sudo -k

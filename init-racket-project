@@ -29,7 +29,7 @@ git flow feature start initial-config
 mkdir -p bin data src
 #
 touch LICENSE README.md VERSION .gitignore src/main.ss
-echo '#! /usr/bin/env racket' > src/main.ss
+echo '#!/usr/bin/env racket' > src/main.ss
 echo '#lang racket/base' >> src/main.ss
 echo '' >> src/main.ss
 echo '(displayln "Hello, world!")' >> src/main.ss
